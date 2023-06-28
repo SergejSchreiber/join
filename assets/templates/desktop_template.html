@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/desktop_template.css" />
+    <script src="../../js/login.js"></script>
+  </head>
+  <body>
+    <div  class="side-bar">
+      <img class="join-logo" src="../img/join_logo_white.png" alt="join_logo" />
+      <a href="../../html/summary.html"><div class="side-menu">
+        <img src="../img/summary_icon.png" alt="summary_icon" />
+        <span>Summary</span>
+      </div></a>
+      <a href="../../html/board.html"><div class="side-menu">
+        <img src="../img/board_icon.png" alt="board_icon" />
+        <span>Board</span>
+      </div></a>
+      <a href="../../html/add_task.html"><div class="side-menu">
+        <img src="../img/add_task_icon.png" alt="add_task_icon" />
+        <span>Add Task</span>
+      </div></a>
+      <a href="../../html/contacts.html"><div class="side-menu">
+        <img src="../img/contacts_icon.png" alt="contacts" />
+        <span>Contact</span>
+      </div></a>
+      <a href="../../html/legal_notice.html"><div class="legal-notice">
+        <div class="side-menu">
+          <img src="../img/info_icon.png" alt="info_icon" />
+          <span>Legal notice</span>
+        </div></a>
+      </div>
+    </div>
+
+    <div class="top-bar">
+      <span> Kanban Project Management Tool</span>
+      <div class="top-bar-icons">
+        <a href="../../html/help.html"><img src="../img/question_icon.png" alt="question_icon" /></a>
+        <div onclick="showLogout()">
+          <img class="ellipse" src="../img/ellipse_user_icon.png" alt="ellipse_user_icon" />
+          <img class="user-icon" src="../img/user_icon_default.png" alt="user_icon_default">
+        </div>
+        <div onclick="hideLogout()" class="log-out-bg" id="logOutBg"></div>
+        <button class="btn btn-logout" id="logOut">Log out</button>
+        </div>
+    </div>
+    </body>
+</html>

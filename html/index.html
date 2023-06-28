@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+
+    <script src="../js/script.js"></script>
+    <script src="../js/login.js"></script>
+  </head>
+  <body class="bg-main" onload="loadUsers()">
+    <img class="join-logo-animation" src="../assets/img/join_logo_dark.png" alt="join_logo" />
+    <div class="box-signup">
+      <span class="not-signup">Not a Join user?</span>
+      <a href="./signup.html"><button class="btn btn-signup">Sign up</button></a>
+    </div>
+    <div class="box box-login">
+      <div class="headline-login">Log in</div>
+      <div class="border-bottom"></div>
+      <form onsubmit="login(); return false">
+        <div class="input-container">
+          <input required placeholder="Email" type="email" name="email" id="email" autocomplete="username" />
+          <img class="input-icon" src="../assets/img/email.png" alt="email" />
+        </div>
+        <div class="input-container password-container">
+          <input onfocus="showEyeIcon()" required placeholder="Password" type="password" name="password" id="password" autocomplete="current-password" />
+          <img src="../assets/img/password.png" alt="password" class="input-icon" id="password-icon" />
+          <i onclick="showEyeIconCrossedOut()" class="fa-solid fa-eye" id="eye"></i>
+        </div>
+        <div class="remember-me-container">
+          <div><input type="checkbox" name="Remember me" id="login-checkbox" /> <span>Remember me</span></div>
+          <a class="forgot-my-password" href="./forgot_password.html">Forgot my password</a>
+        </div>
+        <div class="login-btns">
+          <button class="btn btn-login">Log in</button>
+          <button onclick="guestLogin()" class="btn2 btn-guest">Guest Log in</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="starting-animation"></div>
+  </body>
+</html>
