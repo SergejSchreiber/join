@@ -45,7 +45,9 @@ class JoinHeader extends HTMLElement {
           <img class="user-icon" src="../assets/img/user_icon_default.png" alt="user_icon_default">
         </div>
         <div onclick="hideLogout()" class="log-out-bg" id="logOutBg"></div>
-        <button class="btn btn-logout" id="logOut">Log out</button>
+        <a href="../html/index.html">
+          <button class="btn btn-logout" id="logOut">Log out</button>
+        </a>
         </div>
     </div>
     </body>
