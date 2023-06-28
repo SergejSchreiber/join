@@ -81,6 +81,19 @@ body {
   margin: 0;
 }
 
+.login-alerts {
+  font-weight: 600;
+  color: rgba(192, 0, 0, 0.712);
+  position: absolute;
+  top: 250px;
+  z-index: 99;
+  display: none;
+}
+
+.top310 {
+  top: 310px;
+}
+
 .fa-eye {
   display: none;
   position: absolute;
@@ -199,6 +212,7 @@ body {
 
   .headline-login {
     font-size: 50px;
+    margin-bottom: 14px;
   }
 }
 

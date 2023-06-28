@@ -33,7 +33,7 @@ function checkConfirmedPassword() {
   } else {
     password.value = "";
     passwordConf.value = "";
-    alert("The entered passwords are not the same");
+    document.getElementById("message-different-passwords").style.display = "block";
     return false;
   }
 }
@@ -74,8 +74,8 @@ async function addUser() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
 
-  if (users.some((u) => u.user === user || u.email === email)) {
-    alert(`User with username ${user} or email ${email} already exists`);
+  if (users.some((u) => u.user === user || u.email === email)) {  
+    document.getElementById("message-existing-user").style.display = "block";  
     return;
   }
 
@@ -95,13 +95,12 @@ async function deleteUser(index) {
 function login() {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
-
   let user = users.find((u) => u.email == email.value && u.password == password.value);
   console.log(user);
   if (user) {
     window.location.replace("./summary.html?msg=User gefunden");
   } else {
-    alert("User nicht gefunden");
+    document.getElementById("message-wrong-login").style.display = "block";
   }
 }
 
