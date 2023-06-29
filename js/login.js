@@ -61,6 +61,11 @@ async function getItem(key) {
 
 let users = [];
 
+function init() {
+  loadUsers();
+  loadUserLocalStorage();
+}
+
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
@@ -91,20 +96,40 @@ async function deleteUser(index) {
   await setItem("users", JSON.stringify(users));
 }
 
-// function to login
+// functions to login and load user from local Storage
+
+function guestLogin() {
+  window.location.replace("./summary.html?msg=User gefunden"); 
+}
+
+
 function login() {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
+  let checkbox = document.getElementById("login-checkbox");
   let user = users.find((u) => u.email == email.value && u.password == password.value);
   console.log(user);
   if (user) {
+    if (checkbox.checked) {
+      localStorage.setItem("email", email.value);
+      localStorage.setItem("password", password.value);
+  } else {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+  }
     window.location.replace("./summary.html?msg=User gefunden");
   } else {
     document.getElementById("message-wrong-login").style.display = "block";
   }
 }
 
-function guestLogin() {
-  window.location.replace("./summary.html?msg=User gefunden");
-  
+function loadUserLocalStorage() {
+  let email = document.getElementById("email");
+  let password = document.getElementById("password");
+  let checkbox = document.getElementById("login-checkbox");
+  if (localStorage.getItem('email')) {
+    email.value = localStorage.getItem('email');
+    password.value = localStorage.getItem('password');
+    checkbox.checked = true;
+  }
 }

@@ -14,7 +14,7 @@
     <script src="../js/script.js"></script>
     <script src="../js/login.js"></script>
   </head>
-  <body class="bg-main" onload="loadUsers()">
+  <body class="bg-main" onload="init()">
     <img class="join-logo-animation" src="../assets/img/join_logo_dark.png" alt="join_logo" />
     <div class="box-signup">
       <span class="not-signup">Not a Join user?</span>
@@ -23,7 +23,7 @@
     <div class="box box-login">
       <div class="headline-login">Log in</div>
       <div class="border-bottom"></div>
-      <form onsubmit="login(); return false">
+      <form onsubmit="login(); return false" id="login-form">
         <div class="input-container">
           <input required placeholder="Email" type="email" name="email" id="email" autocomplete="username" />
           <img class="input-icon" src="../assets/img/email.png" alt="email" />
