@@ -8,12 +8,83 @@
     <link rel="shortcut icon" href="../assets/img/favicon_white.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <link rel="shortcut icon" href="../assets/img/favicon_dark.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />    
+    <link rel="stylesheet" href="../css/add_task.css">
     <script src="../js/desktop-template.js"></script>
     
 </head>
 <body>
     <join-header></join-header>
     
+    <div class="contentDiv">
+        <h1 class="addTaskHeader">Add Task</h1>
+    </div>
+
+    <form class="addTaskForm">
+        <div class="addTaskFormContent">
+            <div class="addTaskFormContentLeft">
+                <div class="addTaskDivTitle">
+                    <span class="addTaskInputHead">Title</span>
+                    <input class="addTaskInputTitle" required placeholder="Enter a title" type="text" name="title" id="addTaskTitle"/>
+                </div>
+                <div class="addTaskDivDescription">
+                    <span class="addTaskInputHead">Description</span>
+                    <textarea class="addTaskInputDescription" required placeholder="Enter a Description" type="text" name="title"></textarea>
+                </div>
+                <div class="addTaskDivCategory">
+                    <span class="addTaskInputHead">Category</span>
+                    <select class="selectBox">
+                        <option value="" disabled selected>Select task category</option>
+                        <option value="sales">Sales</option>
+                        <option value="backoffice">Backoffice</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
+                <div class="addTaskDivAssign">
+                    <span class="addTaskInputHead">Assigned to</span>
+                    <select class="selectBox">
+                        <option value="" disabled selected>Select contacts to assign</option>
+                        <option value="tom">Tom</option>
+                        <option value="oliver">Oliver</option>
+                        <option value="felix">Felix</option>
+                    </select>
+                </div>
+            </div>
+            <div class="addTaskFormContentMiddle"></div>
+
+
+
+
+
+
+
+            <div class="addTaskFormContentRight">
+                <div class="addTaskDivDate">
+                    <span class="addTaskInputHead">Due date</span>
+                    <input class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type = 'date')">
+                </div>
+                <div class="addTaskDivPrio">
+                    <span class="addTaskInputHead">Prio</span>
+                    <div class="addTaskPrio">
+                        <div class="divPrio">Urgent <img class="prioIconUrgent" src="../assets/img/urgent_icon.png"/></div>
+                        <div class="divPrio">Medium <img class="prioIconMedium" src="../assets/img/medium_icon.png"/></div>
+                        <div class="divPrio">Low <img class="prioIconLow" src="../assets/img/low_icon.png"/></div>
+                    </div>
+                </div>
+                <div class="addTaskDivSubtask">
+                    <span class="addTaskInputHead">Subtasks</span>
+                    <div class="addTaskAddSubtask">Add new subtask <img class="subtaskIconPlus" src="../assets/img/plus_icon.png"/></div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </form>
+
+
+
 </body>
 </html>

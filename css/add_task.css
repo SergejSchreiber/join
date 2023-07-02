@@ -1,0 +1,201 @@
+.contentDiv {
+    display: flex;
+    align-items: center;
+    margin: 20px 116px;
+}
+
+.addTaskHeader {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.addTaskForm {
+    margin-left: 116px;
+}
+
+.addTaskFormContent {
+    display: flex;
+}
+
+.addTaskFormContentLeft {
+    display: flex;
+    flex-direction: column;
+    width: 422px;
+}
+
+.addTaskDivTitle {
+    display: flex;
+    flex-direction: column;
+    height: 104px;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+ .addTaskInputHead {
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.addTaskInputTitle {
+    margin: 0 !important;
+    cursor: text !important;
+}
+
+.addTaskDivDescription {
+    display: flex;
+    flex-direction: column;
+    height: 172px;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.addTaskInputDescription {
+    box-sizing: border-box;
+    height: 119px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 21px;
+    padding-left: 21px;
+    padding-right: 21px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    gap: 10px;
+    resize: none;
+    cursor: text;
+}
+
+.addTaskInputDescription::placeholder {
+    color: #d1d1d1;
+}
+
+.addTaskDivCategory {
+    display: flex;
+    flex-direction: column;
+    height: 104px;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.selectBox {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    width: 422px;
+    height: 51px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.addTaskDivAssign {
+    display: flex;
+    flex-direction: column;
+    height: 104px;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.addTaskFormContentMiddle {
+    border: 1px solid #D1D1D1;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.addTaskFormContentRight {
+    display: flex;
+    flex-direction: column;
+    width: 422px;
+}
+
+.addTaskDivDate {
+    display: flex;
+    flex-direction: column;
+    height: 104px;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.addTaskInputDate {
+    margin: 0 !important;
+}
+
+.addTaskDivPrio {
+    display: flex;
+    flex-direction: column;
+    height: 113px;
+    gap: 8px;
+    margin-bottom: 10px; 
+}
+
+.addTaskPrio {
+    display: flex;
+    height: 61px;
+    gap: 10px;
+}
+
+.divPrio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 136px;
+    height: 51px;
+    border-radius: 10px;
+    padding: 18px, 10px, 18px, 10px;
+    background-color: #FFFFFF;
+    font-weight: 400;
+    font-size: 21px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+}
+
+.divPrio:hover {
+    cursor: pointer;
+    scale: 1.05;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.prioIconUrgent {
+    width: 20px;
+    height: 14.51px;
+}
+
+.prioIconMedium {
+    width: 20px;
+    height: 7.45px;
+}
+
+.prioIconLow {
+    width: 20px;
+    height: 14.51px;
+}
+
+.addTaskDivSubtask {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;  
+}
+
+.addTaskAddSubtask {
+    display: flex;
+    align-items: center;
+    height: 51px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    padding-left: 21px;
+    padding-right: 21px;
+    font-size: 21px;
+    color: #d1d1d1;
+    background-color: #FFFFFF ;
+}
+
+.addTaskAddSubtask {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtaskIconPlus {
+    width: 24px;
+    height: 24px;
+}
