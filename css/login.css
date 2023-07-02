@@ -94,6 +94,10 @@ body {
   top: 310px;
 }
 
+.top330 {
+  top: 330px;
+}
+
 .fa-eye {
   display: none;
   position: absolute;

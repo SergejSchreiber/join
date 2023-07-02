@@ -11,10 +11,30 @@ function showEyeIcon() {
   document.getElementById("password-icon").style.display = "none";
 }
 
-// functions for showing the confirmation message after password-reset-forms were submitted
+// functions for sending a password-reset-email and showing the confirmation message after password-reset-forms were submitted
+function checkingEmailInUsers() {
+  let email = document.getElementById("email").value;
+  if (users.some((u) => u.email === email)) {
+    sendMeEmail();
+  } else {
+    document.getElementById("message-existing-email").style.display = "block";
+    return;
+  }
+}
+
 async function sendMeEmail() {
-  document.getElementById("bg-sent-email").style.display = "block";
-  document.getElementById("sent-email").style.animation = "sent-email 0.4s ease-in-out forwards";
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://f015d041@gruppe-610.developerakademie.net/join-610/reset-password.php");
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      document.getElementById("bg-sent-email").style.display = "block";
+      document.getElementById("sent-email").style.animation = "sent-email 0.4s ease-in-out forwards";
+    } else if (xhr.status !== 200) {
+      alert("Bitte nocheinmal versuchen");
+    }
+  };
+  xhr.send(encodeURI("email=" + document.getElementById("email").value));
 }
 
 function removeSendMeEmail() {
@@ -26,9 +46,9 @@ function checkConfirmedPassword() {
   let password = document.getElementById("password");
   let passwordConf = document.getElementById("password-conf");
   if (password.value === passwordConf.value) {
+    changingPassword();
     password.value = "";
-    passwordConf.value = "";
-    sendMeEmail();
+    passwordConf.value = "";    
     return true;
   } else {
     password.value = "";
@@ -36,6 +56,17 @@ function checkConfirmedPassword() {
     document.getElementById("message-different-passwords").style.display = "block";
     return false;
   }
+}
+
+async function changingPassword() {
+  let url = new URL(window.location.href);
+  let email = url.searchParams.get("email");
+  let password = document.getElementById("password").value;
+  let user = users.find((user) => user.email === email);
+  user.password = password;
+  await setItem("users", JSON.stringify(users));
+  document.getElementById("bg-sent-email").style.display = "block";
+  document.getElementById("sent-email").style.animation = "sent-email 0.4s ease-in-out forwards";
 }
 
 // functions for user registration
@@ -79,8 +110,8 @@ async function addUser() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
 
-  if (users.some((u) => u.user === user || u.email === email)) {  
-    document.getElementById("message-existing-user").style.display = "block";  
+  if (users.some((u) => u.user === user || u.email === email)) {
+    document.getElementById("message-existing-user").style.display = "block";
     return;
   }
 
@@ -99,9 +130,8 @@ async function deleteUser(index) {
 // functions to login and load user from local Storage
 
 function guestLogin() {
-  window.location.replace("./summary.html?msg=User gefunden"); 
+  window.location.replace("./summary.html?msg=User gefunden");
 }
-
 
 function login() {
   let email = document.getElementById("email");
@@ -113,10 +143,10 @@ function login() {
     if (checkbox.checked) {
       localStorage.setItem("email", email.value);
       localStorage.setItem("password", password.value);
-  } else {
+    } else {
       localStorage.removeItem("email");
       localStorage.removeItem("password");
-  }
+    }
     window.location.replace("./summary.html?msg=User gefunden");
   } else {
     document.getElementById("message-wrong-login").style.display = "block";
@@ -127,9 +157,9 @@ function loadUserLocalStorage() {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
   let checkbox = document.getElementById("login-checkbox");
-  if (localStorage.getItem('email')) {
-    email.value = localStorage.getItem('email');
-    password.value = localStorage.getItem('password');
+  if (localStorage.getItem("email")) {
+    email.value = localStorage.getItem("email");
+    password.value = localStorage.getItem("password");
     checkbox.checked = true;
   }
 }
