@@ -55,6 +55,7 @@
 
 .summary-boxes-middle {
     width: 580px;
+    justify-content: space-evenly !important; 
 }
 
 .urgent-container {
@@ -73,8 +74,49 @@
     font-size: 47px;
 }
 
-.urgent-border {
+.border-urgent {
     width: 5px;
     height: 102px;
-    border-left: 2px solid D1D1D1;
+    border-right: 3px solid #D1D1D1;
+}
+
+.upcoming-deadline-date {
+    font-weight: 700;
+    font-size: 21px;
+    margin-bottom: 13px;
+}
+
+.greeting {
+    font-weight: 500;
+    font-size: 47px;
+    color: #2A3647;
+}
+
+.greeting-name {
+    font-weight: 700;
+    font-size: 64px;
+    color: #29ABE2;
+}
+
+.summary-container-bottomrow {
+    margin-left: 116px;
+    margin-top: 30px;
+    height: 150px;
+    display: flex;
+    gap: 40px;
+}
+
+.summary-boxes-bottomrow {
+    width: 271px;
+    gap: 18px;  
+}
+
+.summary-boxes-numbers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fontsize21px {
+    font-size: 21px;
 }

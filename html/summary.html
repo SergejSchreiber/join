@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join Summary</title>
-    <link rel="shortcut icon" href="../assets/img/favicon_white.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
-    <link rel="shortcut icon" href="../assets/img/favicon_dark.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="../assets/img/favicon_white.ico" type="image/x-icon" media="(prefers-color-scheme: dark)" />
+    <link rel="shortcut icon" href="../assets/img/favicon_dark.ico" type="image/x-icon" media="(prefers-color-scheme: light)" />
 
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/summary.css" />
     <script src="../js/desktop-template.js"></script>
+    <script src="../js/summary.js"></script>
   </head>
-  <body>
+  <body onload="formattingDate()">
     <join-header></join-header>
 
     <div class="headline-container">
@@ -45,12 +46,34 @@
             <div>Urgent</div>
           </div>
         </div>
-        <div class="urgent-border"></div>
+        <div class="border-urgent"></div>
+        <div>
+          <div class="upcoming-deadline-date"><time id="myTime" datetime="2023-09-27">October 16, 2022</time></div>
+          <span>Upcoming Deadline</span>
+        </div>
       </div>
 
       <div class="greeting-container">
         <div class="greeting">Good morning,</div>
         <div class="greeting-name">Sofia Müller</div>
+      </div>
+    </div>
+
+    <div class="summary-container-bottomrow">
+      <div class="box summary-boxes-bottomrow">
+        <img src="../assets/img/summary_todo_pencil.png" alt="summary_todo_pencil" />
+        <div class="summary-boxes-numbers">
+          <span class="number-tasks">1</span>
+          <span class="fontsize21px">To-do</span>
+        </div>
+      </div>
+
+      <div class="box summary-boxes-bottomrow">
+        <img src="../assets/img/summary_done_checked.png" alt="summary_done_checked" />
+        <div class="summary-boxes-numbers">
+          <span class="number-tasks">1</span>
+          <span class="fontsize21px">Done</span>
+        </div>
       </div>
     </div>
   </body>
