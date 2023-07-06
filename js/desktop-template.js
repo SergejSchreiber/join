@@ -40,8 +40,7 @@ class JoinHeader extends HTMLElement {
       <span> Kanban Project Management Tool</span>
       <div class="top-bar-icons">
         <a href="../html/help.html"><img src="../assets/img/question_icon.png" alt="question_icon" /></a>
-        <div onclick="showLogout()">
-          <img class="ellipse" src="../assets/img/ellipse_user_icon.png" alt="ellipse_user_icon" />
+        <div class="user-icon-border" onclick="showLogout()">
           <img class="user-icon" src="../assets/img/user_icon_default.png" alt="user_icon_default">
         </div>
         <div onclick="hideLogout()" class="log-out-bg" id="logOutBg"></div>

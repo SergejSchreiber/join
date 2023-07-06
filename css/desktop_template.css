@@ -63,12 +63,21 @@
   gap: 26px;
 }
 
-.ellipse {
-  position: absolute;
+.user-icon-border {
+  width: 49px;
+  height: 49px;
+  border-radius: 100%;
+  border: 3px solid #2a3647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .user-icon {
-  position: relative;
+  border-radius: 100%;
+  width: 46px;
+  height: 46px;
+  /* border-radius: 100%; */
+  /* border: 3px solid #2A3647; */
 }
 
 .btn-logout {
