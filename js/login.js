@@ -6,12 +6,10 @@ function showEyeIconCrossedOut() {
   passwordInput.setAttribute("type", type);
 }
 
-
 function showEyeIcon() {
   document.getElementById("eye").style.display = "block";
   document.getElementById("password-icon").style.display = "none";
 }
-
 
 // functions for sending a password-reset-email and showing the confirmation message after password-reset-forms were submitted
 function checkingEmailInUsers() {
@@ -23,7 +21,6 @@ function checkingEmailInUsers() {
     return;
   }
 }
-
 
 async function sendMeEmail() {
   var xhr = new XMLHttpRequest();
@@ -40,11 +37,9 @@ async function sendMeEmail() {
   xhr.send(encodeURI("email=" + document.getElementById("email").value));
 }
 
-
 function removeSendMeEmail() {
   document.getElementById("bg-sent-email").style.display = "none";
 }
-
 
 // function in Reset-Passwort window to check if entered passwords are the same
 function checkConfirmedPassword() {
@@ -63,7 +58,6 @@ function checkConfirmedPassword() {
   }
 }
 
-
 async function changingPassword() {
   let url = new URL(window.location.href);
   let email = url.searchParams.get("email");
@@ -75,17 +69,14 @@ async function changingPassword() {
   document.getElementById("sent-email").style.animation = "sent-email 0.4s ease-in-out forwards";
 }
 
-
 // functions for user registration
 const STORAGE_TOKEN = "5OOXS6IHMZ5ZRRW51702PKTI3F90E0QLEFCQMEKP"; // https://remote-storage.developerakademie.org/token-generator
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
-
 
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
 }
-
 
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
@@ -99,15 +90,12 @@ async function getItem(key) {
     });
 }
 
-
 let users = [];
-
 
 function init() {
   loadUsers();
   loadUserLocalStorage();
 }
-
 
 async function loadUsers() {
   try {
@@ -116,7 +104,6 @@ async function loadUsers() {
     console.error("loading error when loading users:", e);
   }
 }
-
 
 async function addUser() {
   let user = document.getElementById("username").value;
@@ -134,31 +121,27 @@ async function addUser() {
   window.location.href = "./index.html?msg=Du hast dich erfolgreich registriert";
 }
 
-
 // function to delete users from users array
 async function deleteUser(index) {
   users.splice(index, 1);
   await setItem("users", JSON.stringify(users));
 }
 
-
 // functions to login and load user from local Storage
 function guestLogin() {
   window.location.replace("./summary.html?msg=User gefunden");
 }
 
-
 function login() {
   let checkbox = document.getElementById("login-checkbox");
   let user = users.find((u) => u.email == email.value && u.password == password.value);
   if (user) {
-    rememberMeLocalStorageSaveRemove(checkbox);    
-    window.location.replace("./summary.html?msg=User gefunden");
+    rememberMeLocalStorageSaveRemove(checkbox);
+    window.location.replace("./summary.html?");
   } else {
     document.getElementById("message-wrong-login").style.display = "block";
   }
 }
-
 
 function rememberMeLocalStorageSaveRemove(checkbox) {
   if (checkbox.checked) {
@@ -169,7 +152,6 @@ function rememberMeLocalStorageSaveRemove(checkbox) {
     localStorage.removeItem("password");
   }
 }
-
 
 function loadUserLocalStorage() {
   let checkbox = document.getElementById("login-checkbox");

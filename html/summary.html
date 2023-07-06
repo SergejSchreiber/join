@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="../css/summary.css" />
     <script src="../js/desktop-template.js"></script>
     <script src="../js/summary.js"></script>
+    <script src="../js/login.js"></script>
   </head>
-  <body onload="formattingDate()">
+  <body onload="initSummary()">
     <join-header></join-header>
 
     <div class="headline-container">
@@ -54,8 +55,8 @@
       </div>
 
       <div class="greeting-container">
-        <div class="greeting">Good morning,</div>
-        <div class="greeting-name">Sofia Müller</div>
+        <div class="greeting" id="greeting">Hello</div>
+        <div class="greeting-name" id="greetingUserName">User</div>
       </div>
     </div>
 
