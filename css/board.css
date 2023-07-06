@@ -8,11 +8,33 @@ h1 {
     gap: 1px;
 }
 
-.header {
+.header-container {
     height: 327px;
     width: 1145px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    height: 73px;
+    width: 1078px;
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 100px;
+}
+
+.board-header {
+    height: 73px;
+}
+
+.board-header input {
+    height: 55px;
+    width: 423px;
+    padding: 13px 21px 13px 21px;
+}
+
+.board-header button{
+    width: 137px;
+    height: 55px;
 }
