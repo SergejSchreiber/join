@@ -9,6 +9,10 @@ h1 {
     font-size: 61px;
 }
 
+.d-none {
+    display: none;
+}
+
 .header-container {
     position: absolute;
     height: 327px;
@@ -116,6 +120,7 @@ form button img {
 }
 
 .task-container {
+    display: flex;
     width: 1078px;
     height: 661px;
     position: absolute;
@@ -129,6 +134,7 @@ form button img {
     height: 661px;
     display: flex;
     flex-direction: column;
+    margin-right: 26px;
 }
 
 .task-header {
@@ -136,10 +142,10 @@ form button img {
     justify-content: space-between;
     align-items: center;
     padding: 0 5px 0 5px;
+    width: 230px;
 }
 
 .task-container-name {
-    width: 57px;
     height: 25px;
     font-size: 21px;
     font-weight: 700;
@@ -163,8 +169,7 @@ form button img {
 .single-task-body {
     background-color: white;
     margin-top: 30px;
-    width: 250px;
-    height: 239px;
+    width: 212px;
     border-radius: 30px;
     padding: 18px 19px 18px 19px;
     gap: 10px;
@@ -182,8 +187,56 @@ form button img {
     color: white;
 }
 
+.category-sales {
+    background-color: #FC71FF;
+    border-radius: 8px;
+    padding: 4px 25px 4px 25px;
+    width: 103px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.category-backoffice {
+    background-color: #1FD7C1;
+    border-radius: 8px;
+    padding: 4px 25px 4px 25px;
+    width: 103px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.category-marketing {
+    background-color: #0038FF;
+    border-radius: 8px;
+    padding: 4px 25px 4px 25px;
+    width: 103px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.category-media {
+    background-color: #FFC701;
+    border-radius: 8px;
+    padding: 4px 25px 4px 25px;
+    width: 103px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
 .name-task {
-    margin-top: 15px;
+    margin-top: 20px;
     height: 19px;
     font-weight: 700;
     font-size: 16px;
@@ -191,7 +244,7 @@ form button img {
 }
 
 .task-description {
-    margin-top: 10px;
+    margin-top: 20px;
     height: 38px;
     color: #A8A8A8;
     font-weight: 400;
@@ -199,6 +252,7 @@ form button img {
 }
 
 .task-progress {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -210,4 +264,67 @@ form button img {
     height: 8px;
     border-radius: 2px;
     background-color: black;
+    margin-right: 10px;
+}
+
+.progress-number {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.task-participants {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.participants {
+    width: 93px;
+    height: 35px;
+    display: flex;
+}
+
+.first-participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: #0190E0;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.second-participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: #EE00D6;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: -6px;
+}
+
+.third-participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: #02CF2F;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: -6px;
 }
