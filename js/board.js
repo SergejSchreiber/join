@@ -23,6 +23,7 @@ let todos = [{
     'category': 'Sales',
     'title': 'Call potential clients',
     'description': 'Make the product presentation to prospective buyers',
+    'progress-number': [],
     'participants': [
         'AS',
         'DE',
@@ -39,6 +40,7 @@ let todos = [{
     'category': 'Backoffice',
     'title': 'Accounting invoices',
     'description': 'Write open invoices for customer',
+    'progress-number': [],
     'participants': [
         'MB',
         'AM',
@@ -56,6 +58,7 @@ let todos = [{
     'category': 'Media',
     'title': 'Video cut',
     'description': 'Edit the new company video',
+    'progress-number': [],
     'participants': [
         'HK'
     ],
@@ -83,3 +86,12 @@ let todos = [{
         '../assets/img/urgent_icon.png'
     ]
 }];
+
+render();
+
+function render() {
+    for (let i = 0; i < todos.length; i++) {
+        let addTodo = document.getElementById('done');
+        addTodo.innerHTML += createTaskContainer(todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
+    }
+}
