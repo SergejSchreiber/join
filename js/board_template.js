@@ -1,5 +1,20 @@
+const colorCategory ='';
+
 function createTaskContainer(category, title, description, progressBar, participants, urgency) {
-    console.log('wtf');
+    if(progressBar.length < 1) {
+        return `
+            <div class="single-task-body">
+                <div class="category">${category}</div>
+                <div class="name-task">${title}</div>
+                <div class="task-description">${description}</div>
+                <div id="task-progress" class="task-progress"></div>
+                <div class="task-participants">
+                    <div class="participants">${addHTMLParticipants(participants)}</div>
+                    <div><img class="${urgency[0]}" src="../assets/img/low_icon.png" alt=""></div>
+                </div>
+            </div>
+        `;
+    }
     return `
         <div class="single-task-body">
             <div class="category">${category}</div>
@@ -17,13 +32,19 @@ function createTaskContainer(category, title, description, progressBar, particip
     `;
 }
 
+function giveCategoryBackgroundColor() {
+    for (let i = 0; i < todos.length; i++) {
+        
+    }
+}
+
 function addHTMLParticipants(participants) {
     if(participants < 1) {
         return '';
     }
     let completeParticipantsString = '';
     if (participants.length < 4) {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < participants.length; i++) {
             completeParticipantsString += `
                 <div class="participants-${i}">${participants[i]}</div>
             `;

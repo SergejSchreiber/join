@@ -72,14 +72,13 @@ let todos = [{
     'category': 'Marketing',
     'title': 'Social media strategy',
     'description': 'Develop an ad campaign for brand positioning',
-    'progress-bar': [
+    'progress-number': [
         3,
         3
     ],
     'participants': [
-        'SM',
-        'MV',
-        'EF'
+        'BZ',
+        'RS'
     ],
     'urgency': [
         'low',
@@ -91,7 +90,7 @@ render();
 
 function render() {
     for (let i = 0; i < todos.length; i++) {
-        let addTodo = document.getElementById('done');
+        let addTodo = document.getElementById(todos[i]['progress']);
         addTodo.innerHTML += createTaskContainer(todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
     }
 }
