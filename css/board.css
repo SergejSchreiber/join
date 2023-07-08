@@ -13,6 +13,10 @@ h1 {
     display: none;
 }
 
+#add-task-btn:hover {
+    background-color: rgba(42, 54, 71, 0.8);
+}
+
 .header-container {
     position: absolute;
     height: 327px;
@@ -179,54 +183,6 @@ form button img {
     border-radius: 8px;
     padding: 4px 25px 4px 25px;
     background-color: #FF7A00;
-    width: 103px;
-    height: 27px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.category-sales {
-    background-color: #FC71FF;
-    border-radius: 8px;
-    padding: 4px 25px 4px 25px;
-    width: 103px;
-    height: 27px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.category-backoffice {
-    background-color: #1FD7C1;
-    border-radius: 8px;
-    padding: 4px 25px 4px 25px;
-    width: 103px;
-    height: 27px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.category-marketing {
-    background-color: #0038FF;
-    border-radius: 8px;
-    padding: 4px 25px 4px 25px;
-    width: 103px;
-    height: 27px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.category-media {
-    background-color: #FFC701;
-    border-radius: 8px;
-    padding: 4px 25px 4px 25px;
     width: 103px;
     height: 27px;
     display: flex;

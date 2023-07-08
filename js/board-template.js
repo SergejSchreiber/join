@@ -1,10 +1,16 @@
-const colorCategory ='';
+const colorCategory = {
+    'Design': '#FF7A00',
+    'Sales': '#FC71FF',
+    'Backoffice': '#1FD7C1',
+    'Marketing': '#0038FF',
+    'Media': '#FFC701'
+};
 
-function createTaskContainer(category, title, description, progressBar, participants, urgency) {
+function createTaskContainer(id, category, title, description, progressBar, participants, urgency) {
     if(progressBar.length < 1) {
         return `
             <div class="single-task-body">
-                <div class="category">${category}</div>
+                <div id="category-${id}" class="category">${category}</div>
                 <div class="name-task">${title}</div>
                 <div class="task-description">${description}</div>
                 <div id="task-progress" class="task-progress"></div>
@@ -17,7 +23,7 @@ function createTaskContainer(category, title, description, progressBar, particip
     }
     return `
         <div class="single-task-body">
-            <div class="category">${category}</div>
+            <div id="category-${id}" class="category">${category}</div>
             <div class="name-task">${title}</div>
             <div class="task-description">${description}</div>
             <div id="task-progress" class="task-progress">
@@ -32,10 +38,9 @@ function createTaskContainer(category, title, description, progressBar, particip
     `;
 }
 
-function giveCategoryBackgroundColor() {
-    for (let i = 0; i < todos.length; i++) {
-        
-    }
+function giveCategoryBackgroundColor(id) {
+    let colorBackground = document.getElementById('category-' + id);
+    colorBackground.style = `background-color: ${colorCategory[todos[id]['category']]}`;
 }
 
 function addHTMLParticipants(participants) {

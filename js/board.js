@@ -91,6 +91,7 @@ render();
 function render() {
     for (let i = 0; i < todos.length; i++) {
         let addTodo = document.getElementById(todos[i]['progress']);
-        addTodo.innerHTML += createTaskContainer(todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
+        addTodo.innerHTML += createTaskContainer(todos[i]['id'], todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
+        giveCategoryBackgroundColor(i);
     }
 }
