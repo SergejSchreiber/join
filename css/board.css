@@ -285,7 +285,7 @@ form button img {
     display: flex;
 }
 
-.first-participants {
+.participants-0 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -299,7 +299,7 @@ form button img {
     font-size: 12px;
 }
 
-.second-participants {
+.participants-1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -314,7 +314,7 @@ form button img {
     margin-left: -6px;
 }
 
-.third-participants {
+.participants-2 {
     display: flex;
     justify-content: center;
     align-items: center;

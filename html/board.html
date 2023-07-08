@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="../css/board.css">
     <script src="../js/desktop-template.js"></script>
+    <script src="../js/board_template.js"></script>
 
 </head>
 
@@ -38,7 +39,7 @@
     </div>
         
     <div class="task-container">
-        <div class="single-task-container">
+        <div id="todo-container" class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">To do</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
@@ -54,16 +55,16 @@
                     </div>
                     <div class="task-participants">
                         <div class="participants">
-                            <div class="first-participants"><p>SM</p></div>
-                            <div class="second-participants">MV</div>
-                            <div class="third-participants">EF</div>
+                            <div class="participants-0"><p>SM</p></div>
+                            <div class="participants-1">MV</div>
+                            <div class="participants-2">EF</div>
                         </div>
                         <div><img class="low-icon" src="../assets/img/low_icon.png" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="single-task-container">
+        <div id="inprogress-container" class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">In progress</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
@@ -76,16 +77,16 @@
                     <div id="task-progress" class="task-progress"></div>
                     <div class="task-participants">
                         <div class="participants">
-                            <div class="first-participants">AS</div>
-                            <div class="second-participants">DE</div>
-                            <div class="third-participants">+2</div>
+                            <div class="participants-0">AS</div>
+                            <div class="participants-1">DE</div>
+                            <div class="participants-2">+2</div>
                         </div>
                         <div><img class="low-icon" src="../assets/img/urgent_icon.png" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="single-task-container">
+        <div id="awaiting-feedback" class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Awaiting Feedback</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
@@ -98,9 +99,9 @@
                     <div id="task-progress" class="task-progress"></div>
                     <div id="participants" class="task-participants">
                         <div class="participants">
-                            <div class="first-participants">MB</div>
-                            <div class="second-participants">AM</div>
-                            <div class="third-participants">+3</div>
+                            <div class="participants-0">MB</div>
+                            <div class="participants-1">AM</div>
+                            <div class="participants-2">+3</div>
                         </div>
                         <div><img class="low-icon" src="../assets/img/medium_icon.png" alt=""></div>
                     </div>
@@ -112,14 +113,14 @@
                     <div id="task-progress" class="task-progress"></div>
                     <div id="participants" class="task-participants">
                         <div class="participants">
-                            <div class="first-participants">HK</div>
+                            <div class="participants-0">HK</div>
                         </div>
                         <div><img class="low-icon" src="../assets/img/medium_icon.png" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="single-task-container">
+        <div id="done-container" class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Done</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
@@ -135,9 +136,9 @@
                     </div>
                     <div class="task-participants">
                         <div class="participants">
-                            <div class="first-participants"><p>SM</p></div>
-                            <div class="second-participants">MV</div>
-                            <div class="third-participants">EF</div>
+                            <div class="participants-0"><p>SM</p></div>
+                            <div class="participants-1">MV</div>
+                            <div class="participants-2">EF</div>
                         </div>
                         <div><img class="low-icon" src="../assets/img/low_icon.png" alt=""></div>
                     </div>
