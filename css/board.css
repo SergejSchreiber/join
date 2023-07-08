@@ -13,8 +13,16 @@ h1 {
     display: none;
 }
 
+#add-task-btn {
+    border: 0px;
+    transition: 0.2s;
+    box-shadow: 20px;
+}
+
 #add-task-btn:hover {
-    background-color: rgba(42, 54, 71, 0.8);
+    background-color: #32DAFF;
+    border: 0px solid #32DAFF;
+    box-shadow: 20px black;
 }
 
 .header-container {
@@ -147,6 +155,7 @@ form button img {
     align-items: center;
     padding: 0 5px 0 5px;
     width: 230px;
+    cursor: pointer;
 }
 
 .task-container-name {
@@ -163,6 +172,11 @@ form button img {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.task-name-img:hover {
+    filter: invert(70%) sepia(64%) saturate(1607%) hue-rotate(159deg) brightness(104%) contrast(101%);
 }
 
 .task-name-img img{
@@ -177,6 +191,7 @@ form button img {
     border-radius: 30px;
     padding: 18px 19px 18px 19px;
     gap: 10px;
+    cursor: pointer;
 }
 
 .category {

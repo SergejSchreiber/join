@@ -16,7 +16,8 @@ let todos = [{
     'urgency': [
         'low',
         '../assets/img/low_icon.png'
-    ]
+    ],
+    'dueDate': '05-08-2022'
 }, {
     'id': 1,
     'progress': 'inprogress',
@@ -33,7 +34,8 @@ let todos = [{
     'urgency': [
         'high',
         '../assets/img/urgent_icon.png'
-    ]
+    ],
+    'dueDate': '05-08-2022'
 }, {
     'id': 2,
     'progress': 'awaitingfeedback',
@@ -51,7 +53,8 @@ let todos = [{
     'urgency': [
         'normal',
         '../assets/img/medium_icon.png'
-    ]
+    ],
+    'dueDate': '05-08-2022'
 }, {
     'id': 3,
     'progress': 'awaitingfeedback',
@@ -65,7 +68,8 @@ let todos = [{
     'urgency': [
         'normal',
         '../assets/img/medium_icon.png'
-    ]
+    ],
+    'dueDate': '05-08-2022'
 }, {
     'id': 4,
     'progress': 'done',
@@ -83,7 +87,8 @@ let todos = [{
     'urgency': [
         'low',
         '../assets/img/urgent_icon.png'
-    ]
+    ],
+    'dueDate': '05-08-2022'
 }];
 
 render();
