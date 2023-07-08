@@ -199,3 +199,67 @@
     width: 24px;
     height: 24px;
 }
+
+.addTaskButtons {
+    display: flex;
+    justify-content: right;
+    margin-top: 25px;
+    gap: 25px;
+    width: 985px;
+}
+
+.clearButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 136px;
+    height: 55px;
+    background-color: transparent;
+    padding: 18px,10px;
+    font-weight: 400;
+    font-size: 21px;
+    border-radius: 10px;
+    border: 1px solid rgba(42, 54, 71, 1);
+    gap: 10px;
+}
+
+.clearButton:hover {
+    cursor: pointer;
+    scale: 1.02;
+    color: #29abe2;
+    border-color: #29abe2;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.createButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 187px;
+    height: 55px;
+    color: #D1D1D1;
+    background-color: rgba(42, 54, 71, 1);
+    padding: 18px,10px;
+    font-weight: 700;
+    font-size: 21px;
+    border-radius: 10px;
+    border: 1px solid rgba(42, 54, 71, 1);
+    gap: 10px;
+}
+
+.createButton:hover {
+    cursor: pointer;
+    background-color: #29abe2;
+    border-color: #29abe2;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.xicon {
+   width: 24px;
+   height: 24px;
+}
+
+.hookIcon {
+    width: 24px;
+    height: 24px; 
+}

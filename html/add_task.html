@@ -33,7 +33,7 @@
                 </div>
                 <div class="addTaskDivCategory">
                     <span class="addTaskInputHead">Category</span>
-                    <select class="selectBox">
+                    <select required class="selectBox">
                         <option value="" disabled selected>Select task category</option>
                         <option value="sales">Sales</option>
                         <option value="backoffice">Backoffice</option>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="addTaskDivAssign">
                     <span class="addTaskInputHead">Assigned to</span>
-                    <select class="selectBox">
+                    <select required class="selectBox">
                         <option value="" disabled selected>Select contacts to assign</option>
                         <option value="tom">Tom</option>
                         <option value="oliver">Oliver</option>
@@ -51,17 +51,10 @@
                 </div>
             </div>
             <div class="addTaskFormContentMiddle"></div>
-
-
-
-
-
-
-
             <div class="addTaskFormContentRight">
                 <div class="addTaskDivDate">
                     <span class="addTaskInputHead">Due date</span>
-                    <input class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type = 'date')">
+                    <input required class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type = 'date')">
                 </div>
                 <div class="addTaskDivPrio">
                     <span class="addTaskInputHead">Prio</span>
@@ -74,17 +67,13 @@
                 <div class="addTaskDivSubtask">
                     <span class="addTaskInputHead">Subtasks</span>
                     <div class="addTaskAddSubtask">Add new subtask <img class="subtaskIconPlus" src="../assets/img/plus_icon.png"/></div>
-                </div>
-            </div>
-
-
-
-
-
+                </div> 
+            </div>  
+        </div>
+        <div class="addTaskButtons">
+            <button class="clearButton">Clear <img class="xIcon" src="../assets/img/x_icon.png"></button>
+            <button class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
         </div>
     </form>
-
-
-
 </body>
 </html>
