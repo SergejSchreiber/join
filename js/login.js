@@ -91,15 +91,25 @@ async function getItem(key) {
 }
 
 let users = [];
+let currentUser = null;
 
 function init() {
   loadUsers();
+  loadCurrentUser();
   loadUserLocalStorage();
 }
 
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
+  } catch (e) {
+    console.error("loading error when loading users:", e);
+  }
+}
+
+async function loadCurrentUser() {
+  try {
+    currentUser = JSON.parse(await getItem("currentUser"));
   } catch (e) {
     console.error("loading error when loading users:", e);
   }
@@ -132,12 +142,14 @@ function guestLogin() {
   window.location.replace("./summary.html?msg=User gefunden");
 }
 
-function login() {
+async function login() {
   let checkbox = document.getElementById("login-checkbox");
   let user = users.find((u) => u.email == email.value && u.password == password.value);
   if (user) {
     rememberMeLocalStorageSaveRemove(checkbox);
-    window.location.replace("./summary.html?");
+    currentUser = JSON.stringify(user);
+    await setItem(`currentUser`, JSON.stringify(currentUser));
+    window.location.replace(`./board.html`);
   } else {
     document.getElementById("message-wrong-login").style.display = "block";
   }
@@ -159,5 +171,18 @@ function loadUserLocalStorage() {
     email.value = localStorage.getItem("email");
     password.value = localStorage.getItem("password");
     checkbox.checked = true;
+  }
+}
+
+
+async function setTodosWithUserId() {
+  await setItem(`todos_${currentUser}`, JSON.stringify(todos));
+}
+
+async function loadTodosWithUserId() {
+  try {
+    todos = JSON.parse(await getItem(`todos_${currentUser}`));
+  } catch (e) {
+    console.error("loading error when loading todos:", e);
   }
 }
