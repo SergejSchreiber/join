@@ -1,7 +1,10 @@
 function initSummary() {
+  loadCurrentUser().then(() => {
   formattingDate();
   greetingTimeOfDay();
-  loadUsers();
+  greetingUsername();
+  summaryNumbers();
+  });
 }
 
 function formattingDate() {
@@ -22,3 +25,15 @@ function greetingTimeOfDay() {
   }
 }
 
+function greetingUsername() {
+  document.getElementById("greetingUserName").innerHTML = JSON.parse(currentUser).user;
+}
+
+function summaryNumbers() {
+  document.getElementById("summary-tasks-in-board-number").innerHTML = todos.length;
+  document.getElementById("summary-tasks-in-progress-number").innerHTML = todos.filter(item => item.progress === "inprogress").length;
+  document.getElementById("summary-awaiting-feedback-number").innerHTML = todos.filter(item => item.progress === "awaitingfeedback").length;
+  document.getElementById("summary-urgent-number").innerHTML = todos.filter(item => item.urgency[0] === "high").length;
+  document.getElementById("summary-to-do-number").innerHTML = todos.filter(item => item.progress === "todo").length;
+  document.getElementById("summary-done-number").innerHTML = todos.filter(item => item.progress === "done").length;
+}

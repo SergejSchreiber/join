@@ -96,6 +96,7 @@ let currentUser = null;
 function init() {
   loadUsers();
   loadCurrentUser();
+  loadTodosWithUserId();
   loadUserLocalStorage();
 }
 
@@ -149,7 +150,7 @@ async function login() {
     rememberMeLocalStorageSaveRemove(checkbox);
     currentUser = JSON.stringify(user);
     await setItem(`currentUser`, JSON.stringify(currentUser));
-    window.location.replace(`./board.html`);
+    window.location.replace(`./summary.html`);
   } else {
     document.getElementById("message-wrong-login").style.display = "block";
   }
@@ -183,6 +184,6 @@ async function loadTodosWithUserId() {
   try {
     todos = JSON.parse(await getItem(`todos_${currentUser}`));
   } catch (e) {
-    console.error("loading error when loading todos:", e);
+    todos = [];
   }
 }

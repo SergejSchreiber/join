@@ -13,6 +13,7 @@
     <script src="../js/desktop-template.js"></script>
     <script src="../js/summary.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/board.js"></script>
   </head>
   <body onload="initSummary()">
     <join-header></join-header>
@@ -25,15 +26,15 @@
 
     <div class="summary-container-toprow">
       <div class="box summary-boxes-top">
-        <div class="number-tasks">5</div>
+        <div class="number-tasks" id="summary-tasks-in-board-number">X</div>
         <div>Tasks in<br />Board</div>
       </div>
       <div class="box summary-boxes-top">
-        <div class="number-tasks">2</div>
+        <div class="number-tasks" id="summary-tasks-in-progress-number">X</div>
         <div>Tasks in<br />Progress</div>
       </div>
       <div class="box summary-boxes-top">
-        <div class="number-tasks">2</div>
+        <div class="number-tasks" id="summary-awaiting-feedback-number">X</div>
         <div>Awaiting<br />Feedback</div>
       </div>
     </div>
@@ -43,7 +44,7 @@
         <div class="urgent-container">
           <img src="../assets/img/urgent_arrow_up.png" alt="urgent_arrow_up" />
           <div>
-            <div class="urgent-number">5</div>
+            <div class="urgent-number" id="summary-urgent-number">X</div>
             <div>Urgent</div>
           </div>
         </div>
@@ -64,7 +65,7 @@
       <div class="box summary-boxes-bottomrow">
         <img src="../assets/img/summary_todo_pencil.png" alt="summary_todo_pencil" />
         <div class="summary-boxes-numbers">
-          <span class="number-tasks">1</span>
+          <span class="number-tasks" id="summary-to-do-number">X</span>
           <span class="fontsize21px">To-do</span>
         </div>
       </div>
@@ -72,7 +73,7 @@
       <div class="box summary-boxes-bottomrow">
         <img src="../assets/img/summary_done_checked.png" alt="summary_done_checked" />
         <div class="summary-boxes-numbers">
-          <span class="number-tasks">1</span>
+          <span class="number-tasks" id="summary-done-number">X</span>
           <span class="fontsize21px">Done</span>
         </div>
       </div>
