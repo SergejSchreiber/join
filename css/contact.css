@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+}
+
+.contact-container {
+    display: flex;
+}
+
+.contact-list {
+    width: 453px;
+}
+
+.letter {
+    width: 357px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-display {
+    width: 100%;
+}
