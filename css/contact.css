@@ -8,12 +8,24 @@
 
 .contact-list {
     width: 453px;
+    padding: 0 48px 0 48px;
 }
 
 .letter {
     width: 357px;
     display: flex;
     flex-direction: column;
+}
+
+.letter-header {
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 21px;
+    font-weight: 400;
+    font-family: inherit;
 }
 
 .contact-display {
