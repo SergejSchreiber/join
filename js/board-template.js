@@ -16,7 +16,7 @@ function createTaskContainer(id, category, title, description, progressBar, part
                 <div id="task-progress" class="task-progress"></div>
                 <div class="task-participants">
                     <div class="participants">${addHTMLParticipants(participants)}</div>
-                    <div><img class="${urgency[0]}" src="../assets/img/low_icon.png" alt=""></div>
+                    <div><img class="${urgency[0]}" src="${urgency[1]}" alt=""></div>
                 </div>
             </div>
         `;
@@ -32,7 +32,7 @@ function createTaskContainer(id, category, title, description, progressBar, part
             </div>
             <div class="task-participants">
                 <div class="participants">${addHTMLParticipants(participants)}</div>
-                <div><img class="${urgency[0]}" src="../assets/img/low_icon.png" alt=""></div>
+                <div><img class="${urgency[0]}" src="${urgency[1]}" alt=""></div>
             </div>
         </div>
     `;
