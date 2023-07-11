@@ -1,16 +1,22 @@
 function initSummary() {
   loadCurrentUser().then(() => {
-  formattingDate();
-  greetingTimeOfDay();
-  greetingUsername();
-  summaryNumbers();
+    findEarliestDueDate();
+    greetingTimeOfDay();
+    greetingUsername();
+    summaryNumbers();
   });
 }
 
-function formattingDate() {
-  let timeElement = document.getElementById("myTime");
-  let date = new Date(timeElement.getAttribute("datetime"));
-  timeElement.textContent = date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+function findEarliestDueDate() {
+  let timeElement = document.getElementById("summary-due-date-time");
+
+  const now = new Date();
+  const nextDueItem = todos.reduce((next, item) => {
+    const dueDate = new Date(item.dueDate);
+    return !next || (dueDate > now && dueDate < next.dueDate) ? { ...item, dueDate } : next;
+  }, null);
+
+  timeElement.textContent = nextDueItem.dueDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
 function greetingTimeOfDay() {
@@ -31,9 +37,9 @@ function greetingUsername() {
 
 function summaryNumbers() {
   document.getElementById("summary-tasks-in-board-number").innerHTML = todos.length;
-  document.getElementById("summary-tasks-in-progress-number").innerHTML = todos.filter(item => item.progress === "inprogress").length;
-  document.getElementById("summary-awaiting-feedback-number").innerHTML = todos.filter(item => item.progress === "awaitingfeedback").length;
-  document.getElementById("summary-urgent-number").innerHTML = todos.filter(item => item.urgency[0] === "high").length;
-  document.getElementById("summary-to-do-number").innerHTML = todos.filter(item => item.progress === "todo").length;
-  document.getElementById("summary-done-number").innerHTML = todos.filter(item => item.progress === "done").length;
+  document.getElementById("summary-tasks-in-progress-number").innerHTML = todos.filter((item) => item.progress === "inprogress").length;
+  document.getElementById("summary-awaiting-feedback-number").innerHTML = todos.filter((item) => item.progress === "awaitingfeedback").length;
+  document.getElementById("summary-urgent-number").innerHTML = todos.filter((item) => item.urgency[0] === "high").length;
+  document.getElementById("summary-to-do-number").innerHTML = todos.filter((item) => item.progress === "todo").length;
+  document.getElementById("summary-done-number").innerHTML = todos.filter((item) => item.progress === "done").length;
 }
