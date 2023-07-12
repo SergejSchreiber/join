@@ -35,21 +35,19 @@
                 </div>
                 <div class="addTaskDivCategory">
                     <span class="addTaskInputHead">Category</span>
-                    <select required class="selectBox">
-                        <option value="" disabled selected>Select task category</option>
-                        <option value="sales">Sales</option>
-                        <option value="backoffice">Backoffice</option>
-                        <option value="design">Design</option>
-                    </select>
+                    <div id="selectCategory" class="selectCategory">
+                        <div class="selectBox" onclick="showCategory()">   
+                            <span>Select task category</span>
+                            <img src="../assets/img/arrow_down.png">
+                        </div>
+                    </div>
                 </div>
                 <div class="addTaskDivAssign">
                     <span class="addTaskInputHead">Assigned to</span>
-                    <select required class="selectBox">
-                        <option value="" disabled selected>Select contacts to assign</option>
-                        <option value="tom">Tom</option>
-                        <option value="oliver">Oliver</option>
-                        <option value="felix">Felix</option>
-                    </select>
+                    <div class="selectBox" onclick="showContacts()">
+                        <span>Select contacts to assign</span>
+                        <img src="../assets/img/arrow_down.png">
+                    </div>
                 </div>
             </div>
             <div class="addTaskFormContentMiddle"></div>

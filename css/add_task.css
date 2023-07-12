@@ -72,13 +72,17 @@
 .addTaskDivCategory {
     display: flex;
     flex-direction: column;
-    height: 104px;
+    min-height: 104px;
     gap: 8px;
     margin-bottom: 10px;
 }
 
 .selectBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     box-sizing: border-box;
+    background-color: white;
     padding: 5px 10px;
     width: 422px;
     height: 51px;
@@ -86,6 +90,106 @@
     border-radius: 10px;
     font-weight: 400;
     font-size: 21px;
+}
+
+.selectBox:hover {
+    cursor: pointer;
+}
+
+.selectCategory {
+    margin-bottom: 10px;
+}
+
+.chooseCategory {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: white;
+    width: 422px;
+    min-height: 51px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.chooseBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.chooseOptions {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.chooseOptions:hover {
+    cursor: pointer;
+    background-color: rgb(209, 209, 209);
+}
+
+.chooseBox:hover {
+    cursor: pointer;
+}
+
+.addNewCategoryInput {
+    margin: 0;
+    padding: 0;
+    cursor: text;
+    border: none;
+    background-color: transparent;
+    width: 300px;
+}
+
+.addNewCategoryInput:focus {
+    outline: none;
+}
+
+.addNewCategoryContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 21px;
+    max-width: 422px;
+    height: 51px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 21px;
+    background-color: white;
+}
+
+.addNewCategoryContainerIcons {
+    display: flex;
+    align-items: center;
+    padding-right: 21px;
+}
+
+.dividingLineCategory {
+    border: 1px solid #D1D1D1;
+    height: 25px;
+    margin-right: 10.75px;
+    margin-left: 5px;
+}
+
+.xIconCategory {
+    display: flex;
+    align-items: center;
+}
+
+.xIconCategory:hover {
+    cursor: pointer;
+}
+
+.hookIconCategory:hover {
+    cursor: pointer;
 }
 
 .addTaskDivAssign {
