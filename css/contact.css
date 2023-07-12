@@ -16,6 +16,8 @@ body {
     height: 100%;   /* Change for  */
     padding: 0 48px 0 48px;
     background-color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .letter {
