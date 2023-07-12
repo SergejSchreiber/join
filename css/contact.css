@@ -18,7 +18,21 @@ body {
     background-color: white;
     overflow-y: scroll;
     overflow-x: hidden;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
 }
+
+.contact-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.contact-list::-webkit-scrollbar-thumb {
+    background-color: #A8A8A8;
+    border-radius: 7px;
+}
+
+.contact-list::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+  }
 
 .letter {
     width: 357px;
@@ -48,6 +62,12 @@ body {
     padding: 15px 25px 15px 25px;
     display: flex;
     margin-left: -12px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.contact:hover {
+    background-image: linear-gradient(rgb(250, 250, 250), rgb(235, 235, 235));
 }
 
 .icon {
@@ -75,4 +95,31 @@ body {
 
 .contact-display {
     width: 100%;
+    padding: 82px 58px;
+}
+
+.contact-display-header {
+    height: 73px;
+    width: 569px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-display-header h2 {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.contact-display-header div {
+    border: 1.5px solid #29ABE2;
+    height: 59px;
+    width: 0;
+}
+
+.contact-display-header p {
+    font-weight: 400;
+    font-size: 27px;
+    color: #2A3647;
 }
