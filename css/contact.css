@@ -123,3 +123,51 @@ body {
     font-size: 27px;
     color: #2A3647;
 }
+
+.chosen-contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 461px;
+}
+
+.name-icon {
+    color: white;
+    height: 120px;
+    width: 120px;
+    border-radius: 70px;
+    border: 3px solid white;
+    background-color: #FF7A00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.contact-name {
+
+}
+
+.contact-name-part {
+    font-size: 47px;
+    font-weight: 500;
+}
+
+.task-button {
+    display: flex;
+    align-items: center;
+}
+
+.task-button img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #29ABE2;
+}
+
+.task-button p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #29ABE2;
+}
