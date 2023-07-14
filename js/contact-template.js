@@ -42,3 +42,63 @@ let contacts = [
     }
 ];
 
+function getContactDetails() {
+    return `
+        <div class="chosen-contact-header">
+            <div class="name-icon">AM</div>
+            <div class="contact-name">
+                <div class="contact-name-part">Anton Mayer</div>
+                <div class="task-button">
+                    <img src="../assets/img/plus_icon.png" alt="">
+                    <p>Add Task</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-info-header">
+            <p>Contact Information</p>
+            <div class="edit-button">
+                <img src="../assets/img/edit.svg" alt="">
+                <p>Edit</p>
+            </div>
+        </div>
+        <div class="mail-info-header">Email</div>
+        <div class="mail-info">antom@gmail.com</div>
+        <div class="phone-info-header">Phone</div>
+        <div class="phone-info">+49 1111 111 11 1</div>
+    `;
+}
+
+function getSlide() {
+    return `
+        <div id="slide-contact">
+            <div class="pop-up">
+                <div class="add-contact-left">
+                    <img src="../assets/img/join_logo_white.png" alt="">
+                    <div>Add contact</div>
+                    <p>Tasks are better with a team!</p>
+                    <span class="extra-horizontal-line"></span>
+                </div>
+                <div class="add-contact-right">
+                    <div class="profile-icon"><img src="../assets/img/user-line.svg" alt=""></div>
+                    <form class="form-side">
+                        <div onclick="removeSlide()" class="x-icon"><img src="../assets/img/x_icon.svg" alt=""></div>
+                        <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" required></div>
+                        <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" required></div>
+                        <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" required></div>
+                        <div class="pop-up-buttons">
+                            <button class="cancel-btn">
+                                <p>Cancel</p>
+                                <img src="../assets/img/x_icon.svg" alt="">
+                            </button>
+                            <button onclick="removeSlide()" class="create-btn">
+                                <p>Create Contact</p>
+                                <img src="../assets/img/hook_icon.svg" alt="">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
