@@ -20,9 +20,9 @@ h1 {
 }
 
 #add-task-btn:hover {
-    background-color: #32DAFF;
-    border: 0px solid #32DAFF;
-    box-shadow: 20px black;
+    background-color: #29b6d5;
+    border: 0px solid #29b6d5;
+    box-shadow: 0 4px 3px rgb(192, 192, 192);
 }
 
 .header-container {
