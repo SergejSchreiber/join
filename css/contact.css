@@ -96,6 +96,7 @@ body {
 .contact-display {
     width: 100%;
     padding: 82px 58px;
+    position: relative;
 }
 
 .contact-display-header {
@@ -127,8 +128,7 @@ body {
 .chosen-contact-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 461px;
+    margin-bottom: 21px;
 }
 
 .name-icon {
@@ -143,10 +143,7 @@ body {
     align-items: center;
     font-size: 47px;
     font-weight: 500;
-}
-
-.contact-name {
-
+    margin-right: 60px;
 }
 
 .contact-name-part {
@@ -164,10 +161,92 @@ body {
     align-items: center;
     justify-content: center;
     color: #29ABE2;
+    filter: invert(61%) sepia(53%) saturate(1990%) hue-rotate(165deg) brightness(94%) contrast(88%);
+    margin-right: 10px;
 }
 
 .task-button p {
     font-size: 16px;
     font-weight: 400;
     color: #29ABE2;
+}
+
+.task-button:hover p {
+    color: #0067c7;
+    font-weight: 700;
+}
+
+.task-button:hover img {
+    filter: invert(27%) sepia(64%) saturate(2862%) hue-rotate(193deg) brightness(87%) contrast(106%);
+}
+
+.contact-info-header {
+    display: flex;
+    height: 74px;
+    align-items: center;
+    margin-bottom: 21px;
+}
+
+.contact-info-header p {
+    font-weight: 400;
+    font-size: 20px;
+    margin-right: 59px;
+}
+
+.edit-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.edit-button img {
+    height: 18.28px;
+    width: 18.28px;
+    margin-right: 6px;
+}
+
+.edit-button p {
+    font-size: 16px;
+}
+
+.edit-button:hover p {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #0067c7;
+}
+
+.edit-button:hover img {
+    filter: invert(27%) sepia(64%) saturate(2862%) hue-rotate(193deg) brightness(87%) contrast(106%);
+}
+
+.mail-info-header {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.mail-info {
+    color: #007CEE;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.phone-info-header {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.phone-info {
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.new-contact-button {
+    position: absolute;
+    top: 700px;
+    left: 510px;
+    display: flex;
+    align-items: center;
+    border-radius: 1px;
 }
