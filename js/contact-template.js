@@ -42,6 +42,51 @@ let contacts = [
     }
 ];
 
+renderContacts();
+
+function sortedNamesArray() {
+    let arr = [];
+    for (let i = 0; i < contacts.length; i++) {
+        arr.push(contacts[i]['name']);
+    }
+    return arr.sort();
+}
+
+function renderContacts() {
+    let namesArr = sortedNamesArray();
+    let letterArr = [];
+    for (let i = 0; i < contacts.length; i++) {
+        if(letterArr.includes(namesArr[i][0])  == false) {
+            let contactList = document.getElementById('contact-list');
+            contactList.innerHTML += `
+                <div id="letter-${i}" class="letter">
+                    <div class="letter-header">${namesArr[0][0]}</div>
+                    <div class="horizontal-line"></div>
+                    <div class="contact">
+                        <div class="icon">BZ</div>
+                        <div class="contact-info">
+                            <p>Benedikt Ziegler</p>
+                            <div>benedikt@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            `; 
+        }
+        else {
+            document.getElementById('letter-' + i).innerHTML += `
+                <div class="contact">
+                    <div class="icon">${getInitials(contacts[i]['name'])}</div>
+                    <div class="contact-info">
+                        <p>${contacts[i]['name']}HAAAAAA</p>
+                        <div>benedikt@gmail.com</div>
+                    </div>
+                </div>
+            `;
+        }
+        letterArr.push(namesArr[i][0]);
+    }
+}
+
 function getContactDetails() {
     return `
         <div class="chosen-contact-header">
@@ -72,7 +117,11 @@ function getSlide(input) {
     return `
         <div id="slide-contact">
             <div class="pop-up">
-                <div id="add-contact-left" class="add-contact-left"></div>
+                <div class="add-contact-left">
+                    <img src="../assets/img/join_logo_white.png" alt="">
+                    ${getLeftSideSlide(input)}
+                    <span class="extra-horizontal-line"></span>
+                </div>
                 <div class="add-contact-right">
                     <div class="profile-icon"><img src="../assets/img/user-line.svg" alt=""></div>
                     <form class="form-side">
@@ -95,23 +144,18 @@ function getSlide(input) {
             </div>
         </div>
     `;
-    getLeftSideSlide(input);
 }
 
 function getLeftSideSlide(input) {
-    let leftSlide = document.getElementById('add-contact-left');
     if (input == 0) {
-        leftSlide.innerHTML = `
-            <img src="../assets/img/join_logo_white.png" alt="">
+        return `
             <div>Add contact</div>
             <p>Tasks are better with a team!</p>
         `;
     }
-    else if(input === 1) {
-        leftSlide.innerHTML = `
-            <img src="../assets/img/join_logo_white.png" alt="">
+    else if(input == 1) {
+        return `
             <div>Edit Contact</div>
-            <span class="extra-horizontal-line"></span>
         `;
     }
 }

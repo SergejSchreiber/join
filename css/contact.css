@@ -35,7 +35,7 @@ body {
   }
 
 .letter {
-    width: 357px;
+    width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -54,7 +54,7 @@ body {
     border: 0.5px solid #D1D1D1;
     height: 0px;
     margin-bottom: 22px;
-    width: 323px;
+    width: 280px;
 }
 
 .contact {
@@ -245,8 +245,8 @@ body {
 .new-contact-button {
     padding: 18px 15px 18px 15px;
     position: absolute;
-    top: 700px;
-    left: 510px;
+    top: 70vh;
+    left: 70%;
     display: flex;
     align-items: center;
     border-radius: 10px;
