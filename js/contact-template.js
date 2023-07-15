@@ -68,16 +68,11 @@ function getContactDetails() {
     `;
 }
 
-function getSlide() {
+function getSlide(input) {
     return `
         <div id="slide-contact">
             <div class="pop-up">
-                <div class="add-contact-left">
-                    <img src="../assets/img/join_logo_white.png" alt="">
-                    <div>Add contact</div>
-                    <p>Tasks are better with a team!</p>
-                    <span class="extra-horizontal-line"></span>
-                </div>
+                <div id="add-contact-left" class="add-contact-left"></div>
                 <div class="add-contact-right">
                     <div class="profile-icon"><img src="../assets/img/user-line.svg" alt=""></div>
                     <form class="form-side">
@@ -85,12 +80,12 @@ function getSlide() {
                         <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" required></div>
                         <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" required></div>
                         <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" required></div>
-                        <div class="pop-up-buttons">
-                            <button class="cancel-btn">
+                        <div id="slide-buttons" class="pop-up-buttons">
+                            <button onclick="removeSlide()" class="cancel-btn">
                                 <p>Cancel</p>
                                 <img src="../assets/img/x_icon.svg" alt="">
                             </button>
-                            <button onclick="removeSlide()" class="create-btn">
+                            <button class="create-btn">
                                 <p>Create Contact</p>
                                 <img src="../assets/img/hook_icon.svg" alt="">
                             </button>
@@ -100,5 +95,45 @@ function getSlide() {
             </div>
         </div>
     `;
+    getLeftSideSlide(input);
 }
 
+function getLeftSideSlide(input) {
+    let leftSlide = document.getElementById('add-contact-left');
+    if (input == 0) {
+        leftSlide.innerHTML = `
+            <img src="../assets/img/join_logo_white.png" alt="">
+            <div>Add contact</div>
+            <p>Tasks are better with a team!</p>
+        `;
+    }
+    else if(input === 1) {
+        leftSlide.innerHTML = `
+            <img src="../assets/img/join_logo_white.png" alt="">
+            <div>Edit Contact</div>
+            <span class="extra-horizontal-line"></span>
+        `;
+    }
+}
+
+function getCreateSlide() {
+    return `
+        <button onclick="removeSlide()" class="cancel-btn">
+            <p>Cancel</p>
+            <img src="../assets/img/x_icon.svg" alt="">
+        </button>
+        <button class="create-btn">
+            <p>Create Contact</p>
+            <img src="../assets/img/hook_icon.svg" alt="">
+        </button>
+    `;
+}
+
+function getEditSlide() {
+    return `
+        <div>
+            <button onclick="removeSlide()" class="delete-btn">Delete</button>
+            <button class="save-btn">Save</button>
+        </div>
+    `;
+}
