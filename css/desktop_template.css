@@ -71,11 +71,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
+
 .user-icon {
   border-radius: 100%;
   width: 46px;
   height: 46px;
+}
+
+.user-initials {
+  color: #29ABE2;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .btn-logout {
