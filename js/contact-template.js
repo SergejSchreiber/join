@@ -45,11 +45,13 @@ let contacts = [
 renderContacts();
 
 function renderContacts() {
+    console.log('wtf');
     let namesArr = getSortedNamesArray();
     let letterArr = [];
+    let contactList = document.getElementById('contact-list');
+    contactList.innerHTML = '';
     for (let i = 0; i < namesArr.length; i++) {
         if(letterArr.includes(namesArr[i]['name'][0])  == false) {
-            let contactList = document.getElementById('contact-list');
             contactList.innerHTML += `
                 <div id="letter-${i}" class="letter">
                     <div class="letter-header">${namesArr[i]['name'][0]}</div>

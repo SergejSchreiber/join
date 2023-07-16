@@ -48,5 +48,7 @@ function showContactDetails(id) {
 function editContact(id) {
     contacts[id]['name'] = document.getElementById('input-name').value;
     contacts[id]['mail'] = document.getElementById('input-email').value;
-    contacts[id]['telefonnumer'] = document.getElementById('input-phone').value;
+    contacts[id]['telefonnummer'] = document.getElementById('input-phone').value;
+    removeSlide();
+    renderContacts();
 }
