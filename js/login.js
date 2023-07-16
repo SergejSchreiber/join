@@ -156,6 +156,12 @@ async function login() {
   }
 }
 
+async function logout() {
+  currentUser = null;
+    await setItem(`currentUser`, JSON.stringify(currentUser));
+  window.location.href = "../html/index.html";
+}
+
 function rememberMeLocalStorageSaveRemove(checkbox) {
   if (checkbox.checked) {
     localStorage.setItem("email", email.value);

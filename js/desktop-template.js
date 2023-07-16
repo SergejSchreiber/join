@@ -43,12 +43,11 @@ class JoinHeader extends HTMLElement {
         <a href="../html/help.html"><img src="../assets/img/question_icon.png" alt="question_icon" /></a>
         <div class="user-icon-border" onclick="showLogout()">
           <span class="user-initials" id="user-initials"></span>
-          <!-- <img class="user-icon" src="../assets/img/user_icon_default.png" alt="user_icon_default"> -->
         </div>
         <div onclick="hideLogout()" class="log-out-bg" id="logOutBg"></div>
-        <a href="../html/index.html">
-          <button class="btn btn-logout" id="logOut">Log out</button>
-        </a>
+        <!-- <a href="../html/index.html"> -->
+          <button class="btn btn-logout" id="logOut" onclick="logout(event)">Log out</button>
+        <!-- </a> -->
         </div>
     </div>
     </body>
