@@ -53,7 +53,7 @@ body {
 .horizontal-line {
     border: 0.5px solid #D1D1D1;
     height: 0px;
-    margin-bottom: 22px;
+    margin-bottom: 0;
     width: 280px;
 }
 
@@ -64,6 +64,7 @@ body {
     margin-left: -12px;
     align-items: center;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .contact:hover {
@@ -154,6 +155,7 @@ body {
 .task-button {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .task-button img {
@@ -347,6 +349,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.specific-profile-icon {
+    height: 120px;
+    width: 120px;
+    border-radius: 70px;
+    border: 3px solid white;
+    background-color: #FF7A00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.specific-profile-icon p {
+    font-size: 47px;
+    font-weight: 500;
+    color: white;
 }
 
 .x-icon {
