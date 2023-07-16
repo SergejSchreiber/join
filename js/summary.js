@@ -1,9 +1,11 @@
 function initSummary() {
   loadCurrentUser().then(() => {
-    findEarliestDueDate();
-    greetingTimeOfDay();
-    greetingUsername();
-    summaryNumbers();
+    loadTodosWithUserId().then(() => {
+      findEarliestDueDate();
+      greetingTimeOfDay();
+      greetingUsername();
+      summaryNumbers();
+    });
   });
 }
 

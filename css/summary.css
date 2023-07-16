@@ -48,13 +48,14 @@
 .summary-container-middlerow {
     margin-left: 116px;
     margin-top: 30px;
-    height: 150px;
+    height: 168px;
     display: flex;
-    gap: 50px;
 }
 
 .summary-boxes-middle {
     width: 580px;
+    height: 168px;
+    margin-right: 70px;
     justify-content: space-evenly !important; 
 }
 
@@ -102,13 +103,13 @@
 .summary-container-bottomrow {
     margin-left: 116px;
     margin-top: 30px;
-    height: 150px;
     display: flex;
     gap: 40px;
 }
 
 .summary-boxes-bottomrow {
     width: 271px;
+    height: 168px;
     gap: 18px;  
 }
 

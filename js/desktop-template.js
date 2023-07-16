@@ -8,6 +8,7 @@ class JoinHeader extends HTMLElement {
     <title>Join</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/desktop_template.css" />
+    <script src="../js/login.js"></script>
   </head>
   <body>
     <div  class="side-bar">
@@ -41,7 +42,8 @@ class JoinHeader extends HTMLElement {
       <div class="top-bar-icons">
         <a href="../html/help.html"><img src="../assets/img/question_icon.png" alt="question_icon" /></a>
         <div class="user-icon-border" onclick="showLogout()">
-          <img class="user-icon" src="../assets/img/user_icon_default.png" alt="user_icon_default">
+          <span class="user-initials" id="user-initials"></span>
+          <!-- <img class="user-icon" src="../assets/img/user_icon_default.png" alt="user_icon_default"> -->
         </div>
         <div onclick="hideLogout()" class="log-out-bg" id="logOutBg"></div>
         <a href="../html/index.html">
@@ -51,6 +53,8 @@ class JoinHeader extends HTMLElement {
     </div>
     </body>
         `;
+    loadCurrentUser();
+    loadingUserInitials();
   }
 }
 
@@ -65,4 +69,13 @@ function showLogout() {
 function hideLogout() {
   document.getElementById("logOut").style.visibility = "hidden";
   document.getElementById("logOutBg").style.visibility = "hidden";
+}
+
+// function to load the Intiatials from the active user
+async function loadingUserInitials() {
+  let currentUser = JSON.parse(await getItem("currentUser"));
+  let userName = JSON.parse(currentUser).user;
+  let initials = userName.match(/\b\w/g).join('').toUpperCase();
+
+  document.getElementById("user-initials").innerHTML = initials;
 }
