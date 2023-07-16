@@ -44,8 +44,8 @@ let contacts = [
 
 renderContacts();
 
-function sortedNamesArray() {
-    contacts.sort((a, b) => {
+function sortedNamesArray(arr) {
+    arr.sort((a, b) => {
         let nameA = a.name.toUpperCase();
         let nameB = b.name.toUpperCase();
         if (nameA < nameB) {
@@ -58,54 +58,46 @@ function sortedNamesArray() {
     return 0;
 }
 
+function getSortedNamesArray() {
+    let newArr = contacts.slice();
+    sortedNamesArray(newArr);
+    return newArr;
+}
+
 function renderContacts() {
-    sortedNamesArray();
+    let namesArr = getSortedNamesArray();
     let letterArr = [];
     let indexArr = [];
-    for (let i = 0; i < contacts.length; i++) {
-        if(letterArr.includes(contacts[i][0])  == false) {
-            console.log(contacts[i][0]);
+    for (let i = 0; i < namesArr.length; i++) {
+        if(letterArr.includes(namesArr[i]['name'][0])  == false) {
             let contactList = document.getElementById('contact-list');
             contactList.innerHTML += `
                 <div id="letter-${i}" class="letter">
-                    <div class="letter-header">${contacts[i][0]}</div>
+                    <div class="letter-header">${namesArr[i]['name'][0]}</div>
                     <div class="horizontal-line"></div>
                     <div class="contact">
-                        <div class="icon">${getInitials(contacts[i]['name'])}</div>
+                        <div class="icon">${getInitials(namesArr[i]['name'])}</div>
                         <div class="contact-info">
-                            <p>${contacts[i]['name']}</p>
-                            <div>${contacts[i]['mail']}</div>
+                            <p>${namesArr[i]['name']}</p>
+                            <div>${namesArr[i]['mail']}</div>
                         </div>
                     </div>
                 </div>
             `; 
         }
         else {
-            indexArr.push(i);
-        }
-        /* else {
-            document.getElementById('letter-' + i).innerHTML += `
+            let j = i - 1;
+            document.getElementById('letter-' + j).innerHTML += `
                 <div class="contact">
-                    <div class="icon">${getInitials(contacts[i]['name'])}</div>
+                    <div class="icon">${getInitials(namesArr[i]['name'])}</div>
                     <div class="contact-info">
-                        <p>${contacts[i]['name']}HAAAAAA</p>
-                        <div>benedikt@gmail.com</div>
+                        <p>${namesArr[i]['name']}</p>
+                        <div>${namesArr[i]['mail']}</div>
                     </div>
                 </div>
             `;
-        } */
-        letterArr.push(namesArr[i][0]);
-    }
-    for (let i = 0; i < indexArr.length; i++) {
-        document.getElementById('letter-' + indexArr[i]).innerHTML += `
-            <div class="contact">
-                <div class="icon">${getInitials(contacts[i]['name'])}</div>
-                <div class="contact-info">
-                    <p>${contacts[indexArr[i]]['name']}HAAAAAA</p>
-                    <div>benedikt@gmail.com</div>
-                </div>
-            </div>
-        `;
+        }
+        letterArr.push(namesArr[i]['name'][0]);
     }
 }
 
