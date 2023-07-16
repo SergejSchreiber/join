@@ -2,13 +2,13 @@ function initSummary() {
   loadCurrentUser().then(() => {
     loadTodosWithUserId().then(() => {
       findEarliestDueDate();
-      greetingTimeOfDay();
       greetingUsername();
       summaryNumbers();
     });
   });
 }
 
+//function to find the earliest upcoming due date, which is still in the future
 function findEarliestDueDate() {
   let timeElement = document.getElementById("summary-due-date-time");
 
@@ -21,7 +21,29 @@ function findEarliestDueDate() {
   timeElement.textContent = nextDueItem.dueDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
+//function to set the correct greeting depending on time of the day and the current user
+function greetingUsername() {
+  if (currentUser) {
+  greetingTimeOfDay();
+  document.getElementById("greetingUserName").innerHTML = JSON.parse(currentUser).user;
+} else {
+  greetingTimeOfDayGuest();
+  document.getElementById("greetingUserName").innerHTML = "";
+}}
+
 function greetingTimeOfDay() {
+  let greeting = document.getElementById("greeting");
+  let hour = new Date().getHours();
+  if (hour < 12) {
+    greeting.textContent = "Good morning,";
+  } else if (hour < 18) {
+    greeting.textContent = "Good afternoon,";
+  } else {
+    greeting.textContent = "Good evening,";
+  }
+}
+
+function greetingTimeOfDayGuest() {
   let greeting = document.getElementById("greeting");
   let hour = new Date().getHours();
   if (hour < 12) {
@@ -33,10 +55,7 @@ function greetingTimeOfDay() {
   }
 }
 
-function greetingUsername() {
-  document.getElementById("greetingUserName").innerHTML = JSON.parse(currentUser).user;
-}
-
+// function to update the numbers in each box on the summary page
 function summaryNumbers() {
   document.getElementById("summary-tasks-in-board-number").innerHTML = todos.length;
   document.getElementById("summary-tasks-in-progress-number").innerHTML = todos.filter((item) => item.progress === "inprogress").length;

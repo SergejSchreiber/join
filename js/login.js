@@ -140,6 +140,7 @@ async function deleteUser(index) {
 
 // functions to login and load user from local Storage
 function guestLogin() {
+
   window.location.replace("./summary.html?msg=User gefunden");
 }
 
@@ -154,6 +155,12 @@ async function login() {
   } else {
     document.getElementById("message-wrong-login").style.display = "block";
   }
+}
+
+async function logout() {
+  currentUser = null;
+    await setItem(`currentUser`, JSON.stringify(currentUser));
+  window.location.href = "../html/index.html";
 }
 
 function rememberMeLocalStorageSaveRemove(checkbox) {
@@ -177,7 +184,10 @@ function loadUserLocalStorage() {
 
 
 async function setTodosWithUserId() {
+  if (currentUser) {
   await setItem(`todos_${currentUser}`, JSON.stringify(todos));
+}
+loadTodosWithUserId();
 }
 
 async function loadTodosWithUserId() {

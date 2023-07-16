@@ -103,8 +103,73 @@ function showSelectedCategoryHtml(index) {
 // Functions for assign selection
 
 // Functions for priority selection
+let prioColor = ['#FF3D00','#FFA800','#7AE229'];
+let prioIndex = [0,0,0]
+
+function selectPrio(index) {
+    resetPrio(index);
+
+    if(prioIndex[index] == 0){
+        let element = document.getElementById(`divPrio${index}`);
+        let pathIcon1 = document.getElementById(`iconPath${index}`);
+        let pathIcon2 = document.getElementById(`iconPath${index}${index}`);
+        pathIcon1.setAttribute('fill', 'white');
+        pathIcon2.setAttribute('fill', 'white');
+        element.style.backgroundColor = prioColor[index];
+        element.classList.add("prioIsSelected");
+        prioIndex[0] = 0;
+        prioIndex[1] = 0; 
+        prioIndex[2] = 0;
+        prioIndex[index] = 1;
+    } else {
+        prioIndex[index] = 0;  
+    }
+}
+
+function resetPrio(index) {
+
+    for(let i = 0; i < 3; i++) {
+        let element = document.getElementById(`divPrio${i}`);
+        let pathIcon1 = document.getElementById(`iconPath${i}`);
+        let pathIcon2 = document.getElementById(`iconPath${i}${i}`);
+        element.style.backgroundColor = "white";
+        element.classList.remove("prioIsSelected");
+        pathIcon1.setAttribute('fill', prioColor[i]);
+        pathIcon2.setAttribute('fill', prioColor[i]);
+    }
+}
 
 // Functions for subtask selection
+let allSubtasks = ['Subtask 1','Subtask 2','Subtask 3'];
+
+function addNewSubtask(){
+    let newSubtask = document.getElementById('addNewSubtaskInput');
+    if(newSubtask.value) {
+    allSubtasks.push(newSubtask.value);
+    newSubtask.value = "";
+    renderSubtask();
+    } else {
+        alert('Please enter a new subtask!');
+    }
+}
+
+function renderSubtask() {
+    let subDiv = document.getElementById(`divShowSubtasks`);
+    subDiv.innerHTML = ''; 
+
+    for(let i = 0; i < allSubtasks.length; i++){
+        subDiv.innerHTML += subtaskHtml(i); 
+    }   
+}
+
+function subtaskHtml(index) {
+    return `
+        <label class="lableContainer">
+            <input type="checkbox">
+            <span class="checkmark">${allSubtasks[index]}</span>
+        </label>
+    `;
+}
 
 // Functions for clear and create button
 function xIconColor(index) {
