@@ -140,6 +140,7 @@ async function deleteUser(index) {
 
 // functions to login and load user from local Storage
 function guestLogin() {
+
   window.location.replace("./summary.html?msg=User gefunden");
 }
 
@@ -183,7 +184,10 @@ function loadUserLocalStorage() {
 
 
 async function setTodosWithUserId() {
+  if (currentUser) {
   await setItem(`todos_${currentUser}`, JSON.stringify(todos));
+}
+loadTodosWithUserId();
 }
 
 async function loadTodosWithUserId() {

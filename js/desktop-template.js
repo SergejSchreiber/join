@@ -73,8 +73,12 @@ function hideLogout() {
 // function to load the Intiatials from the active user
 async function loadingUserInitials() {
   let currentUser = JSON.parse(await getItem("currentUser"));
-  let userName = JSON.parse(currentUser).user;
-  let initials = userName.match(/\b\w/g).join('').toUpperCase();
 
-  document.getElementById("user-initials").innerHTML = initials;
+  if (currentUser) {
+    let userName = JSON.parse(currentUser).user;
+    let initials = userName.match(/\b\w/g).join("").toUpperCase();
+    document.getElementById("user-initials").innerHTML = initials;
+  } else {
+    document.getElementById("user-initials").innerHTML = "G";
+  }
 }
