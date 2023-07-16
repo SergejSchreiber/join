@@ -144,9 +144,13 @@ let allSubtasks = ['Subtask 1','Subtask 2','Subtask 3'];
 
 function addNewSubtask(){
     let newSubtask = document.getElementById('addNewSubtaskInput');
+    if(newSubtask.value) {
     allSubtasks.push(newSubtask.value);
     newSubtask.value = "";
     renderSubtask();
+    } else {
+        alert('Please enter a new subtask!');
+    }
 }
 
 function renderSubtask() {
