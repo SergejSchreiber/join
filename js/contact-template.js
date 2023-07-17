@@ -167,7 +167,7 @@ function getProfilePic(input, id) {
                 <p>Cancel</p>
                 <img src="../assets/img/x_icon.svg" alt="">
             </button>
-            <button class="create-btn">
+            <button onclick="addContact()" class="create-btn">
                 <p>Create Contact</p>
                 <img src="../assets/img/hook_icon.svg" alt="">
             </button>

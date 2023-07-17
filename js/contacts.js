@@ -51,4 +51,19 @@ function editContact(id) {
     contacts[id]['telefonnummer'] = document.getElementById('input-phone').value;
     removeSlide();
     renderContacts();
+    showContactDetails(id);
+}
+
+function addContact() {
+    if(document.getElementById('input-name').value && document.getElementById('input-email').value && document.getElementById('input-phone').value) {
+        contacts.push({
+            'contactId': contacts.length,
+            'name': document.getElementById('input-name').value,
+            'mail': document.getElementById('input-email').value,
+            'telefonnummer': document.getElementById('input-phone').value
+        });
+        renderContacts();
+        showContactDetails(id);
+        removeSlide();
+    }
 }
