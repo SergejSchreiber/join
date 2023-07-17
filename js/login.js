@@ -11,6 +11,18 @@ function showEyeIcon() {
   document.getElementById("password-icon").style.display = "none";
 }
 
+function showEyeIconCrossedOutConf() {
+  document.getElementById("eye-conf").classList.toggle("fa-eye-slash");
+  const passwordInput = document.getElementById("password-conf");
+  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+}
+
+function showEyeIconConf() {
+  document.getElementById("eye-conf").style.display = "block";
+  document.getElementById("password-icon-conf").style.display = "none";
+}
+
 // functions for sending a password-reset-email and showing the confirmation message after password-reset-forms were submitted
 function checkingEmailInUsers() {
   let email = document.getElementById("email").value;
@@ -120,6 +132,9 @@ async function addUser() {
   let user = document.getElementById("username").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
+  let passwordConf = document.getElementById("password-conf").value;
+
+  if (password === passwordConf) {
 
   if (users.some((u) => u.user === user || u.email === email)) {
     document.getElementById("message-existing-user").style.display = "block";
@@ -130,6 +145,11 @@ async function addUser() {
   await setItem("users", JSON.stringify(users));
 
   window.location.href = "./index.html?msg=Du hast dich erfolgreich registriert";
+}
+ else {
+  document.getElementById("message-different-passwords").style.display = "block";
+    return false;
+}
 }
 
 // function to delete users from users array

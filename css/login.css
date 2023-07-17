@@ -90,6 +90,9 @@ body {
   display: none;
 }
 
+.top235 {
+  top: 235px;
+}
 .top310 {
   top: 310px;
 }
@@ -243,4 +246,8 @@ body {
     margin-left: 0;
     margin-bottom: 35px;
   }
+}
+
+.signup-input-container {
+  margin-bottom: -25px !important;
 }
