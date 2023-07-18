@@ -11,14 +11,17 @@ function initSummary() {
 //function to find the earliest upcoming due date, which is still in the future
 function findEarliestDueDate() {
   let timeElement = document.getElementById("summary-due-date-time");
-
   const now = new Date();
   const nextDueItem = todos.reduce((next, item) => {
     const dueDate = new Date(item.dueDate);
     return !next || (dueDate > now && dueDate < next.dueDate) ? { ...item, dueDate } : next;
   }, null);
 
-  timeElement.textContent = nextDueItem.dueDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  if (nextDueItem) {
+    timeElement.textContent = nextDueItem.dueDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  } else {
+    timeElement.textContent = "No deadlines";
+  }
 }
 
 //function to set the correct greeting depending on time of the day and the current user

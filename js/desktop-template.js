@@ -38,17 +38,27 @@ class JoinHeader extends HTMLElement {
     </div>
 
     <div class="top-bar">
-      <span> Kanban Project Management Tool</span>
+      <img class="join-logo-mobile" src="../assets/img/join_logo_dark.png" alt="join_logo_dark">
+      <span class="kanban-text"> Kanban Project Management Tool</span>
       <div class="top-bar-icons">
         <a href="../html/help.html"><img src="../assets/img/question_icon.png" alt="question_icon" /></a>
         <div class="user-icon-border" onclick="showLogout()">
           <span class="user-initials" id="user-initials"></span>
         </div>
         <div onclick="hideLogout()" class="log-out-bg" id="logOutBg"></div>
-        <!-- <a href="../html/index.html"> -->
           <button class="btn btn-logout" id="logOut" onclick="logout(event)">Log out</button>
-        <!-- </a> -->
+      </div>
+      <div class="top-bar-icons-mobile">
+        <div class="user-icon-border" onclick="showLogoutMobile()">
+          <span class="user-initials" id="user-initials-mobile"></span>
         </div>
+        <div onclick="hideLogoutMobile()" class="log-out-bg" id="logOutBgMobile"></div>
+          <button class="btn btn-logout" id="logOutMobile">
+            <a href="../html/help.html" id="help">Help</a>
+            <a href="../html/legal_notice.html" id="legalNotice">Legal notice</a>  
+            <span onclick="logout(event)">Log out</span>
+          </button>
+      </div>
     </div>
     </body>
         `;
@@ -70,6 +80,20 @@ function hideLogout() {
   document.getElementById("logOutBg").style.visibility = "hidden";
 }
 
+function showLogoutMobile() {
+  document.getElementById("logOutMobile").style.visibility = "visible";
+  document.getElementById("logOutBgMobile").style.visibility = "visible";
+  document.getElementById("help").style.visibility = "visible";
+  document.getElementById("legalNotice").style.visibility = "visible";
+}
+
+function hideLogoutMobile() {
+  document.getElementById("logOutMobile").style.visibility = "hidden";
+  document.getElementById("logOutBgMobile").style.visibility = "hidden";
+  document.getElementById("help").style.visibility = "hidden";
+  document.getElementById("legalNotice").style.visibility = "hidden";
+}
+
 // function to load the Intiatials from the active user
 async function loadingUserInitials() {
   let currentUser = JSON.parse(await getItem("currentUser"));
@@ -78,7 +102,9 @@ async function loadingUserInitials() {
     let userName = JSON.parse(currentUser).user;
     let initials = userName.match(/\b\w/g).join("").toUpperCase();
     document.getElementById("user-initials").innerHTML = initials;
+    document.getElementById("user-initials-mobile").innerHTML = initials;
   } else {
     document.getElementById("user-initials").innerHTML = "G";
+    document.getElementById("user-initials-mobile").innerHTML = "G";
   }
 }
