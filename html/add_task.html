@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/add_task.css">
     <script src="../js/add_task.js"></script>
     <script src="../js/board.js"></script>
+    <script src="../js/contact-template.js"></script>
     <script src="../js/desktop-template.js"></script>
     <script src="../js/login.js"></script>
     
@@ -28,11 +29,11 @@
             <div class="addTaskFormContentLeft">
                 <div class="addTaskDivTitle">
                     <span class="addTaskInputHead">Title</span>
-                    <input class="addTaskInputTitle" required placeholder="Enter a title" type="text" name="title" id="addTaskTitle"/>
+                    <input id="InputTitle" class="addTaskInputTitle" required placeholder="Enter a title" type="text" name="title" id="addTaskTitle"/>
                 </div>
                 <div class="addTaskDivDescription">
                     <span class="addTaskInputHead">Description</span>
-                    <textarea class="addTaskInputDescription" required placeholder="Enter a Description" type="text" name="title"></textarea>
+                    <textarea id="InputDescription" class="addTaskInputDescription" required placeholder="Enter a Description" type="text" name="title"></textarea>
                 </div>
                 <div class="addTaskDivCategory">
                     <span class="addTaskInputHead">Category</span>
@@ -45,9 +46,11 @@
                 </div>
                 <div class="addTaskDivAssign">
                     <span class="addTaskInputHead">Assigned to</span>
-                    <div class="selectBox" onclick="showContacts()">
-                        <span>Select contacts to assign</span>
-                        <img src="../assets/img/arrow_down.png">
+                    <div id="selectContact" class="selectCategory">
+                        <div class="selectBox" onclick="sortContactsByName(contacts)">
+                            <span>Select contacts to assign</span>
+                            <img src="../assets/img/arrow_down.png">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,7 +58,7 @@
             <div class="addTaskFormContentRight">
                 <div class="addTaskDivDate">
                     <span class="addTaskInputHead">Due date</span>
-                    <input required class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type = 'date')">
+                    <input required id="inputDate" class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type = 'date')">
                 </div>
                 <div class="addTaskDivPrio">
                     <span class="addTaskInputHead">Prio</span>

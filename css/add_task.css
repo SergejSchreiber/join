@@ -102,16 +102,16 @@
 
 .chooseCategory {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
     background-color: white;
     width: 422px;
-    min-height: 51px;
+    max-height: 135px;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     font-weight: 400;
     font-size: 21px;
+    overflow-y: scroll;
 }
 
 .chooseBox {
@@ -198,6 +198,29 @@
     height: 104px;
     gap: 8px;
     margin-bottom: 10px;
+}
+
+.contactContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 21px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.contactContainer input {
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    padding: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0px;
+    margin-right: 0px;
 }
 
 .addTaskFormContentMiddle {

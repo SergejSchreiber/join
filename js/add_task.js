@@ -1,5 +1,5 @@
 // Functions for category selection
-let category = ['Sales', 'Backoffice'];
+let category = ['Sales', 'Backoffice','Design','Marketing','Media'];
 let categoryIndex;
 
 
@@ -95,19 +95,84 @@ function showSelectedCategory(index) {
 function showSelectedCategoryHtml(index) {
     return `
         <div class="selectBox" onclick="showCategory()">   
-            <span>${category[index]}</span>
+            <span id="spanCategory">${category[index]}</span>
             <img src="../assets/img/arrow_down.png">
         </div> 
     `;
 }
-// Functions for assign selection
+// Functions for assign contacts selection
+let contactsSorted = [];
+
+function sortContactsByName(contacts) {
+    contacts.sort(function(a, b) {
+      let nameA = a.name.toLowerCase();
+      let nameB = b.name.toLowerCase();
+  
+      if (nameA < nameB) {
+        return -1; // a kommt vor b
+      }
+      if (nameA > nameB) {
+        return 1; // a kommt nach b
+      }
+      return 0; // Namen sind gleich
+    });
+    contactsSorted = contacts;
+    showContacts(contactsSorted);
+  }
+
+  function showContacts(contactsSorted) {
+    let selectContainer = document.getElementById('selectContact');
+    selectContainer.innerHTML = '';
+    selectContainer.innerHTML += showContactsHtml();
+
+    let chooseContainer = document.getElementById('divShowContact');
+
+    for(let i = 0; i < category.length; i++) {
+        chooseContainer.innerHTML += `
+            <label class="contactContainer">
+                <span class="checkmark">${contactsSorted[i]['name']}</span>
+                <input id="contactCheckbox${i}" type="checkbox">   
+            </label>
+        `;
+    }
+  }
+
+  function showContactsHtml() {
+    return `
+        <div id="chooseContact" class="chooseCategory">
+            <div class="chooseBox" onclick="hideContact()">
+                <span>Select contacts to assign</span>
+                <img src="../assets/img/arrow_down.png">
+            </div>
+            <div id="divShowContact" class="divShowSubtasks"></div>
+        </div>
+    `;
+  }
+
+  function hideContact() {
+    let selectContainer = document.getElementById('selectContact');
+    selectContainer.innerHTML = '';
+    selectContainer.innerHTML += hideContactHtml();
+  }
+
+  function hideContactHtml() {
+    return `
+        <div class="selectBox" onclick="sortContactsByName(contacts)">
+            <span>Select contacts to assign</span>
+            <img src="../assets/img/arrow_down.png">
+        </div>
+    `;
+  }
 
 // Functions for priority selection
 let prioColor = ['#FF3D00','#FFA800','#7AE229'];
 let prioIndex = [0,0,0]
+let priorities = ['high', 'middle', 'low'];
+let selectedUrgency = '';
 
 function selectPrio(index) {
     resetPrio(index);
+    selectedUrgency = priorities[index];
 
     if(prioIndex[index] == 0){
         let element = document.getElementById(`divPrio${index}`);
@@ -126,8 +191,8 @@ function selectPrio(index) {
     }
 }
 
-function resetPrio(index) {
 
+function resetPrio(index) {
     for(let i = 0; i < 3; i++) {
         let element = document.getElementById(`divPrio${i}`);
         let pathIcon1 = document.getElementById(`iconPath${i}`);
@@ -140,7 +205,7 @@ function resetPrio(index) {
 }
 
 // Functions for subtask selection
-let allSubtasks = ['Subtask 1','Subtask 2','Subtask 3'];
+let allSubtasks = ['Subtask 1', 'Subtask 2'];
 
 function addNewSubtask(){
     let newSubtask = document.getElementById('addNewSubtaskInput');
@@ -165,13 +230,15 @@ function renderSubtask() {
 function subtaskHtml(index) {
     return `
         <label class="lableContainer">
-            <input type="checkbox">
+            <input id="subtaskCheckbox${index}" type="checkbox">
             <span class="checkmark">${allSubtasks[index]}</span>
         </label>
     `;
 }
 
 // Functions for clear and create button
+let newTask = [];
+
 function xIconColor(index) {
     let numb = index;
     let pfad = document.getElementById('xIconPath');
@@ -182,6 +249,69 @@ function xIconColor(index) {
         pfad.setAttribute('stroke', '#2A3647'); 
     }
 }
+
+function ceateNewTask() {
+    saveTaskToArray();
+}
+
+function saveTaskToArray() {
+    let nextId = todos.length + 1; 
+    let title = document.getElementById('InputTitle').value;
+    let description = document.getElementById('InputDescription').value;
+    let category = document.getElementById('spanCategory').innerHTML;
+    let assinedContacts = searchAssinedContacts();
+    let choosedDate = document.getElementById('inputDate').value;
+    let prio = selectedUrgency;
+    let assinedSubtasks = searchAssinedSubtask();
+    
+    newTask.push(
+        {
+            'id': nextId,
+            'progress': 'inprogress',
+            'category': category,
+            'title': title,
+            'description': description,
+            'progress-number': [],
+            'participants': assinedContacts,
+            'urgency': [
+                prio,
+                '../assets/img/urgent_icon.png'
+            ],
+            'dueDate': choosedDate
+        }
+    ); 
+}
+
+function searchAssinedContacts() {
+    let choosedContacts = [];
+
+    for(let i = 0; i < contactsSorted.length; i++) {
+        let currentCheckbox = document.getElementById(`contactCheckbox${i}`);
+        
+        if(currentCheckbox.checked){
+            choosedContacts.push(contactsSorted[i]['name']);
+        }
+    }
+
+    return choosedContacts; 
+}
+
+function searchAssinedSubtask() {
+        let choosedSubtasks = [];
+
+    for(let i = 0; i < allSubtasks.length; i++) {
+        let currentCheckbox = document.getElementById(`subtaskCheckbox${i}`);
+        
+        if(currentCheckbox.checked){
+            choosedSubtasks.push(allSubtasks[i]);
+        }
+    }
+
+    return choosedSubtasks; 
+}  
+
+
+
 
 
 
