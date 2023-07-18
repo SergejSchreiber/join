@@ -62,8 +62,20 @@ function addContact() {
             'mail': document.getElementById('input-email').value,
             'telefonnummer': document.getElementById('input-phone').value
         });
+        distributeContactId();
         renderContacts();
-        showContactDetails(id);
+        showContactDetails(contacts.length - 1);
         removeSlide();
+    }
+}
+
+function showAddTaskSlide() {
+    document.getElementById('slide-contact-container').innerHTML += getTaskSlide();
+}
+
+function distributeContactId() {
+    for (let i = 0; i < contacts.length; i++) {
+        contacts[i]['contactId'] = i;
+        console.log('does it work?');
     }
 }
