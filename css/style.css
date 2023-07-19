@@ -8,7 +8,7 @@ body {
   background-color: #f6f7f8;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   body {
     margin-left: 0;
   }

@@ -9,7 +9,7 @@
   font-size: 16px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .side-bar {
   height: 8vh;
   bottom: 0;
@@ -23,7 +23,7 @@
   margin: 66px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .join-logo {
     display: none;
   }
@@ -37,7 +37,7 @@
   padding-left: 50px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .side-menu {
     flex-direction: column;
     padding: 0;
@@ -57,7 +57,7 @@
   padding: 12px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .side-menu img {
     padding: 3px;
   }
@@ -73,7 +73,7 @@
   bottom: 120px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .legal-notice {
     display: none;
   }
@@ -92,7 +92,7 @@
   font-size: 21px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .top-bar {
     margin-left: 0;
     left: 0;
@@ -106,7 +106,7 @@
   display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .join-logo-mobile {
     display: block;
   }
@@ -127,7 +127,7 @@
   gap: 26px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .top-bar-icons {
     display: none;
   }
@@ -141,7 +141,7 @@
   gap: 26px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 700px) {
   .top-bar-icons-mobile {
     display: none;
   }
@@ -183,7 +183,7 @@
   visibility: hidden;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .btn-logout {
     height: 120px;
     display: flex;
