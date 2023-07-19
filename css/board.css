@@ -159,6 +159,11 @@ form button img {
     cursor: pointer;
 }
 
+.task-body {
+    width: 100%;
+    height: 100%;
+}
+
 .task-container-name {
     height: 25px;
     font-size: 21px;

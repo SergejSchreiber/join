@@ -91,6 +91,8 @@ let todos = [{
     'dueDate': '05-08-2022'
 }];
 
+let currentDraggedElement;
+
 render();
 
 function render() {
@@ -99,4 +101,25 @@ function render() {
         addTodo.innerHTML += createTaskContainer(todos[i]['id'], todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
         giveCategoryBackgroundColor(i);
     }
+}
+
+function removeTaskHTML() {
+    document.getElementById('todo').innerHTML = '';
+    document.getElementById('inprogress').innerHTML = '';
+    document.getElementById('awaitingfeedback').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
+}
+
+function startDraggin(id) {
+    currentDraggedElement = id;
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(progress) {
+    todos[currentDraggedElement]['progress'] = progress;
+    removeTaskHTML();
+    render();
 }

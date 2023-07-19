@@ -45,28 +45,28 @@
                 <div class="task-container-name">To do</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
-            <div id="todo" class="task-body"></div>
+            <div id="todo" class="task-body" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">In progress</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
-            <div id="inprogress" class="task-body"></div>
+            <div id="inprogress" class="task-body" ondrop="moveTo('inprogress')" ondragover="allowDrop(event)"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Awaiting Feedback</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
-            <div id="awaitingfeedback" class="task-body"></div>
+            <div id="awaitingfeedback" class="task-body" ondrop="moveTo('awaitingfeedback')" ondragover="allowDrop(event)"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Done</div>
                 <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
-            <div id="done" class="task-body"></div>
+            <div id="done" class="task-body" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
         </div>
     </div>
 
