@@ -123,3 +123,11 @@ function moveTo(progress) {
     removeTaskHTML();
     render();
 }
+
+function showAddTaskSlideForBoardHTML() {
+    document.getElementById('task-container').innerHTML += getTaskSlide();
+}
+
+function removeAddTaskSlide() {
+    document.getElementById('slide-contact').remove();
+}

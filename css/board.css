@@ -3,8 +3,6 @@
 }
 
 h1 {
-    width: 176px;
-    height: 73px;
     font-weight: 700;
     font-size: 61px;
 }
@@ -47,7 +45,7 @@ h1 {
     align-items: center;
 }
 
-form {
+.search-bar-and-button {
     position: relative;
     display: flex;
     height: 55px;
@@ -55,7 +53,7 @@ form {
     gap: 35px;
 }
 
-form .search-bar {
+.search-bar-and-button .search-bar {
     height: 55px;
     width: 423px;
 }
@@ -70,7 +68,7 @@ form .search-bar {
     background-color: white;
 }
 
-form button {
+.search-bar-and-button button {
     color: white;
     width: 137px;
     height: 55px;
@@ -86,12 +84,12 @@ form button {
     cursor: pointer;
 }
 
-form button div {
+.search-bar-and-button button div {
     width: 92px;
     height: 25px;
 }
 
-form button img {
+.search-bar-and-button button img {
     filter: invert(100%);
     width: 20px;
     height: 20px;
@@ -304,4 +302,39 @@ form button img {
     font-weight: 400;
     font-size: 12px;
     margin-left: -6px;
+}
+
+/* Slide addTask */
+#slide-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #2A3647;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.addTaskForm {
+    background-color: white;
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.content-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+input {
+    outline: none;
+}
+
+textarea {
+    outline: none;
 }

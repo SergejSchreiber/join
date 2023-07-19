@@ -15,6 +15,9 @@
     <script src="../js/desktop-template.js"></script>
     <script src="../js/board-template.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/add_task.js"></script>
+    <script src="../js/contact-template.js" defer></script>
+    <link rel="stylesheet" href="../css/add_task.css">
 
 </head>
 
@@ -25,46 +28,46 @@
         <div class="header">
             <h1>Board</h1>
 
-            <form action="">
+            <div class="search-bar-and-button">
                 <div class="search-bar">
                     <input type="text" placeholder="Find task">
                     <span class="vertical-line"></span>
                     <div class="search-icon"><img src="../assets/img/Vector.png" alt=""></div>
                 </div>
-                <button id="add-task-btn">
+                <button id="add-task-btn" onclick="showAddTaskSlideForBoardHTML()">
                     <div>Add task</div>
                     <img src="../assets/img/plus_icon.png" alt="">
                 </button>
-            </form>
+            </div>
         </div>
     </div>
         
-    <div class="task-container">
+    <div id="task-container" class="task-container">
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">To do</div>
-                <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="todo" class="task-body" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">In progress</div>
-                <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="inprogress" class="task-body" ondrop="moveTo('inprogress')" ondragover="allowDrop(event)"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Awaiting Feedback</div>
-                <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="awaitingfeedback" class="task-body" ondrop="moveTo('awaitingfeedback')" ondragover="allowDrop(event)"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Done</div>
-                <div class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="done" class="task-body" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
         </div>
