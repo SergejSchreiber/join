@@ -65,6 +65,7 @@ function addContact() {
         distributeContactId();
         renderContacts();
         showContactDetails(contacts.length - 1);
+        setContactsWithUserId();
         removeSlide();
     }
 }

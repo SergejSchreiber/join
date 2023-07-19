@@ -42,7 +42,11 @@ let contacts = [
     }
 ];
 
-renderContacts();
+loadCurrentUser().then(() => {
+    loadContactsWithUserId().then(() => {
+        renderContacts();
+        });
+    });
 
 function renderContacts() {
     console.log('wtf');

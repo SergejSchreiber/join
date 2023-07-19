@@ -214,6 +214,19 @@ async function loadTodosWithUserId() {
   try {
     todos = JSON.parse(await getItem(`todos_${currentUser}`));
   } catch (e) {
-    todos = [];
+  }
+}
+
+async function setContactsWithUserId() {
+  if (currentUser) {
+  await setItem(`contacts_${currentUser}`, JSON.stringify(contacts));
+}
+loadContactsWithUserId();
+}
+
+async function loadContactsWithUserId() {
+  try {
+    contacts = JSON.parse(await getItem(`contacts_${currentUser}`));
+  } catch (e) {    
   }
 }
