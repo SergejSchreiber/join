@@ -9,7 +9,7 @@ const colorCategory = {
 function createTaskContainer(id, category, title, description, progressBar, participants, urgency) {
     if(progressBar.length < 1) {
         return `
-            <div id="task-container-${id}" class="single-task-body">
+            <div draggable="true" id="task-container-${id}" class="single-task-body">
                 <div id="category-${id}" class="category">${category}</div>
                 <div class="name-task">${title}</div>
                 <div class="task-description">${description}</div>
@@ -22,7 +22,7 @@ function createTaskContainer(id, category, title, description, progressBar, part
         `;
     }
     return `
-        <div class="single-task-body">
+        <div draggable="true" class="single-task-body">
             <div id="category-${id}" class="category">${category}</div>
             <div class="name-task">${title}</div>
             <div class="task-description">${description}</div>

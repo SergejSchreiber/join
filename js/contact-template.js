@@ -45,7 +45,6 @@ let contacts = [
 renderContacts();
 
 function renderContacts() {
-    console.log('wtf');
     let namesArr = getSortedNamesArray();
     let letterArr = [];
     let contactList = document.getElementById('contact-list');
@@ -201,6 +200,9 @@ function getTaskSlide() {
     return `
         <div id="slide-contact">
             <form class="addTaskForm">
+                <div class="content-div">
+                    <h1 class="addTaskHeader">Add Task</h1>
+                </div>
                 <div class="addTaskFormContent">
                     <div class="addTaskFormContentLeft">
                         <div class="addTaskDivTitle">

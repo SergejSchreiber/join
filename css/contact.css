@@ -6,6 +6,14 @@ body {
     height: 100vh;
 }
 
+input {
+    outline: none;
+}
+
+textarea {
+    outline: none;
+}
+
 .contact-container {
     display: flex;
     height: calc(100% - 89px);
@@ -509,5 +517,11 @@ body {
 .addTaskForm {
     background-color: white;
     border-radius: 30px;
-    padding: 30px;
+    padding: 50px;
+}
+
+.content-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
 }
