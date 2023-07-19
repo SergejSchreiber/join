@@ -77,6 +77,11 @@ function showAddTaskSlide() {
 function distributeContactId() {
     for (let i = 0; i < contacts.length; i++) {
         contacts[i]['contactId'] = i;
-        console.log('does it work?');
     }
 }
+
+/* Fragen für den Call:
+- Init-Funtion bei board.js anpassen
+- sollte ein form-tag für alle button-Funktionen bereit stehen
+- Können die dummy Arrays in die template.js
+ */
