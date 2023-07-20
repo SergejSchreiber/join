@@ -131,3 +131,11 @@ function showAddTaskSlideForBoardHTML() {
 function removeAddTaskSlide() {
     document.getElementById('slide-contact').remove();
 }
+
+function highlight(progress) {
+    document.getElementById(progress).classList.add('highlight-drag-area')
+}
+
+function removeHighlight(progress) {
+    document.getElementById(progress).classList.remove('highlight-drag-area')
+}

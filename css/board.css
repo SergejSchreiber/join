@@ -11,6 +11,14 @@ h1 {
     display: none;
 }
 
+input {
+    outline: none;
+}
+
+textarea {
+    outline: none;
+}
+
 #add-task-btn {
     border: 0px;
     transition: 0.2s;
@@ -331,10 +339,6 @@ h1 {
     margin-bottom: 40px;
 }
 
-input {
-    outline: none;
-}
-
-textarea {
-    outline: none;
+.highlight-drag-area {
+    background-color: gray;
 }
