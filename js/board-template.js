@@ -6,6 +6,16 @@ const colorCategory = {
     'Media': '#FFC701'
 };
 
+const COLOR_PARICIPANTS = [
+    '#9327FF',
+    '#FFA800',
+    '#0223CF',
+    '#CB02CF',
+    '#4E963D',
+    '#32DAFF',
+    '#007CEE'
+]
+
 function createTaskContainer(id, category, title, description, progressBar, participants, urgency) {
     if(progressBar.length < 1) {
         return `
@@ -92,13 +102,12 @@ function getTaskDetails(id) {
 
 function getParticipantsForTaskDetails(id) {
     let strin = '';
-    console.log(todos[id]['participants']);
     for (let i = 0; i < todos[id]['participants'].length; i++) {
         strin += `
-            <div>
-                <div>${getInitials(todos[id]['participants'][i])}</div>
-                <div>${todos[id]['participants'][i]}</div>
-            </div>`;
+            <div class="task-detail-participants-body">
+                <div id="participant-${id}" class="task-detail-participants-left">${todos[id]['participants'][i]}</div>
+                <div class="task-detail-participants-right">${todos[id]['participants'][i]}</div>
+            </div>`;    
     }
     return strin;
 }

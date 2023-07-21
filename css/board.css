@@ -423,3 +423,15 @@ textarea {
     font-size: 21px;
     margin-bottom: 15px;
 }
+
+.task-detail-participants-body {
+    display: flex;
+    align-items: center;
+}
+
+.task-detail-participants-left {
+    width: 45px;
+    height: 45px;
+    border-radius: 58px;
+    padding: 10px 8px 10px 8px;
+}
