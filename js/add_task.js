@@ -251,7 +251,9 @@ function xIconColor(index) {
 }
 
 function ceateNewTask() {
+    newTask = [];
     saveTaskToArray();
+    pushNewTasktoTodos();
 }
 
 function saveTaskToArray() {
@@ -284,16 +286,17 @@ function saveTaskToArray() {
 
 function searchAssinedContacts() {
     let choosedContacts = [];
+    let contactsCheckboxCount = contactsSorted.length;
 
-    for(let i = 0; i < contactsSorted.length; i++) {
-        let currentCheckbox = document.getElementById(`contactCheckbox${i}`);
-        
-        if(currentCheckbox.checked){
+    for (let i = 0; i < contactsCheckboxCount; i++) {
+        let checkbox = document.getElementById(`contactCheckbox${i}`);
+
+        if (checkbox && checkbox.checked) {
             choosedContacts.push(contactsSorted[i]['name']);
         }
     }
 
-    return choosedContacts; 
+    return choosedContacts;
 }
 
 function searchAssinedSubtask() {
@@ -308,7 +311,26 @@ function searchAssinedSubtask() {
     }
 
     return choosedSubtasks; 
-}  
+}
+
+function pushNewTasktoTodos() {
+    todos.push(newTask[0]);
+    setTodosWithUserId();
+}
+
+async function setTodosWithUserId() {
+    if (currentUser) {
+    await setItem(`todos_${currentUser}`, JSON.stringify(todos));
+  }
+  loadTodosWithUserId();
+  }
+  
+  async function loadTodosWithUserId() {
+    try {
+      todos = JSON.parse(await getItem(`todos_${currentUser}`));
+    } catch (e) {
+    }
+  }
 
 
 
