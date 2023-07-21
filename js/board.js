@@ -9,9 +9,9 @@ let todos = [{
         2
     ],
     'participants': [
-        'SM',
-        'MV',
-        'EF'
+        'Santa Maria',
+        'Marcel Viess',
+        'Emmanuel Fahrenheit'
     ],
     'urgency': [
         'low',
@@ -26,10 +26,10 @@ let todos = [{
     'description': 'Make the product presentation to prospective buyers',
     'progress-number': [],
     'participants': [
-        'AS',
-        'DE',
-        'AA',
-        'KA'
+        'Anja Schulz',
+        'David Eisenberg',
+        'Anton Artanlar',
+        'Kevin Aamaa'
     ],
     'urgency': [
         'high',
@@ -44,11 +44,11 @@ let todos = [{
     'description': 'Write open invoices for customer',
     'progress-number': [],
     'participants': [
-        'MB',
-        'AM',
-        'AA',
-        'KA',
-        'SK'
+        'Marcel Bauer',
+        'Anton Mayer',
+        'Anton Artanlar',
+        'Kevin Aamaa',
+        'Sven Karate'
     ],
     'urgency': [
         'normal',
@@ -63,7 +63,7 @@ let todos = [{
     'description': 'Edit the new company video',
     'progress-number': [],
     'participants': [
-        'HK'
+        'Hans Kohl'
     ],
     'urgency': [
         'normal',
@@ -81,8 +81,8 @@ let todos = [{
         3
     ],
     'participants': [
-        'BZ',
-        'RS'
+        'Bendikt Ziegler',
+        'Ralph Sauron'
     ],
     'urgency': [
         'low',
@@ -138,4 +138,19 @@ function highlight(progress) {
 
 function removeHighlight(progress) {
     document.getElementById(progress).classList.remove('highlight-drag-area')
+}
+
+function showTaskedInDetail(id) {
+    document.getElementById('task-container').innerHTML += getTaskDetails(id);
+}
+
+function giveCategoryBackgroundColor(id) {
+    let colorBackground = document.getElementById('category-' + id);
+    colorBackground.style = `background-color: ${colorCategory[todos[id]['category']]}`;
+}
+
+function getInitials(fullName) {
+    let firstInitial = fullName[0];
+    let secondInitial = fullName.split(' ')[1][0];
+    return firstInitial + secondInitial;
 }

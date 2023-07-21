@@ -342,3 +342,84 @@ textarea {
 .highlight-drag-area {
     background-color: gray;
 }
+
+/* The task details are here designed */
+.task-details {
+    background-color: white;
+    width: 600px;
+    height: 600px;
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.task-detail-x-icon {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.task-detail-category {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 4px 37px 4px 37px;
+    color: white;
+    font-size: 27px;
+}
+
+.task-detail-title {
+    font-weight: 700;
+    font-size: 61px;
+    color: #2A3647;
+    margin-bottom: 10px;
+}
+
+.task-detail-description {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.task-detail-dueDate {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.task-detail-dueDate-left {
+    font-weight: 700;
+    font-size: 21px;
+    margin-right: 25px;
+}
+
+.task-detail-dueDate-right {
+    font-size: 20px;
+} 
+
+.task-detail-urgency {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.task-detail-urgency-left {
+    font-weight: 700;
+    font-size: 21px;
+    margin-right: 25px;
+}
+
+.task-detail-urgency-right {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 21px;
+    margin-right: 25px;
+    width: 131px;
+    border-radius: 10px;
+    padding: 4px 18px 4px 18px;
+    color: white;
+}
+
+.task-detail-participants-header {
+    font-weight: 700;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
