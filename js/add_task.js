@@ -250,7 +250,7 @@ function xIconColor(index) {
     }
 }
 
-function ceateNewTask() {
+function createNewTask() {
     newTask = [];
     saveTaskToArray();
     pushNewTasktoTodos();
