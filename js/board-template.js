@@ -6,7 +6,7 @@ const colorCategory = {
     'Media': '#FFC701'
 };
 
-const COLOR_PARICIPANTS = [
+const COLOR_PARTICIPANTS = [
     '#9327FF',
     '#FFA800',
     '#0223CF',
@@ -14,7 +14,7 @@ const COLOR_PARICIPANTS = [
     '#4E963D',
     '#32DAFF',
     '#007CEE'
-]
+];
 
 function createTaskContainer(id, category, title, description, progressBar, participants, urgency) {
     if(progressBar.length < 1) {
