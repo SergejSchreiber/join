@@ -414,3 +414,37 @@
     width: 24px;
     height: 24px; 
 }
+
+.savedNotificationDiv {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.savedNotification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 55px;
+    color: #D1D1D1;
+    background-color: rgba(42, 54, 71, 1);
+    font-weight: 700;
+    font-size: 21px;
+    border-radius: 10px;
+    border: 1px solid rgba(42, 54, 71, 1);
+    gap: 10px; 
+    margin-bottom: 200px;
+}
+
+.d-none {
+    display: none;
+}

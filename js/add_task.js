@@ -1,3 +1,8 @@
+function renderContent() {
+    loadTodosWithUserId();
+    renderSubtask();
+}
+
 // Functions for category selection
 let category = ['Sales', 'Backoffice','Design','Marketing','Media'];
 let categoryIndex;
@@ -167,12 +172,15 @@ function sortContactsByName(contacts) {
 // Functions for priority selection
 let prioColor = ['#FF3D00','#FFA800','#7AE229'];
 let prioIndex = [0,0,0]
-let priorities = ['high', 'middle', 'low'];
+let priorities = ['high', 'normal', 'low'];
+let priorities2 = ['urgent', 'medium', 'low'];
+let urgencyIcon = '';
 let selectedUrgency = '';
 
 function selectPrio(index) {
     resetPrio(index);
     selectedUrgency = priorities[index];
+    urgencyIcon = priorities2[index];
 
     if(prioIndex[index] == 0){
         let element = document.getElementById(`divPrio${index}`);
@@ -238,6 +246,7 @@ function subtaskHtml(index) {
 
 // Functions for clear and create button
 let newTask = [];
+const verzögerung = 3000;
 
 function xIconColor(index) {
     let numb = index;
@@ -253,7 +262,17 @@ function xIconColor(index) {
 function createNewTask() {
     newTask = [];
     saveTaskToArray();
-    pushNewTasktoTodos();
+    pushNewTaskToTodos();
+    showSavedNotification();
+    setTimeout(redirectToBoard, verzögerung);
+}
+
+function showSavedNotification() {
+    document.getElementById('savedNotificationDiv').classList.remove('d-none');
+}
+
+function redirectToBoard() {
+    window.location.href = '../html/board.html'
 }
 
 function saveTaskToArray() {
@@ -264,6 +283,7 @@ function saveTaskToArray() {
     let assinedContacts = searchAssinedContacts();
     let choosedDate = document.getElementById('inputDate').value;
     let prio = selectedUrgency;
+    let prioIcon = `../assets/img/${urgencyIcon}_icon.png`
     let assinedSubtasks = searchAssinedSubtask();
     
     newTask.push(
@@ -277,7 +297,7 @@ function saveTaskToArray() {
             'participants': assinedContacts,
             'urgency': [
                 prio,
-                '../assets/img/urgent_icon.png'
+                prioIcon
             ],
             'dueDate': choosedDate
         }
@@ -313,24 +333,24 @@ function searchAssinedSubtask() {
     return choosedSubtasks; 
 }
 
-function pushNewTasktoTodos() {
+function pushNewTaskToTodos() {
     todos.push(newTask[0]);
     setTodosWithUserId();
 }
 
 async function setTodosWithUserId() {
     if (currentUser) {
-    await setItem(`todos_${currentUser}`, JSON.stringify(todos));
-  }
-  loadTodosWithUserId();
-  }
+        await setItem(`todos_${currentUser}`, JSON.stringify(todos));
+    }
+    loadTodosWithUserId();
+}
   
-  async function loadTodosWithUserId() {
+async function loadTodosWithUserId() {
     try {
       todos = JSON.parse(await getItem(`todos_${currentUser}`));
     } catch (e) {
     }
-  }
+}
 
 
 
