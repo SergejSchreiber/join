@@ -1,0 +1,49 @@
+.helpContentDiv {
+    margin-left: 116px;
+    max-width: 1014px;
+}
+
+.helpDiv {
+    display: flex;
+    align-items: center;
+    font-size: 61px;
+    font-weight: 700;
+    margin-top: 100px;
+}
+
+.subHeader {
+    font-size: 27px;
+    font-weight: 700;
+    margin-top: 45px;
+}
+
+.subHeader2 {
+    font-size: 27px;
+    font-weight: 700;
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.descriptionText {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.manualStep {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.number {
+    display: flex;
+    align-items: center;
+    font-size: 27px;
+    font-weight: 700;
+    margin-right: 35px;
+}
+
+.manualtext {
+    font-size: 16px;
+    font-weight: 400;
+}
