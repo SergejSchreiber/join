@@ -87,6 +87,11 @@ input {
   cursor: pointer;
 }
 
+.legalNoticeDiv {
+  margin-left: 116px;
+  max-width: 1016px;
+}
+
 @media (max-width: 500px) {
   input {
     width: 100%;
