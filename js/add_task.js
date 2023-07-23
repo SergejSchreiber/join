@@ -1,5 +1,4 @@
 function renderContent() {
-    loadTodosWithUserId();
     renderSubtask();
 }
 
@@ -232,7 +231,7 @@ function renderSubtask() {
 
     for(let i = 0; i < allSubtasks.length; i++){
         subDiv.innerHTML += subtaskHtml(i); 
-    }   
+    }  
 }
 
 function subtaskHtml(index) {
