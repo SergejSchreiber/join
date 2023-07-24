@@ -57,7 +57,6 @@ function giveCategoryBackgroundColor(id) {
 }
 
 function getInitials(fullName) {
-    console.log(fullName);
     let firstInitial = fullName[0];
     let secondInitial = fullName.split(' ')[1][0];
     return firstInitial + secondInitial;
@@ -70,7 +69,7 @@ function filterTasks() { // search function
         let task = todos[i];
         if (task['title'].toLowerCase().includes(search)) {
             let addTodo = document.getElementById(todos[i]['progress']);
-            addTodo.innerHTML += createTaskContainer(todos[i]['id'], todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
+            addTodo.innerHTML += createTaskContainer(i);
             giveCategoryBackgroundColor(i);
         }
     }
