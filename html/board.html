@@ -17,7 +17,6 @@
     <script src="../js/board-template.js"></script>
     <script src="../js/login.js"></script>
     <script src="../js/add_task.js"></script>
-    <script src="../js/contact-template.js" defer></script>
 
 </head>
 
@@ -30,7 +29,7 @@
 
             <div class="search-bar-and-button">
                 <div class="search-bar">
-                    <input type="text" placeholder="Find task">
+                    <input id="search-task" type="text" onkeyup="filterTasks()" placeholder="Find task">
                     <span class="vertical-line"></span>
                     <div class="search-icon"><img src="../assets/img/Vector.png" alt=""></div>
                 </div>

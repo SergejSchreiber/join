@@ -5,7 +5,7 @@ render();
 function render() {
     for (let i = 0; i < todos.length; i++) {
         let addTodo = document.getElementById(todos[i]['progress']);
-        addTodo.innerHTML += createTaskContainer(todos[i]['id'], todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
+        addTodo.innerHTML += createTaskContainer(i);
         giveCategoryBackgroundColor(i);
     }
 }
@@ -57,7 +57,28 @@ function giveCategoryBackgroundColor(id) {
 }
 
 function getInitials(fullName) {
+    console.log(fullName);
     let firstInitial = fullName[0];
     let secondInitial = fullName.split(' ')[1][0];
     return firstInitial + secondInitial;
+}
+
+function filterTasks() { // search function
+    let search = document.getElementById('search-task').value.toLowerCase();
+    removeTasksFromContainer();
+    for (let i = 0; i < todos.length; i++) {
+        let task = todos[i];
+        if (task['title'].toLowerCase().includes(search)) {
+            let addTodo = document.getElementById(todos[i]['progress']);
+            addTodo.innerHTML += createTaskContainer(todos[i]['id'], todos[i]['category'], todos[i]['title'], todos[i]['description'], todos[i]['progress-number'], todos[i]['participants'], todos[i]['urgency']);
+            giveCategoryBackgroundColor(i);
+        }
+    }
+}
+
+function removeTasksFromContainer() {
+    document.getElementById('todo').innerHTML = '';
+    document.getElementById('inprogress').innerHTML = '';
+    document.getElementById('awaitingfeedback').innerHTML = '';
+    document.getElementById('done').innerHTML = '';
 }
