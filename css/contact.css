@@ -106,6 +106,7 @@ textarea {
     width: 100%;
     padding: 82px 58px;
     position: relative;
+    z-index: -1;
 }
 
 .contact-display-header {
