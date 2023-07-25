@@ -10,6 +10,11 @@ function render() {
     }
 }
 
+function giveCategoryBackgroundColor(id) {
+    let colorBackground = document.getElementById('category-' + id);
+    colorBackground.style = `background-color: ${COLOR_FOR_CATEGORY[id]}`;
+}
+
 function removeTaskHTML() {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inprogress').innerHTML = '';
@@ -17,6 +22,7 @@ function removeTaskHTML() {
     document.getElementById('done').innerHTML = '';
 }
 
+// Dragging function
 function startDraggin(id) {
     currentDraggedElement = id;
 }
@@ -31,6 +37,14 @@ function moveTo(progress) {
     render();
 }
 
+function highlight(progress) {
+    document.getElementById(progress).classList.add('highlight-drag-area');
+}
+
+function removeHighlight(progress) {
+    document.getElementById(progress).classList.remove('highlight-drag-area');
+}
+
 function showAddTaskSlideForBoardHTML() {
     document.getElementById('task-container').innerHTML += getTaskSlide();
 }
@@ -39,27 +53,8 @@ function removeAddTaskSlide() {
     document.getElementById('slide-contact').remove();
 }
 
-function highlight(progress) {
-    document.getElementById(progress).classList.add('highlight-drag-area')
-}
-
-function removeHighlight(progress) {
-    document.getElementById(progress).classList.remove('highlight-drag-area')
-}
-
 function showTaskedInDetail(id) {
     document.getElementById('task-container').innerHTML += getTaskDetails(id);
-}
-
-function giveCategoryBackgroundColor(id) {
-    let colorBackground = document.getElementById('category-' + id);
-    colorBackground.style = `background-color: ${colorCategory[todos[id]['category']]}`;
-}
-
-function getInitials(fullName) {
-    let firstInitial = fullName[0];
-    let secondInitial = fullName.split(' ')[1][0];
-    return firstInitial + secondInitial;
 }
 
 function filterTasks() { // search function
@@ -73,6 +68,9 @@ function filterTasks() { // search function
             giveCategoryBackgroundColor(i);
         }
     }
+    if(!search) {
+        render();
+    }
 }
 
 function removeTasksFromContainer() {
@@ -80,4 +78,11 @@ function removeTasksFromContainer() {
     document.getElementById('inprogress').innerHTML = '';
     document.getElementById('awaitingfeedback').innerHTML = '';
     document.getElementById('done').innerHTML = '';
+}
+
+function getInitials(fullName) {
+    let firstInitial = fullName[0];
+    let secondInitial = fullName.split(' ')[1][0];
+    console.log(fullName);
+    return firstInitial + secondInitial;
 }

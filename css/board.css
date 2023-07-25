@@ -154,7 +154,8 @@ textarea {
     height: 661px;
     display: flex;
     flex-direction: column;
-    margin-right: 26px;
+    padding-right: 13px;
+    padding-left: 13px;
 }
 
 .task-header {

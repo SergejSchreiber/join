@@ -6,6 +6,18 @@ const colorCategory = {
     'Media': '#FFC701'
 };
 
+const COLOR_FOR_CATEGORY = [
+    '#FF7A00',
+    '#FC71FF',
+    '#1FD7C1',
+    '#0038FF',
+    '#FFC701',
+    '#9327FF',
+    '#CB02CF',
+    '#4E963D',
+    '#32DAFF'
+];
+
 const COLOR_PARTICIPANTS = [
     '#9327FF',
     '#FFA800',
