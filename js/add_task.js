@@ -1,5 +1,9 @@
 function renderContent() {
-    renderSubtask();
+    loadCurrentUser().then(() => {
+        loadTodosWithUserId().then(() => {
+            renderSubtask();
+        });
+      });    
 }
 
 // Functions for category selection
