@@ -3,11 +3,15 @@ let currentDraggedElement;
 render();
 
 function render() {
-    for (let i = 0; i < todos.length; i++) {
-        let addTodo = document.getElementById(todos[i]['progress']);
+  loadCurrentUser().then(() => {
+    loadTodosWithUserId().then(() => {
+      for (let i = 0; i < todos.length; i++) {
+        let addTodo = document.getElementById(todos[i]["progress"]);
         addTodo.innerHTML += createTaskContainer(i);
         giveCategoryBackgroundColor(i);
-    }
+      }
+    });
+  });
 }
 
 function giveCategoryBackgroundColor(id) {
@@ -16,25 +20,25 @@ function giveCategoryBackgroundColor(id) {
 }
 
 function removeTaskHTML() {
-    document.getElementById('todo').innerHTML = '';
-    document.getElementById('inprogress').innerHTML = '';
-    document.getElementById('awaitingfeedback').innerHTML = '';
-    document.getElementById('done').innerHTML = '';
+  document.getElementById("todo").innerHTML = "";
+  document.getElementById("inprogress").innerHTML = "";
+  document.getElementById("awaitingfeedback").innerHTML = "";
+  document.getElementById("done").innerHTML = "";
 }
 
 // Dragging function
 function startDraggin(id) {
-    currentDraggedElement = id;
+  currentDraggedElement = id;
 }
 
 function allowDrop(ev) {
-    ev.preventDefault();
+  ev.preventDefault();
 }
 
 function moveTo(progress) {
-    todos[currentDraggedElement]['progress'] = progress;
-    removeTaskHTML();
-    render();
+  todos[currentDraggedElement]["progress"] = progress;
+  removeTaskHTML();
+  render();
 }
 
 function highlight(progress) {
@@ -46,15 +50,15 @@ function removeHighlight(progress) {
 }
 
 function showAddTaskSlideForBoardHTML() {
-    document.getElementById('task-container').innerHTML += getTaskSlide();
+  document.getElementById("task-container").innerHTML += getTaskSlide();
 }
 
 function removeAddTaskSlide() {
-    document.getElementById('slide-contact').remove();
+  document.getElementById("slide-contact").remove();
 }
 
 function showTaskedInDetail(id) {
-    document.getElementById('task-container').innerHTML += getTaskDetails(id);
+  document.getElementById("task-container").innerHTML += getTaskDetails(id);
 }
 
 function filterTasks() { // search function
