@@ -1,5 +1,6 @@
 loadCurrentUser().then(() => {
     loadContactsWithUserId().then(() => {
+        loadTodosWithUserId();
         renderContacts();
         });
     });
