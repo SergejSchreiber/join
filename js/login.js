@@ -108,7 +108,6 @@ let currentUser = null;
 function init() {
   loadUsers();
   loadCurrentUser();
-  loadTodosWithUserId();
   loadUserLocalStorage();
 }
 
@@ -161,8 +160,7 @@ async function deleteUser(index) {
 
 // functions to login and load user from local Storage
 function guestLogin() {
-
-  window.location.replace("./summary.html?msg=User gefunden");
+  window.location.replace("./summary.html?msg=GuestAccount");
 }
 
 async function login() {
@@ -200,34 +198,5 @@ function loadUserLocalStorage() {
     email.value = localStorage.getItem("email");
     password.value = localStorage.getItem("password");
     checkbox.checked = true;
-  }
-}
-
-
-async function setTodosWithUserId() {
-  if (currentUser) {
-  await setItem(`todos_${currentUser}`, JSON.stringify(todos));
-}
-loadTodosWithUserId();
-}
-
-async function loadTodosWithUserId() {
-  try {
-    todos = JSON.parse(await getItem(`todos_${currentUser}`));
-  } catch (e) {
-  }
-}
-
-async function setContactsWithUserId() {
-  if (currentUser) {
-  await setItem(`contacts_${currentUser}`, JSON.stringify(contacts));
-}
-loadContactsWithUserId();
-}
-
-async function loadContactsWithUserId() {
-  try {
-    contacts = JSON.parse(await getItem(`contacts_${currentUser}`));
-  } catch (e) {    
   }
 }

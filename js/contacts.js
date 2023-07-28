@@ -80,8 +80,21 @@ function distributeContactId() {
     }
 }
 
-/* Fragen für den Call:
-- Init-Funtion bei board.js anpassen
-- sollte ein form-tag für alle button-Funktionen bereit stehen
-- Können die dummy Arrays in die template.js
- */
+async function setContactsWithUserId() {
+    if (currentUser) {
+    await setItem(`contacts_${currentUser}`, JSON.stringify(contacts));
+  } else {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }
+  loadContactsWithUserId();
+  }
+  
+  async function loadContactsWithUserId() {
+    if (currentUser) {
+      contacts = JSON.parse(await getItem(`contacts_${currentUser}`));
+    } else {    
+      if (JSON.parse(localStorage.getItem("contacts"))) {
+        contacts = JSON.parse(localStorage.getItem("contacts"));
+        }
+    }
+  }

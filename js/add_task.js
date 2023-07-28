@@ -344,14 +344,19 @@ function pushNewTaskToTodos() {
 async function setTodosWithUserId() {
     if (currentUser) {
         await setItem(`todos_${currentUser}`, JSON.stringify(todos));
-    }
+    } else {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }    
     loadTodosWithUserId();
 }
-  
+
 async function loadTodosWithUserId() {
-    try {
+    if (currentUser) {
       todos = JSON.parse(await getItem(`todos_${currentUser}`));
-    } catch (e) {
+    } else {
+        if (JSON.parse(localStorage.getItem("todos"))) {
+        todos = JSON.parse(localStorage.getItem("todos"));
+        }
     }
 }
 
