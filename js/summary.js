@@ -12,6 +12,7 @@ function initSummary() {
 function findEarliestDueDate() {
   let timeElement = document.getElementById("summary-due-date-time");
   const now = new Date();
+  now.setDate(now.getDate() -1);
   const nextDueItem = todos.reduce((next, item) => {
     const dueDate = new Date(item.dueDate);
     return !next || (dueDate > now && dueDate < next.dueDate) ? { ...item, dueDate } : next;

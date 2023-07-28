@@ -60,7 +60,7 @@
   align-items: center;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .main-container {
     justify-content: center;
     margin-left: 0;
@@ -71,11 +71,27 @@
   width: 580px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 1000px) {
+  .summary-container {
+    scale: 0.9;
+    margin-left: -60px;
+  }
+}
+
+@media (max-width: 900px) {
   .summary-container {
     max-width: 380px;
     width: 95%;
     height: 378px;
+    scale: 1.2;
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .summary-container {
+    scale: 1;
   }
 }
 
@@ -193,37 +209,10 @@
   }
 }
 
-.greeting-container {
-  margin-left: 70px;
-}
-
-.greeting {
-  font-weight: 500;
-  font-size: 47px;
-  color: #2a3647;
-}
-
-.greeting-name {
-  font-weight: 700;
-  font-size: 64px;
-  color: #29abe2;
-}
-
-@media (max-width: 900px) {
-  .greeting-container {
-    display: none;
-  }
-}
-
 .summary-container-bottomrow {
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
-}
-
-@media (max-width: 900px) {
-  .summary-container-bottomrow {
-  }
 }
 
 .summary-boxes-bottomrow {
@@ -276,4 +265,75 @@
 
 .fontsize21px {
   font-size: 21px;
+}
+
+.greeting-container {
+  margin-left: 70px;
+}
+
+.greeting {
+  font-weight: 500;
+  font-size: 47px;
+  color: #2a3647;
+}
+
+.greeting-name {
+  font-weight: 700;
+  font-size: 64px;
+  color: #29abe2;
+}
+
+@media (max-width: 1400px) {
+  .greeting-container {
+    scale: 0.7;
+    margin-left: -20px;
+  }
+}
+@media (max-width: 1200px) {
+  .greeting-container {
+    z-index: 999;
+    visibility: hidden;
+    scale: 1;
+    margin-left: 0;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    animation: greeting-animation 3s;
+  }
+}
+
+@media (max-width: 1200px) {
+  .greeting-bg {
+    position: absolute;
+    z-index: 998;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f6f7f8;
+    visibility: hidden;
+    animation: greeting-animation 3s;
+  }
+}
+
+@keyframes greeting-animation {
+  100% {
+    visibility: visible;
+    opacity: -1;
+  }
+  30% {
+    visibility: visible;
+    opacity: 1;
+  }
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 750px) {
+  .greeting-container {
+    scale: 0.8;
+    left: 15%;
+  }
 }
