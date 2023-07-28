@@ -1,6 +1,13 @@
 .helpContentDiv {
     margin-left: 116px;
     max-width: 1014px;
+    margin-right: 50px;
+}
+
+@media (max-width: 700px) {
+    .helpContentDiv {
+        margin-left: 50px;
+    }
 }
 
 .helpDiv {

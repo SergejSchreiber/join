@@ -87,11 +87,6 @@ input {
   cursor: pointer;
 }
 
-.legalNoticeDiv {
-  margin-left: 116px;
-  max-width: 1016px;
-}
-
 @media (max-width: 500px) {
   input {
     width: 100%;
@@ -110,6 +105,19 @@ input {
 
 input::placeholder {
   color: #d1d1d1;
+}
+
+.legalNoticeDiv {
+  margin-left: 116px;
+  max-width: 1016px;
+  margin-right: 50px;
+}
+
+@media (max-width: 700px) {
+  .legalNoticeDiv {
+    margin-top: 100px;
+    margin-left: 50px;
+  }
 }
 
 /* inter-100 - latin */
