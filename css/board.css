@@ -31,7 +31,7 @@ textarea {
     box-shadow: 0 4px 3px rgb(192, 192, 192);
 }
 
-.header-container {
+/* .header-container {
     position: absolute;
     height: 327px;
     width: 1145px;
@@ -41,23 +41,20 @@ textarea {
     justify-content: center;
     align-items: center;
     z-index: -1;
-}
+} */
 
 .header {
-    position: absolute;
-    top: 114px;
-    left: 35px;
-    height: 73px;
-    width: 1078px;
-    display: flex;
+    margin-top: 100px;
+    margin-left: 116px;
+    margin-right: 50px;
     gap: 474px;
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .search-bar-and-button {
-    position: relative;
+    /* position: relative; */
     display: flex;
-    height: 55px;
     width: 423px;
     gap: 35px;
 }
@@ -143,9 +140,8 @@ textarea {
     display: flex;
     width: 1078px;
     height: 661px;
-    position: absolute;
-    top: 343px;
-    left: 302px;
+    margin-left: 100px;
+    margin-top: 80px;
     gap: 26px;
 }
 
