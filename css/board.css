@@ -19,6 +19,10 @@ textarea {
     outline: none;
 }
 
+.background-priority-low {
+    background-color: #7AE229;
+}
+
 #add-task-btn {
     border: 0px;
     transition: 0.2s;
@@ -345,15 +349,19 @@ textarea {
 .task-details {
     background-color: white;
     width: 600px;
-    height: 600px;
+    height: 700px;
     border-radius: 30px;
-    padding: 50px;
+    padding: 20px 50px 50px 50px;
 }
 
 .task-detail-x-icon {
     display: flex;
     justify-content: end;
     align-items: center;
+}
+
+.task-detail-x-icon img:hover{
+    cursor: pointer;
 }
 
 .task-detail-category {
@@ -410,10 +418,14 @@ textarea {
     align-items: center;
     font-size: 21px;
     margin-right: 25px;
-    width: 131px;
     border-radius: 10px;
     padding: 4px 18px 4px 18px;
     color: white;
+}
+
+.task-detail-urgency-right img {
+    filter: invert(96%) sepia(55%) saturate(16%) hue-rotate(283deg) brightness(113%) contrast(101%);
+    margin-left: 20px;
 }
 
 .task-detail-participants-header {
@@ -423,6 +435,10 @@ textarea {
 }
 
 .task-detail-participants-body {
+
+}
+
+.single-task-detail-participants {
     display: flex;
     align-items: center;
 }

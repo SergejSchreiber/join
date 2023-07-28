@@ -97,15 +97,15 @@ function getTaskDetails(id) {
                     <div class="task-detail-dueDate-right">${todos[id]['dueDate']}</div>
                 </div>
                 <div class="task-detail-urgency">
-                    <div class="task-detail-urgency-left">Due date:</div>
-                    <div class="task-detail-urgency-right">
+                    <div class="task-detail-urgency-left">Priority:</div>
+                    <div class="task-detail-urgency-right background-priority-${todos[id]['urgency'][0]}">
                         <div class="task-detail-urgency-right-name">${todos[id]['urgency'][0]}</div>
                         <img src="${todos[id]['urgency'][1]}">
                     </div>
                 </div>
                 <div class="task-detail-participants">
                     <div class="task-detail-participants-header">Assigned To:</div>
-                    ${getParticipantsForTaskDetails(id)}
+                    <div class="task-detail-participants-body">${getParticipantsForTaskDetails(id)}</div>
                 </div>
             </div>
         </div>
@@ -116,8 +116,8 @@ function getParticipantsForTaskDetails(id) {
     let strin = '';
     for (let i = 0; i < todos[id]['participants'].length; i++) {
         strin += `
-            <div class="task-detail-participants-body">
-                <div id="participant-${id}" class="task-detail-participants-left">${todos[id]['participants'][i]}</div>
+            <div class="single-task-detail-participants">
+                <div id="participant-${id}" class="task-detail-participants-left">${getInitials(todos[id]['participants'][i])}</div>
                 <div class="task-detail-participants-right">${todos[id]['participants'][i]}</div>
             </div>`;    
     }
