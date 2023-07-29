@@ -15,6 +15,15 @@ const COLOR_FOR_CATEGORY = [
     '#9327FF',
     '#CB02CF',
     '#4E963D',
+    '#32DAFF',
+    '#FF7A00',
+    '#FC71FF',
+    '#1FD7C1',
+    '#0038FF',
+    '#FFC701',
+    '#9327FF',
+    '#CB02CF',
+    '#4E963D',
     '#32DAFF'
 ];
 
@@ -88,7 +97,7 @@ function getTaskDetails(id) {
     return `
         <div id="slide-contact">
             <div class="task-details">
-                <div class="task-detail-x-icon"><img src="../assets/img/x_icon.svg"></div>
+                <div class="task-detail-x-icon" onclick="removeAddTaskSlide()"><img src="../assets/img/x_icon.svg"></div>
                 <div class="task-detail-category">${todos[id]['category']}</div>
                 <div class="task-detail-title">${todos[id]['title']}</div>
                 <div class="task-detail-description">${todos[id]['description']}</div>
@@ -213,7 +222,7 @@ function getTaskSlide() {
                         <path id="xIconPath" d="M12.5011 12.5001L17.7441 17.7431M7.25806 17.7431L12.5011 12.5001L7.25806 17.7431ZM17.7441 7.25708L12.5001 12.5001L17.7441 7.25708ZM12.5001 12.5001L7.25806 7.25708L12.5001 12.5001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <button class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
+                    <button onclick="createNewTask()" class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
                 </div>
             </form>
         </div>
