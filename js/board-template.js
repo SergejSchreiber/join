@@ -228,3 +228,10 @@ function getTaskSlide() {
         </div>
     `;
 }
+
+function colorForInitialsInTaskDetails(id) {
+    for (let i = 0; i < todos[id]['participants'].length; i++) {
+        let colorBackground = document.getElementById('participant-' + i);
+        colorBackground.style = `background-color: ${COLOR_PARTICIPANTS[i]}`;
+    }
+}

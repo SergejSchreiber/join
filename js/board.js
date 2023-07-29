@@ -59,6 +59,7 @@ function removeAddTaskSlide() {
 
 function showTaskedInDetail(id) {
   document.getElementById("task-container").innerHTML += getTaskDetails(id);
+  colorForInitialsInTaskDetails(id);
 }
 
 function filterTasks() { // search function
