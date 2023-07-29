@@ -35,18 +35,6 @@ textarea {
     box-shadow: 0 4px 3px rgb(192, 192, 192);
 }
 
-/* .header-container {
-    position: absolute;
-    height: 327px;
-    width: 1145px;
-    top: 57px;
-    left: 267px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
-} */
-
 .header {
     margin-top: 100px;
     margin-left: 116px;
@@ -145,7 +133,7 @@ textarea {
     width: 1078px;
     height: 661px;
     margin-left: 100px;
-    margin-top: 80px;
+    margin-top: 60px;
     gap: 26px;
 }
 
