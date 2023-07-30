@@ -154,6 +154,10 @@ function getTaskDetails(id) {
                       id
                     )}</div>
                 </div>
+                <div>
+                      <button class="delete-task-button"></button>
+                      <button></button>
+                </div>
             </div>
         </div>
     `;
@@ -255,7 +259,7 @@ function getTaskSlide() {
                 </div>  
             </div>
             <div class="addTaskButtons">
-                <button type="button" class="clearButton" onmouseover="xIconColor(1)" onmouseout="xIconColor(2)" onclick="window.location.href = '../html/add_task.html'">
+                <button type="button" class="clearButton" onmouseover="xIconColor(1)" onmouseout="xIconColor(2)" onclick="removeAddTaskSlide()">
                     Clear 
                     <svg class ="xIcon" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path id="xIconPath" d="M12.5011 12.5001L17.7441 17.7431M7.25806 17.7431L12.5011 12.5001L7.25806 17.7431ZM17.7441 7.25708L12.5001 12.5001L17.7441 7.25708ZM12.5001 12.5001L7.25806 7.25708L12.5001 12.5001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
