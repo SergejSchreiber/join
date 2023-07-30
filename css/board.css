@@ -217,6 +217,8 @@ textarea {
 
 .task-body {
     width: 100%;
+    min-height: 100px;
+    height: 100%;
 }
 
 .task-container-name {
