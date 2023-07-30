@@ -450,3 +450,68 @@
 .d-none {
     display: none;
 }
+
+@media(max-width: 1335px) {
+    .addTaskFormContent {
+        flex-direction: column;
+    }
+    .addTaskFormContentMiddle {
+        display: none;
+    }
+    .addTaskButtons {
+        justify-content: left;
+    }
+}
+
+@media(max-width: 790px) {
+    .contentDiv {
+        margin-left: 25px;
+    }
+    .addTaskForm {
+        margin-left: 25px;
+    }
+}
+
+@media(max-width: 700px) {
+    .contentDiv {
+        justify-content: center;
+    }
+    .contentDiv {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .addTaskForm {
+        margin-left: 0px;
+    }
+    .addTaskFormContent {
+        align-items: center;
+    }
+    .addTaskButtons {
+        justify-content: center;
+        width: auto;
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+
+    .addTaskHeader {
+        font-size: 47px;
+        font-weight: 700;
+    }
+    .addTaskInputTitle, 
+    .addTaskInputDescription, 
+    .selectBox, 
+    .addTaskInputDate,
+    .addTaskPrio,
+    .addNewCategoryContainer,
+    .addTaskFormContentLeft,
+    .addTaskFormContentRight {
+        width: 363px;
+    }
+    .addNewCategoryContainer {
+        padding-left: 0px;
+    }
+    .addNewCategoryInput {
+        width: 300px;
+        padding-left: 10px;
+    }
+}

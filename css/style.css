@@ -111,6 +111,7 @@ input::placeholder {
   margin-left: 116px;
   max-width: 1016px;
   margin-right: 50px;
+  margin-bottom: 80px;
 }
 
 @media (max-width: 700px) {
