@@ -88,6 +88,5 @@ function removeTasksFromContainer() {
 function getInitials(fullName) {
     let firstInitial = fullName[0];
     let secondInitial = fullName.split(' ')[1][0];
-    console.log(fullName);
     return firstInitial + secondInitial;
 }

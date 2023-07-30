@@ -126,9 +126,9 @@ function getParticipantsForTaskDetails(id) {
     for (let i = 0; i < todos[id]['participants'].length; i++) {
         strin += `
             <div class="single-task-detail-participants">
-                <div id="participant-${id}" class="task-detail-participants-left">${getInitials(todos[id]['participants'][i])}</div>
+                <div id="participant-${i}" class="task-detail-participants-left">${getInitials(todos[id]['participants'][i])}</div>
                 <div class="task-detail-participants-right">${todos[id]['participants'][i]}</div>
-            </div>`;    
+            </div>`;
     }
     return strin;
 }
