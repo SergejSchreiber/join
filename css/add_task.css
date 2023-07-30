@@ -197,7 +197,7 @@
 .addTaskDivAssign {
     display: flex;
     flex-direction: column;
-    height: 104px;
+    min-height: 104px;
     gap: 8px;
     margin-bottom: 10px;
 }
@@ -504,7 +504,8 @@
     .addTaskPrio,
     .addNewCategoryContainer,
     .addTaskFormContentLeft,
-    .addTaskFormContentRight {
+    .addTaskFormContentRight,
+    .chooseCategory {
         width: 363px;
     }
     .addNewCategoryContainer {
