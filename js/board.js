@@ -1,6 +1,5 @@
 let currentDraggedElement;
 
-render();
 
 function render() {
   loadCurrentUser().then(() => {
@@ -51,6 +50,7 @@ function removeHighlight(progress) {
 
 function showAddTaskSlideForBoardHTML() {
   document.getElementById("task-container").innerHTML += getTaskSlide();
+  renderSubtask();
 }
 
 function removeAddTaskSlide() {

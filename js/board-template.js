@@ -264,6 +264,11 @@ function getTaskSlide() {
                 <button id="formSubmitButton" type="submit" onclick="createNewTask()" class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
             </div>
         </form>
+        <div id="savedNotificationDiv" class="savedNotificationDiv d-none" >
+            <div id="savedNotification" class="savedNotification">
+                New task added to board! 
+            </div>
+        </div>
         </div>
     `;
 }
