@@ -27,7 +27,7 @@ class JoinHeader extends HTMLElement {
       </div></a>
       <a href="../html/contacts.html"><div class="side-menu">
         <img src="../assets/img/contacts_icon.png" alt="contacts" />
-        <span>Contact</span>
+        <span>Contacts</span>
       </div></a>
       <a href="../html/legal_notice.html"><div class="legal-notice">
         <div class="side-menu">

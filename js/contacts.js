@@ -35,6 +35,7 @@ function getInitials(fullName) {
 }
 
 function showContactDetails(id) {
+    document.getElementById("contact-display").style.display ="block";
     let contactArr;
     for (let i = 0; i < contacts.length; i++) {
         if (contacts[i]['contactId'] === id) {
@@ -97,4 +98,8 @@ async function setContactsWithUserId() {
         contacts = JSON.parse(localStorage.getItem("contacts"));
         }
     }
+  }
+
+  function hideContactDisplayArrowBack() {
+    document.getElementById("contact-display").style.display ="none";
   }

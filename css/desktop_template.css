@@ -97,6 +97,7 @@
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   font-size: 21px;
+  z-index: 900;
 }
 
 @media (max-width: 700px) {
@@ -104,7 +105,6 @@
     margin-left: 0;
     left: 0;
     padding-left: 0;
-    z-index: 900;
   }
 }
 
