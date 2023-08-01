@@ -134,22 +134,18 @@ async function addUser() {
   let passwordConf = document.getElementById("password-conf").value;
 
   if (password === passwordConf) {
+    if (users.some((u) => u.user === user || u.email === email)) {
+      document.getElementById("message-existing-user").style.display = "block";
+      return;
+    }
 
-  if (users.some((u) => u.user === user || u.email === email)) {
-    document.getElementById("message-existing-user").style.display = "block";
-    return;
-  }
-
-  users.push({ user, email, password });
-  await setItem("users", JSON.stringify(users));
-  window.location.href = "./index.html?msg=Du hast dich erfolgreich registriert";
-  setTodosWithUserId();
-  setContactsWithUserId();
-}
- else {
-  document.getElementById("message-different-passwords").style.display = "block";
+    users.push({ user, email, password });
+    await setItem("users", JSON.stringify(users));
+    window.location.href = "./index.html?msg=Du hast dich erfolgreich registriert";
+  } else {
+    document.getElementById("message-different-passwords").style.display = "block";
     return false;
-}
+  }
 }
 
 // function to delete users from users array
@@ -178,7 +174,7 @@ async function login() {
 
 async function logout() {
   currentUser = null;
-    await setItem(`currentUser`, JSON.stringify(currentUser));
+  await setItem(`currentUser`, JSON.stringify(currentUser));
   window.location.href = "../html/index.html";
 }
 

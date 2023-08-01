@@ -1,34 +1,33 @@
 function renderContent() {
-    loadCurrentUser().then(() => {
-        loadTodosWithUserId().then(() => {
-            renderSubtask();
-        });
-      });    
+  loadCurrentUser().then(() => {
+    loadTodosWithUserId().then(() => {
+      renderSubtask();
+    });
+  });
 }
 
 // Functions for category selection
-let category = ['Sales', 'Backoffice','Design','Marketing','Media'];
+let category = ["Sales", "Backoffice", "Design", "Marketing", "Media"];
 let categoryIndex;
 
-
 function showCategory() {
-    let selectContainer = document.getElementById('selectCategory');
-    selectContainer.innerHTML = '';
-    selectContainer.innerHTML += showCategoryHtml();
+  let selectContainer = document.getElementById("selectCategory");
+  selectContainer.innerHTML = "";
+  selectContainer.innerHTML += showCategoryHtml();
 
-    let chooseContainer = document.getElementById('chooseCategory');
+  let chooseContainer = document.getElementById("chooseCategory");
 
-    for(let i = 0; i < category.length; i++) {
-        chooseContainer.innerHTML += `
+  for (let i = 0; i < category.length; i++) {
+    chooseContainer.innerHTML += `
             <div class="chooseOptions" onclick="showSelectedCategory(${i})">
                 <span>${category[i]}</span>
             </div>
         `;
-    }
+  }
 }
 
 function showCategoryHtml() {
-    return `
+  return `
         <div id="chooseCategory" class="chooseCategory">
             <div class="chooseBox" onclick="hideCategory()">
                 <span>Select task category</span>
@@ -42,13 +41,13 @@ function showCategoryHtml() {
 }
 
 function hideCategory() {
-    let selectContainer = document.getElementById('selectCategory');
-    selectContainer.innerHTML = '';
-    selectContainer.innerHTML += hideCategoryHtml();
+  let selectContainer = document.getElementById("selectCategory");
+  selectContainer.innerHTML = "";
+  selectContainer.innerHTML += hideCategoryHtml();
 }
 
 function hideCategoryHtml() {
-    return `
+  return `
         <div class="selectBox" onclick="showCategory()">   
             <span>Select task category</span>
             <img src="../assets/img/arrow_down.png">
@@ -57,13 +56,13 @@ function hideCategoryHtml() {
 }
 
 function addNewCategory() {
-    let selectContainer = document.getElementById('selectCategory');
-    selectContainer.innerHTML = '';
-    selectContainer.innerHTML += addNewCategoryHtml();
+  let selectContainer = document.getElementById("selectCategory");
+  selectContainer.innerHTML = "";
+  selectContainer.innerHTML += addNewCategoryHtml();
 }
 
 function addNewCategoryHtml() {
-    return ` 
+  return ` 
         <div class="addNewCategoryContainer">  
             <input id="addNewCategoryInput" class="addNewCategoryInput" placeholder="New category name" type="text"/> 
             <div class="addNewCategoryContainerIcons">
@@ -84,24 +83,24 @@ function addNewCategoryHtml() {
 }
 
 function pushNewCategory() {
-    let inputValue = document.getElementById('addNewCategoryInput').value
-    if(inputValue){
-        category.push(inputValue);
-        showCategory();  
-    }else{
-        alert('Please enter a new category!');
-    } 
+  let inputValue = document.getElementById("addNewCategoryInput").value;
+  if (inputValue) {
+    category.push(inputValue);
+    showCategory();
+  } else {
+    alert("Please enter a new category!");
+  }
 }
 
 function showSelectedCategory(index) {
-    categoryIndex = index;
-    let selectContainer = document.getElementById('selectCategory');
-    selectContainer.innerHTML = '';
-    selectContainer.innerHTML += showSelectedCategoryHtml(index);
+  categoryIndex = index;
+  let selectContainer = document.getElementById("selectCategory");
+  selectContainer.innerHTML = "";
+  selectContainer.innerHTML += showSelectedCategoryHtml(index);
 }
 
 function showSelectedCategoryHtml(index) {
-    return `
+  return `
         <div class="selectBox" onclick="showCategory()">   
             <span id="spanCategory">${category[index]}</span>
             <img src="../assets/img/arrow_down.png">
@@ -112,41 +111,41 @@ function showSelectedCategoryHtml(index) {
 let contactsSorted = [];
 
 function sortContactsByName(contacts) {
-    contacts.sort(function(a, b) {
-      let nameA = a.name.toLowerCase();
-      let nameB = b.name.toLowerCase();
-  
-      if (nameA < nameB) {
-        return -1; // a kommt vor b
-      }
-      if (nameA > nameB) {
-        return 1; // a kommt nach b
-      }
-      return 0; // Namen sind gleich
-    });
-    contactsSorted = contacts;
-    showContacts(contactsSorted);
-  }
+  contacts.sort(function (a, b) {
+    let nameA = a.name.toLowerCase();
+    let nameB = b.name.toLowerCase();
 
-  function showContacts(contactsSorted) {
-    let selectContainer = document.getElementById('selectContact');
-    selectContainer.innerHTML = '';
-    selectContainer.innerHTML += showContactsHtml();
+    if (nameA < nameB) {
+      return -1; // a kommt vor b
+    }
+    if (nameA > nameB) {
+      return 1; // a kommt nach b
+    }
+    return 0; // Namen sind gleich
+  });
+  contactsSorted = contacts;
+  showContacts(contactsSorted);
+}
 
-    let chooseContainer = document.getElementById('divShowContact');
+function showContacts(contactsSorted) {
+  let selectContainer = document.getElementById("selectContact");
+  selectContainer.innerHTML = "";
+  selectContainer.innerHTML += showContactsHtml();
 
-    for(let i = 0; i < category.length; i++) {
-        chooseContainer.innerHTML += `
+  let chooseContainer = document.getElementById("divShowContact");
+
+  for (let i = 0; i < category.length; i++) {
+    chooseContainer.innerHTML += `
             <label class="contactContainer">
-                <span class="checkmark">${contactsSorted[i]['name']}</span>
+                <span class="checkmark">${contactsSorted[i]["name"]}</span>
                 <input id="contactCheckbox${i}" type="checkbox">   
             </label>
         `;
-    }
   }
+}
 
-  function showContactsHtml() {
-    return `
+function showContactsHtml() {
+  return `
         <div id="chooseContact" class="chooseCategory">
             <div class="chooseBox" onclick="hideContact()">
                 <span>Select contacts to assign</span>
@@ -155,91 +154,90 @@ function sortContactsByName(contacts) {
             <div id="divShowContact" class="divShowSubtasks"></div>
         </div>
     `;
-  }
+}
 
-  function hideContact() {
-    let selectContainer = document.getElementById('selectContact');
-    selectContainer.innerHTML = '';
-    selectContainer.innerHTML += hideContactHtml();
-  }
+function hideContact() {
+  let selectContainer = document.getElementById("selectContact");
+  selectContainer.innerHTML = "";
+  selectContainer.innerHTML += hideContactHtml();
+}
 
-  function hideContactHtml() {
-    return `
+function hideContactHtml() {
+  return `
         <div class="selectBox" onclick="sortContactsByName(contacts)">
             <span>Select contacts to assign</span>
             <img src="../assets/img/arrow_down.png">
         </div>
     `;
-  }
-
-// Functions for priority selection
-let prioColor = ['#FF3D00','#FFA800','#7AE229'];
-let prioIndex = [0,0,0]
-let priorities = ['high', 'normal', 'low'];
-let priorities2 = ['urgent', 'medium', 'low'];
-let urgencyIcon = '';
-let selectedUrgency = '';
-
-function selectPrio(index) {
-    resetPrio(index);
-    selectedUrgency = priorities[index];
-    urgencyIcon = priorities2[index];
-
-    if(prioIndex[index] == 0){
-        let element = document.getElementById(`divPrio${index}`);
-        let pathIcon1 = document.getElementById(`iconPath${index}`);
-        let pathIcon2 = document.getElementById(`iconPath${index}${index}`);
-        pathIcon1.setAttribute('fill', 'white');
-        pathIcon2.setAttribute('fill', 'white');
-        element.style.backgroundColor = prioColor[index];
-        element.classList.add("prioIsSelected");
-        prioIndex[0] = 0;
-        prioIndex[1] = 0; 
-        prioIndex[2] = 0;
-        prioIndex[index] = 1;
-    } else {
-        prioIndex[index] = 0;  
-    }
 }
 
+// Functions for priority selection
+let prioColor = ["#FF3D00", "#FFA800", "#7AE229"];
+let prioIndex = [0, 0, 0];
+let priorities = ["high", "normal", "low"];
+let priorities2 = ["urgent", "medium", "low"];
+let urgencyIcon = "";
+let selectedUrgency = "";
+
+function selectPrio(index) {
+  resetPrio(index);
+  selectedUrgency = priorities[index];
+  urgencyIcon = priorities2[index];
+
+  if (prioIndex[index] == 0) {
+    let element = document.getElementById(`divPrio${index}`);
+    let pathIcon1 = document.getElementById(`iconPath${index}`);
+    let pathIcon2 = document.getElementById(`iconPath${index}${index}`);
+    pathIcon1.setAttribute("fill", "white");
+    pathIcon2.setAttribute("fill", "white");
+    element.style.backgroundColor = prioColor[index];
+    element.classList.add("prioIsSelected");
+    prioIndex[0] = 0;
+    prioIndex[1] = 0;
+    prioIndex[2] = 0;
+    prioIndex[index] = 1;
+  } else {
+    prioIndex[index] = 0;
+  }
+}
 
 function resetPrio(index) {
-    for(let i = 0; i < 3; i++) {
-        let element = document.getElementById(`divPrio${i}`);
-        let pathIcon1 = document.getElementById(`iconPath${i}`);
-        let pathIcon2 = document.getElementById(`iconPath${i}${i}`);
-        element.style.backgroundColor = "white";
-        element.classList.remove("prioIsSelected");
-        pathIcon1.setAttribute('fill', prioColor[i]);
-        pathIcon2.setAttribute('fill', prioColor[i]);
-    }
+  for (let i = 0; i < 3; i++) {
+    let element = document.getElementById(`divPrio${i}`);
+    let pathIcon1 = document.getElementById(`iconPath${i}`);
+    let pathIcon2 = document.getElementById(`iconPath${i}${i}`);
+    element.style.backgroundColor = "white";
+    element.classList.remove("prioIsSelected");
+    pathIcon1.setAttribute("fill", prioColor[i]);
+    pathIcon2.setAttribute("fill", prioColor[i]);
+  }
 }
 
 // Functions for subtask selection
-let allSubtasks = ['Subtask 1', 'Subtask 2'];
+let allSubtasks = ["Subtask 1", "Subtask 2"];
 
-function addNewSubtask(){
-    let newSubtask = document.getElementById('addNewSubtaskInput');
-    if(newSubtask.value) {
+function addNewSubtask() {
+  let newSubtask = document.getElementById("addNewSubtaskInput");
+  if (newSubtask.value) {
     allSubtasks.push(newSubtask.value);
     newSubtask.value = "";
     renderSubtask();
-    } else {
-        alert('Please enter a new subtask!');
-    }
+  } else {
+    alert("Please enter a new subtask!");
+  }
 }
 
 function renderSubtask() {
-    let subDiv = document.getElementById(`divShowSubtasks`);
-    subDiv.innerHTML = ''; 
+  let subDiv = document.getElementById(`divShowSubtasks`);
+  subDiv.innerHTML = "";
 
-    for(let i = 0; i < allSubtasks.length; i++){
-        subDiv.innerHTML += subtaskHtml(i); 
-    }  
+  for (let i = 0; i < allSubtasks.length; i++) {
+    subDiv.innerHTML += subtaskHtml(i);
+  }
 }
 
 function subtaskHtml(index) {
-    return `
+  return `
         <label class="lableContainer">
             <input id="subtaskCheckbox${index}" type="checkbox">
             <span class="checkmark">${allSubtasks[index]}</span>
@@ -252,129 +250,109 @@ let newTask = [];
 const verzögerung = 3000;
 
 function xIconColor(index) {
-    let numb = index;
-    let pfad = document.getElementById('xIconPath');
+  let numb = index;
+  let pfad = document.getElementById("xIconPath");
 
-    if(numb == 1){
-        pfad.setAttribute('stroke', '#29abe2');    
-    }else {
-        pfad.setAttribute('stroke', '#2A3647'); 
-    }
+  if (numb == 1) {
+    pfad.setAttribute("stroke", "#29abe2");
+  } else {
+    pfad.setAttribute("stroke", "#2A3647");
+  }
 }
 
 function createNewTask() {
-    newTask = [];
-    saveTaskToArray();
-    pushNewTaskToTodos();
-    showSavedNotification();
-    setTimeout(redirectToBoard, verzögerung);
+  newTask = [];
+  saveTaskToArray();
+  pushNewTaskToTodos();
+  showSavedNotification();
+  setTimeout(redirectToBoard, verzögerung);
 }
 
 function showSavedNotification() {
-    document.getElementById('savedNotificationDiv').classList.remove('d-none');
+  document.getElementById("savedNotificationDiv").classList.remove("d-none");
 }
 
 function redirectToBoard() {
-    window.location.href = '../html/board.html'
+  window.location.href = "../html/board.html";
 }
 
 function saveTaskToArray() {
-    let nextId = todos.length + 1; 
-    let title = document.getElementById('InputTitle').value;
-    let description = document.getElementById('InputDescription').value;
-    let category = document.getElementById('spanCategory').innerHTML;
-    let assinedContacts = searchAssinedContacts();
-    let choosedDate = document.getElementById('inputDate').value;
-    let prio = selectedUrgency;
-    let prioIcon = `../assets/img/${urgencyIcon}_icon.png`
-    let assinedSubtasks = searchAssinedSubtask();
-    
-    newTask.push(
-        {
-            'id': nextId,
-            'progress': 'inprogress',
-            'category': category,
-            'title': title,
-            'description': description,
-            'progress-number': [],
-            'participants': assinedContacts,
-            'urgency': [
-                prio,
-                prioIcon
-            ],
-            'dueDate': choosedDate
-        }
-    ); 
+  let nextId = todos.length + 1;
+  let title = document.getElementById("InputTitle").value;
+  let description = document.getElementById("InputDescription").value;
+  let category = document.getElementById("spanCategory").innerHTML;
+  let assinedContacts = searchAssinedContacts();
+  let choosedDate = document.getElementById("inputDate").value;
+  let prio = selectedUrgency;
+  let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
+  let assinedSubtasks = searchAssinedSubtask();
+
+  newTask.push({
+    id: nextId,
+    progress: "inprogress",
+    category: category,
+    title: title,
+    description: description,
+    "progress-number": [],
+    participants: assinedContacts,
+    urgency: [prio, prioIcon],
+    dueDate: choosedDate,
+  });
 }
 
 function searchAssinedContacts() {
-    let choosedContacts = [];
-    let contactsCheckboxCount = contactsSorted.length;
+  let choosedContacts = [];
+  let contactsCheckboxCount = contactsSorted.length;
 
-    for (let i = 0; i < contactsCheckboxCount; i++) {
-        let checkbox = document.getElementById(`contactCheckbox${i}`);
+  for (let i = 0; i < contactsCheckboxCount; i++) {
+    let checkbox = document.getElementById(`contactCheckbox${i}`);
 
-        if (checkbox && checkbox.checked) {
-            choosedContacts.push(contactsSorted[i]['name']);
-        }
+    if (checkbox && checkbox.checked) {
+      choosedContacts.push(contactsSorted[i]["name"]);
     }
+  }
 
-    return choosedContacts;
+  return choosedContacts;
 }
 
 function searchAssinedSubtask() {
-        let choosedSubtasks = [];
+  let choosedSubtasks = [];
 
-    for(let i = 0; i < allSubtasks.length; i++) {
-        let currentCheckbox = document.getElementById(`subtaskCheckbox${i}`);
-        
-        if(currentCheckbox.checked){
-            choosedSubtasks.push(allSubtasks[i]);
-        }
+  for (let i = 0; i < allSubtasks.length; i++) {
+    let currentCheckbox = document.getElementById(`subtaskCheckbox${i}`);
+
+    if (currentCheckbox.checked) {
+      choosedSubtasks.push(allSubtasks[i]);
     }
+  }
 
-    return choosedSubtasks; 
+  return choosedSubtasks;
 }
 
 function pushNewTaskToTodos() {
-    todos.push(newTask[0]);
-    setTodosWithUserId();
+  todos.push(newTask[0]);
+  setTodosWithUserId();
 }
 
 async function setTodosWithUserId() {
-    if (currentUser) {
-        await setItem(`todos_${currentUser}`, JSON.stringify(todos));
-    } else {
-        localStorage.setItem("todos", JSON.stringify(todos));
-    }    
-    loadTodosWithUserId();
+  if (currentUser) {
+    await setItem(`todos_${currentUser}`, JSON.stringify(todos));
+  } else {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
+  loadTodosWithUserId();
 }
 
 async function loadTodosWithUserId() {
-    if (currentUser) {
+  if (currentUser) {
+    try {
       todos = JSON.parse(await getItem(`todos_${currentUser}`));
-    } else {
-        if (JSON.parse(localStorage.getItem("todos"))) {
-        todos = JSON.parse(localStorage.getItem("todos"));
-        }
+    } catch {
+      await setItem(`todos_${currentUser}`, JSON.stringify(todos));
     }
+  } else {
+    if (JSON.parse(localStorage.getItem("todos"))) {
+      todos = JSON.parse(localStorage.getItem("todos"));
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
