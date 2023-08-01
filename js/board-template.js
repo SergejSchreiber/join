@@ -154,9 +154,9 @@ function getTaskDetails(id) {
                       id
                     )}</div>
                 </div>
-                <div>
-                      <button class="delete-task-button"></button>
-                      <button></button>
+                <div class="task-button-body">
+                      <button class="delete-task-button"><img src="../assets/img/delete.png"></button>
+                      <button class="edit-task-button"><img src="../assets/img/edit.png"></button>
                 </div>
             </div>
         </div>

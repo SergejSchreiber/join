@@ -533,21 +533,57 @@ textarea {
 }
 
 .task-detail-participants-body {
-
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 250px;
 }
 
 .single-task-detail-participants {
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .task-detail-participants-left {
     width: 45px;
     height: 45px;
-    border-radius: 58px;
-    padding: 10px 8px 10px 8px;
+    border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    margin-right: 20px;
+}
+
+.task-button-body {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-task-button {
+    background-color: white;
+    border: 1px solid #2A3647;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 5px;
+}
+
+.delete-task-button img{
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+}
+
+.edit-task-button {
+    background-color: #2A3647;
+    border: 1px solid #2A3647;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.edit-task-button img{
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
 }
