@@ -2,9 +2,9 @@
     margin: 0;
 }
 
-body {
+/* body {
     height: 100vh;
-}
+} */
 
 input {
     outline: none;
@@ -18,22 +18,23 @@ textarea {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 100%;
+    height: calc(100vh - 239px);
 }
 
 .contact-list {
     min-width: 260px;
-    height: 100%;   /* Change for  */
-    padding: 0 48px 0 48px;
+    height: calc(100vh - 239px);
+    padding: 0 48px;
+    padding-bottom: 150px;
     background-color: white;
     overflow-y: scroll;
     overflow-x: hidden;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1150px) {
     .contact-list {
-        width: 100%;
+        width: calc(100% - 97px);
     }
 }
 
@@ -111,7 +112,8 @@ textarea {
 }
 
 .contact-display {
-    padding: 82px 58px;
+    padding-top: 82px;
+    padding-left: 58px;
 }
 
 @media (max-width: 1300px) {
@@ -119,7 +121,6 @@ textarea {
         scale: 0.8;
         padding-left: 0;
         padding-right: 0;
-
     }
 }
 
@@ -128,19 +129,11 @@ textarea {
         scale: 1;
         position: absolute;
         flex-direction: column;
-        height: 100%;
-        width: 65vw;
-        left: 200px;
-        top: 50px;
+        height: calc(100vh - 171px);
+        width: calc(100vw - 312px);
         padding-left: 80px;
         background-color: #F6F7F8;
         display: none;
-    }
-}
-
-@media (max-width: 1000px) {
-    .contact-display {
-        width: 55vw;
     }
 }
 
@@ -393,19 +386,26 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
-    z-index: 700;
+    z-index: 900;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
 .pop-up {
     display: flex;
-    width: 1212px;
     height: 594px;
+}
+
+@media (max-width: 1350px) {
+    .pop-up {
+        flex-direction: column;
+        width: 463px;
+        /* height: none; */
+    }
 }
 
 .add-contact-left {
@@ -418,10 +418,23 @@ textarea {
     padding-left: 50px;
 }
 
+@media (max-width: 1350px) {
+    .add-contact-left {
+        border-radius: 30px 30px 0 0;
+        padding: 150px 50px;
+    }
+}
+
 .add-contact-left img {
     height: 66.48px;
     width: 55.12px;
     margin-bottom: 12px;
+}
+
+@media (max-width: 1350px) {
+    .add-contact-left img {
+        display: none;
+    }
 }
 
 .add-contact-left div {
@@ -452,6 +465,16 @@ textarea {
     justify-content: space-evenly;
     align-items: center;
     padding-bottom: 70px;
+}
+
+@media (max-width: 1350px) {
+    .add-contact-right {
+        border-radius: 0 30px 30px 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-bottom: 70px;
+    }
 }
 
 .profile-icon {
@@ -625,16 +648,17 @@ textarea {
     background-color: white;
     border-radius: 30px;
     padding: 50px;
+    overflow-x: hidden;
 }
 
 @media (max-width: 1335px) {
     .addTaskForm {
-        position: absolute;
-        top: 85px;
+        margin: 85px 0;
         width: 450px;
     }
 
     #slide-contact {
+        align-items: flex-start;
         overflow: auto;
     }
 }
@@ -642,8 +666,8 @@ textarea {
 @media (max-width: 700px) {
     .addTaskForm {
         margin-top: 0;
-        padding-bottom: 200px;
-        height: 100vh;
+        /* padding-bottom: 100px; */
+        /* height: 100vh; */
         width: 100vw;
         border-radius: 0;
     }
