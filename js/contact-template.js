@@ -81,6 +81,7 @@ function getSlide(input, id) {
                     ${getProfilePic(input, id)}
                     <form class="form-side">
                         <div onclick="removeSlide()" class="x-icon"><img src="../assets/img/x_icon.svg" alt=""></div>
+                        <div onclick="removeSlide()" class="x-icon-white"><img src="../assets/img/x_icon_white.png" alt=""></div>
                         ${getInputTags(input, id)}
                         <div id="slide-buttons" class="pop-up-buttons">${getCreateOrEditSlide(input, id)}</div>
                     </form>
