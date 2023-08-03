@@ -45,7 +45,9 @@ function createTaskContainer(number) {
             })" onclick="showTaskedInDetail(${
       todos[number]["id"]
     })" id="task-container-${todos[number]["id"]}" class="single-task-body">
-                <div id="category-${todos[number]["id"]}" class="category">${
+                <div id="category-${todos[number]["id"]}" class="category ${
+                  todos[number]["category"]
+                }">${
       todos[number]["category"]
     }</div>
                 <div class="name-task">${todos[number]["title"]}</div>
@@ -70,7 +72,9 @@ function createTaskContainer(number) {
         })" onclick="showTaskedInDetail(${
     todos[number]["id"]
   })" id="task-container-${todos[number]["id"]}" class="single-task-body">
-            <div id="category-${todos[number]["id"]}" class="category">${
+            <div id="category-${todos[number]["id"]}" class="category ${
+              todos[number]["category"]
+            }">${
     todos[number]["category"]
   }</div>
             <div class="name-task">${todos[number]["title"]}</div>

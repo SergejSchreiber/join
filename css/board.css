@@ -587,3 +587,24 @@ textarea {
     width: 32px;
     object-fit: cover;
 }
+
+/* colors for the categories */
+.Sales {
+    background-color: #FC71FF;
+}
+
+.Design {
+    background-color: #FF7A00;
+}
+
+.Backoffice {
+    background-color: #1FD7C1;
+}
+
+.Marketing {
+    background-color: #0038FF;
+}
+
+.Media {
+    background-color: #FFC701;
+}

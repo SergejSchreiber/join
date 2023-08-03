@@ -7,15 +7,9 @@ function render() {
       for (let i = 0; i < todos.length; i++) {
         let addTodo = document.getElementById(todos[i]["progress"]);
         addTodo.innerHTML += createTaskContainer(i);
-        giveCategoryBackgroundColor(i);
       }
     });
   });
-}
-
-function giveCategoryBackgroundColor(id) {
-    let colorBackground = document.getElementById('category-' + id);
-    colorBackground.style = `background-color: ${COLOR_FOR_CATEGORY[id]}`;
 }
 
 function removeTaskHTML() {
