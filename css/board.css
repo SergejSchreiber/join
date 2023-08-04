@@ -460,6 +460,8 @@ textarea {
 
 .task-detail-x-icon img:hover{
     cursor: pointer;
+    border-radius: 100%;
+    background-color: rgba(41, 171, 226, 0.2);
 }
 
 .task-detail-category {
@@ -529,13 +531,18 @@ textarea {
 .task-detail-participants-header {
     font-weight: 700;
     font-size: 21px;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 }
 
 .task-detail-participants-body {
     overflow: scroll;
     overflow-x: hidden;
     height: 250px;
+    width: 300px;
+}
+
+.task-detail-participants-body::-webkit-scrollbar {
+    display: none;
 }
 
 .single-task-detail-participants {
@@ -556,7 +563,6 @@ textarea {
 }
 
 .task-button-body {
-    margin-top: 20px;
     display: flex;
     justify-content: flex-end;
 }
@@ -586,6 +592,15 @@ textarea {
     height: 32px;
     width: 32px;
     object-fit: cover;
+}
+
+.edit-task-button:hover {
+    background-color: #29ABE2;
+}
+
+.delete-task-button:hover img{
+    filter: invert(70%) sepia(64%) saturate(1607%) hue-rotate(159deg) brightness(104%) contrast(101%);
+    cursor: pointer;
 }
 
 /* colors for the categories */
