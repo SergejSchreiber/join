@@ -185,7 +185,7 @@ function getParticipantsForTaskDetails(id) {
 
 function getTaskSlide() {
   return `
-        <div id="slide-contact">
+      <div id="slide-contact">
         <form class="addTaskForm" onsubmit="return false;">
             <div class="addTaskFormContent">
                 <div class="addTaskFormContentLeft">
@@ -277,7 +277,7 @@ function getTaskSlide() {
                 New task added to board! 
             </div>
         </div>
-        </div>
+      </div>
     `;
 }
 

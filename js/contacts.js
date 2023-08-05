@@ -1,7 +1,7 @@
 function NewContactSlide(input, id) {
   let slide = document.getElementById('slide-contact-container');
   slide.innerHTML = '';
-  slide.innerHTML = getSlide(input, id);
+  slide.innerHTML += getSlide(input, id);
 }
 
 function removeSlide() {
