@@ -29,7 +29,7 @@ function findEarliestDueDate() {
 function greetingUsername() {
   if (currentUser) {
   greetingTimeOfDay();
-  document.getElementById("greetingUserName").innerHTML = JSON.parse(currentUser).user;
+  document.getElementById("greetingUserName").innerHTML = currentUser.user;
 } else {
   greetingTimeOfDayGuest();
   document.getElementById("greetingUserName").innerHTML = "";

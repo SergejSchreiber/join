@@ -1,11 +1,11 @@
 function NewContactSlide(input, id) {
-  let slide = document.getElementById("slide-contact-container");
-  slide.innerHTML = "";
+  let slide = document.getElementById('slide-contact-container');
+  slide.innerHTML = '';
   slide.innerHTML = getSlide(input, id);
 }
 
 function removeSlide() {
-  document.getElementById("slide-contact").remove();
+  document.getElementById('slide-contact').remove();
 }
 
 function sortedNamesArray(arr) {
@@ -30,7 +30,7 @@ function getSortedNamesArray() {
 
 function getInitials(fullName) {
   let firstInitial = fullName[0];
-  let secondInitial = fullName.split(" ")[1][0];
+  let secondInitial = fullName.split(' ')[1][0];
   return firstInitial + secondInitial;
 }
 
@@ -38,30 +38,30 @@ function showContactDetails(id) {
   document.getElementById("contact-display").style.display = "block";
   let contactArr;
   for (let i = 0; i < contacts.length; i++) {
-    if (contacts[i]["contactId"] === id) {
+    if (contacts[i]['contactId'] === id) {
       contactArr = contacts[i];
     }
   }
-  let contactDetails = document.getElementById("chosen-contact");
+  let contactDetails = document.getElementById('chosen-contact');
   contactDetails.innerHTML = getContactDetails(contactArr);
 }
 
 function editContact(id) {
-  contacts[id]["name"] = document.getElementById("input-name").value;
-  contacts[id]["mail"] = document.getElementById("input-email").value;
-  contacts[id]["telefonnummer"] = document.getElementById("input-phone").value;
+  contacts[id]['name'] = document.getElementById('input-name').value;
+  contacts[id]['mail'] = document.getElementById('input-email').value;
+  contacts[id]['telefonnummer'] = document.getElementById("input-phone").value;
   removeSlide();
   renderContacts();
   showContactDetails(id);
 }
 
 function addContact() {
-  if (document.getElementById("input-name").value && document.getElementById("input-email").value && document.getElementById("input-phone").value) {
+  if (document.getElementById('input-name').value && document.getElementById('input-email').value && document.getElementById('input-phone').value) {
     contacts.push({
-      contactId: contacts.length,
-      name: document.getElementById("input-name").value,
-      mail: document.getElementById("input-email").value,
-      telefonnummer: document.getElementById("input-phone").value,
+      'contactId': contacts.length,
+      'name': document.getElementById('input-name').value,
+      'mail': document.getElementById('input-email').value,
+      'telefonnummer': document.getElementById('input-phone').value,
     });
     distributeContactId();
     renderContacts();
@@ -72,30 +72,44 @@ function addContact() {
 }
 
 function showAddTaskSlide() {
-  document.getElementById("slide-contact-container").innerHTML += getTaskSlide();
+  document.getElementById('slide-contact-container').innerHTML += getTaskSlide();
 }
 
 function distributeContactId() {
   for (let i = 0; i < contacts.length; i++) {
-    contacts[i]["contactId"] = i;
+    contacts[i]['contactId'] = i;
   }
 }
 
 async function setContactsWithUserId() {
   if (currentUser) {
-    await setItem(`contacts_${currentUser}`, JSON.stringify(contacts));
+    let currentUserJSON = JSON.stringify(currentUser)
+    await setItem(`contacts_${currentUserJSON}`, contacts);
   } else {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }
   loadContactsWithUserId();
 }
 
+// async function loadContactsWithUserId() {
+//   if (currentUser) {
+//     let currentUserJSON = JSON.stringify(currentUser)
+//       contacts = JSON.parse(await getItem(`contacts_${currentUserJSON}`));
+//   } else {
+//     if (JSON.parse(localStorage.getItem("contacts"))) {
+//       contacts = JSON.parse(localStorage.getItem("contacts"));
+//     }
+//   }
+// }
+
 async function loadContactsWithUserId() {
   if (currentUser) {
-    try {
-      contacts = JSON.parse(await getItem(`contacts_${currentUser}`));
-    } catch {
-      await setItem(`contacts_${currentUser}`, JSON.stringify(contacts));
+    let currentUserJSON = JSON.stringify(currentUser);
+    let contactsData = await getItem(`contacts_${currentUserJSON}`);
+    if (contactsData) {
+      contacts = JSON.parse(contactsData);
+    } else {
+      renderContacts();
     }
   } else {
     if (JSON.parse(localStorage.getItem("contacts"))) {

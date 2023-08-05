@@ -138,7 +138,6 @@ async function addUser() {
       document.getElementById("message-existing-user").style.display = "block";
       return;
     }
-
     users.push({ user, email, password });
     await setItem("users", JSON.stringify(users));
     window.location.href = "./index.html?msg=Du hast dich erfolgreich registriert";

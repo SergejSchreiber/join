@@ -99,7 +99,7 @@ async function loadingUserInitials() {
   let currentUser = JSON.parse(await getItem("currentUser"));
 
   if (currentUser) {
-    let userName = JSON.parse(currentUser).user;
+    let userName = currentUser.user;
     let initials = userName.match(/\b\w/g).join("").toUpperCase();
     document.getElementById("user-initials").innerHTML = initials;
     document.getElementById("user-initials-mobile").innerHTML = initials;

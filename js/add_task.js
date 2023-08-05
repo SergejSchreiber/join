@@ -7,15 +7,15 @@ function renderContent() {
 }
 
 // Functions for category selection
-let category = ["Sales", "Backoffice", "Design", "Marketing", "Media"];
+let category = ['Sales', 'Backoffice', 'Design', 'Marketing', 'Media'];
 let categoryIndex;
 
 function showCategory() {
-  let selectContainer = document.getElementById("selectCategory");
-  selectContainer.innerHTML = "";
+  let selectContainer = document.getElementById('selectCategory');
+  selectContainer.innerHTML = '';
   selectContainer.innerHTML += showCategoryHtml();
 
-  let chooseContainer = document.getElementById("chooseCategory");
+  let chooseContainer = document.getElementById('chooseCategory');
 
   for (let i = 0; i < category.length; i++) {
     chooseContainer.innerHTML += `
@@ -41,8 +41,8 @@ function showCategoryHtml() {
 }
 
 function hideCategory() {
-  let selectContainer = document.getElementById("selectCategory");
-  selectContainer.innerHTML = "";
+  let selectContainer = document.getElementById('selectCategory');
+  selectContainer.innerHTML = '';
   selectContainer.innerHTML += hideCategoryHtml();
 }
 
@@ -56,8 +56,8 @@ function hideCategoryHtml() {
 }
 
 function addNewCategory() {
-  let selectContainer = document.getElementById("selectCategory");
-  selectContainer.innerHTML = "";
+  let selectContainer = document.getElementById('selectCategory');
+  selectContainer.innerHTML = '';
   selectContainer.innerHTML += addNewCategoryHtml();
 }
 
@@ -83,19 +83,19 @@ function addNewCategoryHtml() {
 }
 
 function pushNewCategory() {
-  let inputValue = document.getElementById("addNewCategoryInput").value;
+  let inputValue = document.getElementById('addNewCategoryInput').value;
   if (inputValue) {
     category.push(inputValue);
     showCategory();
   } else {
-    alert("Please enter a new category!");
+    alert('Please enter a new category!');
   }
 }
 
 function showSelectedCategory(index) {
   categoryIndex = index;
-  let selectContainer = document.getElementById("selectCategory");
-  selectContainer.innerHTML = "";
+  let selectContainer = document.getElementById('selectCategory');
+  selectContainer.innerHTML = '';
   selectContainer.innerHTML += showSelectedCategoryHtml(index);
 }
 
@@ -111,7 +111,7 @@ function showSelectedCategoryHtml(index) {
 let contactsSorted = [];
 
 function sortContactsByName(contacts) {
-  contacts.sort(function (a, b) {
+  contacts.sort(function(a, b) {
     let nameA = a.name.toLowerCase();
     let nameB = b.name.toLowerCase();
 
@@ -128,16 +128,16 @@ function sortContactsByName(contacts) {
 }
 
 function showContacts(contactsSorted) {
-  let selectContainer = document.getElementById("selectContact");
-  selectContainer.innerHTML = "";
+  let selectContainer = document.getElementById('selectContact');
+  selectContainer.innerHTML = '';
   selectContainer.innerHTML += showContactsHtml();
 
-  let chooseContainer = document.getElementById("divShowContact");
+  let chooseContainer = document.getElementById('divShowContact');
 
   for (let i = 0; i < category.length; i++) {
     chooseContainer.innerHTML += `
             <label class="contactContainer">
-                <span class="checkmark">${contactsSorted[i]["name"]}</span>
+                <span class="checkmark">${contactsSorted[i]['name']}</span>
                 <input id="contactCheckbox${i}" type="checkbox">   
             </label>
         `;
@@ -157,8 +157,8 @@ function showContactsHtml() {
 }
 
 function hideContact() {
-  let selectContainer = document.getElementById("selectContact");
-  selectContainer.innerHTML = "";
+  let selectContainer = document.getElementById('selectContact');
+  selectContainer.innerHTML = '';
   selectContainer.innerHTML += hideContactHtml();
 }
 
@@ -172,12 +172,12 @@ function hideContactHtml() {
 }
 
 // Functions for priority selection
-let prioColor = ["#FF3D00", "#FFA800", "#7AE229"];
+let prioColor = ['#FF3D00', '#FFA800', '#7AE229'];
 let prioIndex = [0, 0, 0];
-let priorities = ["high", "normal", "low"];
-let priorities2 = ["urgent", "medium", "low"];
-let urgencyIcon = "";
-let selectedUrgency = "";
+let priorities = ['high', 'normal', 'low'];
+let priorities2 = ['urgent', 'medium', 'low'];
+let urgencyIcon = '';
+let selectedUrgency = '';
 
 function selectPrio(index) {
   resetPrio(index);
@@ -188,8 +188,8 @@ function selectPrio(index) {
     let element = document.getElementById(`divPrio${index}`);
     let pathIcon1 = document.getElementById(`iconPath${index}`);
     let pathIcon2 = document.getElementById(`iconPath${index}${index}`);
-    pathIcon1.setAttribute("fill", "white");
-    pathIcon2.setAttribute("fill", "white");
+    pathIcon1.setAttribute('fill', 'white');
+    pathIcon2.setAttribute('fill', 'white');
     element.style.backgroundColor = prioColor[index];
     element.classList.add("prioIsSelected");
     prioIndex[0] = 0;
@@ -208,28 +208,28 @@ function resetPrio(index) {
     let pathIcon2 = document.getElementById(`iconPath${i}${i}`);
     element.style.backgroundColor = "white";
     element.classList.remove("prioIsSelected");
-    pathIcon1.setAttribute("fill", prioColor[i]);
-    pathIcon2.setAttribute("fill", prioColor[i]);
+    pathIcon1.setAttribute('fill', prioColor[i]);
+    pathIcon2.setAttribute('fill', prioColor[i]);
   }
 }
 
 // Functions for subtask selection
-let allSubtasks = ["Subtask 1", "Subtask 2"];
+let allSubtasks = ['Subtask 1', 'Subtask 2'];
 
 function addNewSubtask() {
-  let newSubtask = document.getElementById("addNewSubtaskInput");
+  let newSubtask = document.getElementById('addNewSubtaskInput');
   if (newSubtask.value) {
     allSubtasks.push(newSubtask.value);
     newSubtask.value = "";
     renderSubtask();
   } else {
-    alert("Please enter a new subtask!");
+    alert('Please enter a new subtask!');
   }
 }
 
 function renderSubtask() {
   let subDiv = document.getElementById(`divShowSubtasks`);
-  subDiv.innerHTML = "";
+  subDiv.innerHTML = '';
 
   for (let i = 0; i < allSubtasks.length; i++) {
     subDiv.innerHTML += subtaskHtml(i);
@@ -251,12 +251,12 @@ const verzögerung = 3000;
 
 function xIconColor(index) {
   let numb = index;
-  let pfad = document.getElementById("xIconPath");
+  let pfad = document.getElementById('xIconPath');
 
   if (numb == 1) {
-    pfad.setAttribute("stroke", "#29abe2");
+    pfad.setAttribute('stroke', '#29abe2');
   } else {
-    pfad.setAttribute("stroke", "#2A3647");
+    pfad.setAttribute('stroke', '#2A3647');
   }
 }
 
@@ -269,34 +269,34 @@ function createNewTask() {
 }
 
 function showSavedNotification() {
-  document.getElementById("savedNotificationDiv").classList.remove("d-none");
+  document.getElementById('savedNotificationDiv').classList.remove('d-none');
 }
 
 function redirectToBoard() {
-  window.location.href = "../html/board.html";
+  window.location.href = '../html/board.html';
 }
 
 function saveTaskToArray() {
   let nextId = todos.length + 1;
-  let title = document.getElementById("InputTitle").value;
-  let description = document.getElementById("InputDescription").value;
-  let category = document.getElementById("spanCategory").innerHTML;
+  let title = document.getElementById('InputTitle').value;
+  let description = document.getElementById('InputDescription').value;
+  let category = document.getElementById('spanCategory').innerHTML;
   let assinedContacts = searchAssinedContacts();
-  let choosedDate = document.getElementById("inputDate").value;
+  let choosedDate = document.getElementById('inputDate').value;
   let prio = selectedUrgency;
   let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
   let assinedSubtasks = searchAssinedSubtask();
 
   newTask.push({
-    id: nextId,
-    progress: "inprogress",
-    category: category,
-    title: title,
-    description: description,
-    "progress-number": [],
-    participants: assinedContacts,
-    urgency: [prio, prioIcon],
-    dueDate: choosedDate,
+    'id': nextId,
+    'progress': 'inprogress',
+    'category': category,
+    'title': title,
+    'description': description,
+    'progress-number': [],
+    'participants': assinedContacts,
+    'urgency': [prio, prioIcon],
+    'dueDate': choosedDate,
   });
 }
 
@@ -308,7 +308,7 @@ function searchAssinedContacts() {
     let checkbox = document.getElementById(`contactCheckbox${i}`);
 
     if (checkbox && checkbox.checked) {
-      choosedContacts.push(contactsSorted[i]["name"]);
+      choosedContacts.push(contactsSorted[i]['name']);
     }
   }
 
@@ -336,7 +336,8 @@ function pushNewTaskToTodos() {
 
 async function setTodosWithUserId() {
   if (currentUser) {
-    await setItem(`todos_${currentUser}`, JSON.stringify(todos));
+    let currentUserJSON = JSON.stringify(currentUser)
+    await setItem(`todos_${currentUserJSON}`, todos);
   } else {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
@@ -345,11 +346,8 @@ async function setTodosWithUserId() {
 
 async function loadTodosWithUserId() {
   if (currentUser) {
-    try {
-      todos = JSON.parse(await getItem(`todos_${currentUser}`));
-    } catch {
-      await setItem(`todos_${currentUser}`, JSON.stringify(todos));
-    }
+      let currentUserJSON = JSON.stringify(currentUser)
+      todos = JSON.parse(await getItem(`todos_${currentUserJSON}`));
   } else {
     if (JSON.parse(localStorage.getItem("todos"))) {
       todos = JSON.parse(localStorage.getItem("todos"));
