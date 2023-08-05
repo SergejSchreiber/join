@@ -75,9 +75,20 @@
 }
 
 .legal-notice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 50px;
+  gap: 20px;
   width: 100%;
   position: absolute;
   bottom: 120px;
+  color: #A8A8A8;
+}
+
+.legal-notice a:hover {
+  color: #29ABE2;
 }
 
 @media (max-width: 700px) {
@@ -190,7 +201,7 @@
 
 @media (max-width: 700px) {
   .btn-logout {
-    height: 120px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: start;

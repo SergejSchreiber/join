@@ -13,27 +13,33 @@ class JoinHeader extends HTMLElement {
   <body>
     <div  class="side-bar">
       <img class="join-logo" src="../assets/img/join_logo_white.png" alt="join_logo" />
-      <a href="../html/summary.html"><div class="side-menu">
+      <a href="../html/summary.html">
+        <div class="side-menu">
         <img src="../assets/img/summary_icon.png" alt="summary_icon" />
         <span>Summary</span>
-      </div></a>
-      <a href="../html/board.html"><div class="side-menu">
+        </div>
+      </a>
+      <a href="../html/board.html">
+        <div class="side-menu">
         <img src="../assets/img/board_icon.png" alt="board_icon" />
         <span>Board</span>
-      </div></a>
-      <a href="../html/add_task.html"><div class="side-menu">
+        </div>
+      </a>
+      <a href="../html/add_task.html">
+        <div class="side-menu">
         <img src="../assets/img/add_task_icon.png" alt="add_task_icon" />
         <span>Add Task</span>
-      </div></a>
-      <a href="../html/contacts.html"><div class="side-menu">
+        </div>
+      </a>
+      <a href="../html/contacts.html">
+        <div class="side-menu">
         <img src="../assets/img/contacts_icon.png" alt="contacts" />
         <span>Contacts</span>
-      </div></a>
-      <a href="../html/legal_notice.html"><div class="legal-notice">
-        <div class="side-menu">
-          <img src="../assets/img/info_icon.png" alt="info_icon" />
-          <span>Legal notice</span>
-        </div></a>
+        </div>
+      </a>
+      <div class="legal-notice">
+        <a href="../html/privacy_policy.html" target="_blank">Privacy Policy</a>
+        <a href="../html/legal_notice.html" target="_blank">Legal notice</a>
       </div>
     </div>
 
@@ -55,7 +61,8 @@ class JoinHeader extends HTMLElement {
         <div onclick="hideLogoutMobile()" class="log-out-bg" id="logOutBgMobile"></div>
           <button class="btn btn-logout" id="logOutMobile">
             <a href="../html/help.html" id="help">Help</a>
-            <a href="../html/legal_notice.html" id="legalNotice">Legal notice</a>  
+            <a href="../html/legal_notice.html" target="_blank" id="legalNotice">Legal notice</a>
+            <a href="../html/privacy_policy.html" target="_blank" id="privacyPolicy">Privacy Policy</a>  
             <span onclick="logout(event)">Log out</span>
           </button>
       </div>

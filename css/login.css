@@ -14,9 +14,18 @@ body {
 }
 
 @keyframes bg-animation {
-  100% {visibility: visible; opacity: -1;}
-  30% {visibility: visible; opacity: 1;}
-  0% {visibility: visible; opacity: 1;}
+  100% {
+    visibility: visible;
+    opacity: -1;
+  }
+  30% {
+    visibility: visible;
+    opacity: 1;
+  }
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .join-logo {
@@ -41,9 +50,21 @@ body {
 }
 
 @keyframes logo-animation {
-  100% {width: 100px;}
-  15% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px;}
-  0% {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 274px;}
+  100% {
+    width: 100px;
+  }
+  15% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 274px;
+  }
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 274px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -58,7 +79,7 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 35px;
-  position: absolute;  
+  position: absolute;
 }
 
 @media (min-width: 700px) {
@@ -97,13 +118,13 @@ body {
   gap: 35px;
   position: absolute;
   width: 652px;
-  top: 274px;
+  top: 225px;
 }
 
 @media (max-width: 700px) {
   .box-login {
     width: 93%;
-  }  
+  }
 }
 
 @media (max-width: 500px) {
@@ -339,4 +360,32 @@ body {
   .signup-input-container {
     margin-bottom: 0px !important;
   }
+}
+
+.legal-notice-signup {
+  position: absolute;
+  bottom: 100px;
+  color: #a8a8a8;
+  width: 225px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.privacy-policy-to-accept {
+  color: #29abe2;
+}
+
+.privacy-policy-to-accept-box input {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0;
+}
+
+.privacy-policy-to-accept-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 10px;
+  position: relative;
 }
