@@ -265,7 +265,7 @@ function createNewTask() {
   saveTaskToArray();
   pushNewTaskToTodos();
   showSavedNotification();
-  setTimeout(redirectToBoard, verzögerung);
+  //setTimeout(redirectToBoard, verzögerung);
 }
 
 function showSavedNotification() {
@@ -289,11 +289,11 @@ function saveTaskToArray() {
 
   newTask.push({
     'id': nextId,
-    'progress': 'inprogress',
+    'progress': 'todo',
     'category': category,
     'title': title,
     'description': description,
-    'progress-number': [],
+    'progress-number': [0, assinedSubtasks.length],
     'participants': assinedContacts,
     'urgency': [prio, prioIcon],
     'dueDate': choosedDate,
