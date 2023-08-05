@@ -247,7 +247,7 @@ function subtaskHtml(index) {
 
 // Functions for clear and create button
 let newTask = [];
-const verzögerung = 3000;
+const delay = 3000;
 
 function xIconColor(index) {
   let numb = index;
@@ -265,7 +265,7 @@ function createNewTask() {
   saveTaskToArray();
   pushNewTaskToTodos();
   showSavedNotification();
-  //setTimeout(redirectToBoard, verzögerung);
+  setTimeout(redirectToBoard, delay);
 }
 
 function showSavedNotification() {
