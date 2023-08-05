@@ -165,7 +165,22 @@ body {
   position: absolute;
   top: 250px;
   z-index: 99;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10%;
+  padding: 5px;
   display: none;
+}
+
+@media (max-width: 700px) {
+  .login-alerts {
+    top: 215px;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-alerts {
+    top: 200px;
+  }
 }
 
 .top235 {
