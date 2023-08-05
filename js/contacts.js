@@ -91,26 +91,10 @@ async function setContactsWithUserId() {
   loadContactsWithUserId();
 }
 
-// async function loadContactsWithUserId() {
-//   if (currentUser) {
-//     let currentUserJSON = JSON.stringify(currentUser)
-//       contacts = JSON.parse(await getItem(`contacts_${currentUserJSON}`));
-//   } else {
-//     if (JSON.parse(localStorage.getItem("contacts"))) {
-//       contacts = JSON.parse(localStorage.getItem("contacts"));
-//     }
-//   }
-// }
-
 async function loadContactsWithUserId() {
   if (currentUser) {
-    let currentUserJSON = JSON.stringify(currentUser);
-    let contactsData = await getItem(`contacts_${currentUserJSON}`);
-    if (contactsData) {
-      contacts = JSON.parse(contactsData);
-    } else {
-      renderContacts();
-    }
+    let currentUserJSON = JSON.stringify(currentUser)
+      contacts = JSON.parse(await getItem(`contacts_${currentUserJSON}`));
   } else {
     if (JSON.parse(localStorage.getItem("contacts"))) {
       contacts = JSON.parse(localStorage.getItem("contacts"));

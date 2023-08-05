@@ -140,7 +140,11 @@ async function addUser() {
     }
     users.push({ user, email, password });
     await setItem("users", JSON.stringify(users));
-    window.location.href = "./index.html?msg=Du hast dich erfolgreich registriert";
+    currentUser = JSON.stringify({user: user, email: email, password: password})
+    await setItem(`currentUser`, JSON.stringify(currentUser));
+    await setItem(`contacts_${currentUser}`, contacts);
+    await setItem(`todos_${currentUser}`, todos);
+    window.location.href = "./summary.html?msg=Du hast dich erfolgreich registriert";
   } else {
     document.getElementById("message-different-passwords").style.display = "block";
     return false;
