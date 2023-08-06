@@ -4,6 +4,7 @@ let currentDraggedElement;
 function render() {
   loadCurrentUser().then(() => {
     loadTodosWithUserId().then(() => {
+      removeTasksFromContainer()
       for (let i = 0; i < todos.length; i++) {
         let addTodo = document.getElementById(todos[i]["progress"]);
         addTodo.innerHTML += createTaskContainer(i);
@@ -64,7 +65,6 @@ function filterTasks() { // search function
         if (task['title'].toLowerCase().includes(search)) {
             let addTodo = document.getElementById(todos[i]['progress']);
             addTodo.innerHTML += createTaskContainer(i);
-            giveCategoryBackgroundColor(i);
         }
     }
     if(!search) {
@@ -83,4 +83,17 @@ function getInitials(fullName) {
     let firstInitial = fullName[0];
     let secondInitial = fullName.split(' ')[1][0];
     return firstInitial + secondInitial;
+}
+
+// functions to delete and edit tasks
+function deleteTask(id) {
+  todos.splice(id, 1);
+  redistributeIds();
+  removeAddTaskSlide();
+}
+
+function redistributeIds() {
+  for (let i = 0; i < todos.length; i++) {
+    todos[i]['id'] = i;
+  }
 }

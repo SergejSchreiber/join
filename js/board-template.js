@@ -159,7 +159,7 @@ function getTaskDetails(id) {
                     )}</div>
                 </div>
                 <div class="task-button-body">
-                      <button class="delete-task-button"><img src="../assets/img/delete.png"></button>
+                      <button onclick="deleteTask(${todos[id]['id']})" class="delete-task-button"><img src="../assets/img/delete.png"></button>
                       <button class="edit-task-button"><img src="../assets/img/edit.png"></button>
                 </div>
             </div>
