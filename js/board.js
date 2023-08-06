@@ -8,6 +8,7 @@ function render() {
       for (let i = 0; i < todos.length; i++) {
         let addTodo = document.getElementById(todos[i]["progress"]);
         addTodo.innerHTML += createTaskContainer(i);
+        todos[i]['id'] = i;
       }
     });
   });
@@ -90,12 +91,33 @@ function deleteTask(id) {
   todos.splice(id, 1);
   removeAddTaskSlide();
   redistributeIds();
-  render();
-  console.log(todos);
+  setTodosWithUserId();
 }
 
 function redistributeIds() {
   for (let i = 0; i < todos.length; i++) {
     todos[i]['id'] = i;
   }
+}
+
+async function setTodosWithUserId() {
+  if (currentUser) {
+    let currentUserJSON = JSON.stringify(currentUser)
+    await setItem(`todos_${currentUserJSON}`, todos);
+  } else {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
+  loadTodosWithUserId();
+}
+
+async function loadTodosWithUserId() {
+  if (currentUser) {
+      let currentUserJSON = JSON.stringify(currentUser)
+      todos = JSON.parse(await getItem(`todos_${currentUserJSON}`));
+  } else {
+    if (JSON.parse(localStorage.getItem("todos"))) {
+      todos = JSON.parse(localStorage.getItem("todos"));
+    }
+  }
+  render();
 }
