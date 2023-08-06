@@ -63,7 +63,7 @@ function filterTasks() { // search function
     removeTasksFromContainer();
     for (let i = 0; i < todos.length; i++) {
         let task = todos[i];
-        if (task['title'].toLowerCase().includes(search)) {
+        if (task['title'].toLowerCase().includes(search) || task['description'].toLowerCase().includes(search)) {
             let addTodo = document.getElementById(todos[i]['progress']);
             addTodo.innerHTML += createTaskContainer(i);
         }
@@ -87,11 +87,15 @@ function getInitials(fullName) {
 }
 
 // functions to delete and edit tasks
-function deleteTask(id) {
+function deleteTaskFromBoard(id) {
   todos.splice(id, 1);
   removeAddTaskSlide();
   redistributeIds();
   setTodosWithUserId();
+}
+
+function editTaskFromBoard() {
+  
 }
 
 function redistributeIds() {

@@ -159,7 +159,7 @@ function getTaskDetails(id) {
                     )}</div>
                 </div>
                 <div class="task-button-body">
-                      <button onclick="deleteTask(${todos[id]['id']})" class="delete-task-button"><img src="../assets/img/delete.png"></button>
+                      <button onclick="deleteTaskFromBoard(${todos[id]['id']})" class="delete-task-button"><img src="../assets/img/delete.png"></button>
                       <button class="edit-task-button"><img src="../assets/img/edit.png"></button>
                 </div>
             </div>
@@ -183,7 +183,7 @@ function getParticipantsForTaskDetails(id) {
   return strin;
 }
 
-function getTaskSlide(progress) {
+function getTaskSlide() {
   return `
       <div id="slide-contact">
         <form class="addTaskForm" onsubmit="return false;">
