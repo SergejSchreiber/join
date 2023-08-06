@@ -23,6 +23,14 @@ textarea {
     background-color: #7AE229;
 }
 
+.background-priority-normal {
+    background-color: #FFA800;
+}
+
+.background-priority-high {
+    background-color: #FF3D00;
+}
+
 .add-task-btn {
     border: 0px;
     transition: 0.2s;
@@ -470,6 +478,8 @@ textarea {
     padding: 4px 37px 4px 37px;
     color: white;
     font-size: 27px;
+    width: 150px;
+    text-align: center;
 }
 
 .task-detail-title {
@@ -524,8 +534,8 @@ textarea {
 }
 
 .task-detail-urgency-right img {
-    filter: invert(96%) sepia(55%) saturate(16%) hue-rotate(283deg) brightness(113%) contrast(101%);
     margin-left: 20px;
+    filter: invert(30%) brightness(3) contrast(300%);
 }
 
 .task-detail-participants-header {

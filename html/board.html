@@ -34,7 +34,7 @@
                     <span class="vertical-line"></span>
                     <div class="search-icon"><img src="../assets/img/Vector.png" alt=""></div>
                 </div>
-                <button id="add-task-btn" onclick="showAddTaskSlideForBoardHTML()">
+                <button id="add-task-btn" onclick="showAddTaskSlideForBoardHTML('todo')">
                     <div class="add-task-btn">Add task</div>
                     <div class="add-task-btn-mobile"></div>
                     <img src="../assets/img/plus_icon.png" alt="">
@@ -46,28 +46,28 @@
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">To do</div>
-                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML('todo')" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="todo" class="task-body" ondrop="moveTo('todo')" ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">In progress</div>
-                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML('inprogress')" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="inprogress" class="task-body" ondrop="moveTo('inprogress')" ondragleave="removeHighlight('inprogress')" ondragover="allowDrop(event); highlight('inprogress')"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Awaiting Feedback</div>
-                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML('awaitingfeedback')" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="awaitingfeedback" class="task-body" ondrop="moveTo('awaitingfeedback')" ondragleave="removeHighlight('awaitingfeedback')" ondragover="allowDrop(event); highlight('awaitingfeedback')"></div>
         </div>
         <div class="single-task-container">
             <div class="task-header">
                 <div class="task-container-name">Done</div>
-                <div onclick="showAddTaskSlideForBoardHTML()" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
+                <div onclick="showAddTaskSlideForBoardHTML('done')" class="task-name-img"><img src="../assets/img/plus_icon.png" alt=""></div>
             </div>
             <div id="done" class="task-body" ondrop="moveTo('done')" ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')"></div>
         </div>

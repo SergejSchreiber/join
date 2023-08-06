@@ -43,8 +43,8 @@ function removeHighlight(progress) {
     document.getElementById(progress).classList.remove('highlight-drag-area');
 }
 
-function showAddTaskSlideForBoardHTML() {
-  document.getElementById("task-container").innerHTML += getTaskSlide();
+function showAddTaskSlideForBoardHTML(progress) {
+  document.getElementById("task-container").innerHTML += getTaskSlide(progress);
   renderSubtask();
 }
 
@@ -88,8 +88,10 @@ function getInitials(fullName) {
 // functions to delete and edit tasks
 function deleteTask(id) {
   todos.splice(id, 1);
-  redistributeIds();
   removeAddTaskSlide();
+  redistributeIds();
+  render();
+  console.log(todos);
 }
 
 function redistributeIds() {

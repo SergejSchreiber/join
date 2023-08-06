@@ -130,7 +130,7 @@ function getTaskDetails(id) {
         <div id="slide-contact">
             <div class="task-details">
                 <div class="task-detail-x-icon" onclick="removeAddTaskSlide()"><img src="../assets/img/x_icon.svg"></div>
-                <div class="task-detail-category">${todos[id]["category"]}</div>
+                <div class="task-detail-category ${todos[id]["category"]}">${todos[id]["category"]}</div>
                 <div class="task-detail-title">${todos[id]["title"]}</div>
                 <div class="task-detail-description">${
                   todos[id]["description"]
@@ -183,7 +183,7 @@ function getParticipantsForTaskDetails(id) {
   return strin;
 }
 
-function getTaskSlide() {
+function getTaskSlide(progress) {
   return `
       <div id="slide-contact">
         <form class="addTaskForm" onsubmit="return false;">
