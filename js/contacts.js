@@ -51,6 +51,7 @@ function editContact(id) {
   contacts[id]['mail'] = document.getElementById('input-email').value;
   contacts[id]['telefonnummer'] = document.getElementById("input-phone").value;
   removeSlide();
+  setContactsWithUserId();
   renderContacts();
   showContactDetails(id);
 }
@@ -69,6 +70,14 @@ function addContact() {
     setContactsWithUserId();
     removeSlide();
   }
+}
+
+function deleteContact(id) {
+  contacts.splice(id, 1);
+  document.getElementById('chosen-contact').innerHTML = '';
+  distributeContactId();
+  setContactsWithUserId();
+  renderContacts();
 }
 
 function showAddTaskSlide() {

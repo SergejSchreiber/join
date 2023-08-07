@@ -56,9 +56,15 @@ function getContactDetails(contactArr) {
         </div>
         <div class="contact-info-header">
             <p>Contact Information</p>
-            <div class="edit-button" onclick="NewContactSlide(${1}, ${contactArr['contactId']})">
-                <img src="../assets/img/edit.svg" alt="">
-                <p>Edit</p>
+            <div class="edit-delete-button">
+                <div class="edit-button" onclick="NewContactSlide(${1}, ${contactArr['contactId']})">
+                    <img src="../assets/img/edit.svg" alt="">
+                    <p>Edit</p>
+                </div>
+                <div class="delete-button" onclick="deleteContact(${contactArr['contactId']})">
+                    <img src="../assets/img/delete.png" alt="">
+                    <p>Delete</p>
+                </div>
             </div>
         </div>
         <div class="mail-info-header">Email</div>
