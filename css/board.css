@@ -419,7 +419,8 @@ textarea {
 }
 
 .highlight-drag-area {
-    background-color: gray;
+    background-color: rgb(218, 218, 218);
+    border-radius: 50px;
 }
 
 /* The task details are here designed */

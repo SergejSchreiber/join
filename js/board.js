@@ -33,7 +33,9 @@ function allowDrop(ev) {
 function moveTo(progress) {
   todos[currentDraggedElement]["progress"] = progress;
   removeTaskHTML();
+  setTodosWithUserId();
   render();
+  removeHighlight(progress);
 }
 
 function highlight(progress) {
