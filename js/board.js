@@ -44,8 +44,8 @@ function removeHighlight(progress) {
     document.getElementById(progress).classList.remove('highlight-drag-area');
 }
 
-function showAddTaskSlideForBoardHTML(progress) {
-  document.getElementById("task-container").innerHTML += getTaskSlide(progress);
+function showAddTaskSlideForBoardHTML() {
+  document.getElementById("task-container").innerHTML += getTaskSlide();
   renderSubtask();
 }
 
@@ -92,10 +92,12 @@ function deleteTaskFromBoard(id) {
   removeAddTaskSlide();
   redistributeIds();
   setTodosWithUserId();
+  render();
 }
 
-function editTaskFromBoard() {
-  
+function editTaskFromBoard(id) {
+  removeAddTaskSlide();
+
 }
 
 function redistributeIds() {
