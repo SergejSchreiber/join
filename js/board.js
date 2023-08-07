@@ -97,7 +97,15 @@ function deleteTaskFromBoard(id) {
 
 function editTaskFromBoard(id) {
   removeAddTaskSlide();
+  showAddTaskSlideForBoardHTML();
+  fillTaskInfo(id);
+}
 
+function fillTaskInfo(id) {
+  document.getElementById('InputTitle').value = todos[id]['title'];
+  document.getElementById('InputDescription').value = todos[id]['description'];
+  document.getElementById('spanCategory').innerHTML = todos[id]['category'];
+  document.getElementById('inputDate').value = todos[id]['dueDate'].split('-').join('.').toString();
 }
 
 function redistributeIds() {
