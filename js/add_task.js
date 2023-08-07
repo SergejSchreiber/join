@@ -277,7 +277,7 @@ function redirectToBoard() {
 }
 
 function saveTaskToArray() {
-  let nextId = todos.length + 1;
+  let nextId = todos.length;
   let title = document.getElementById('InputTitle').value;
   let description = document.getElementById('InputDescription').value;
   let category = document.getElementById('spanCategory').innerHTML;

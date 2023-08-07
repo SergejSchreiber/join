@@ -4,7 +4,7 @@ let currentDraggedElement;
 function render() {
   loadCurrentUser().then(() => {
     loadTodosWithUserId().then(() => {
-      removeTasksFromContainer()
+      removeTasksFromContainer();
       for (let i = 0; i < todos.length; i++) {
         let addTodo = document.getElementById(todos[i]["progress"]);
         addTodo.innerHTML += createTaskContainer(i);
@@ -123,5 +123,4 @@ async function loadTodosWithUserId() {
       todos = JSON.parse(localStorage.getItem("todos"));
     }
   }
-  render();
 }

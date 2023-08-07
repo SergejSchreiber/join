@@ -2,7 +2,6 @@ function NewContactSlide(input, id) {
   let slide = document.getElementById('slide-contact-container');
   slide.innerHTML = '';
   slide.innerHTML += getSlide(input, id);
-  renderSubtask();
 }
 
 function removeSlide() {
@@ -74,6 +73,7 @@ function addContact() {
 
 function showAddTaskSlide() {
   document.getElementById('slide-contact-container').innerHTML += getTaskSlide();
+  renderSubtask();
 }
 
 function distributeContactId() {
