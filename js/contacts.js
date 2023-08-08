@@ -80,6 +80,14 @@ function deleteContact(id) {
   renderContacts();
 }
 
+function deleteContactFromEditSlide(id) {
+  contacts.splice(id, 1);
+  document.getElementById('chosen-contact').innerHTML = '';
+  distributeContactId();
+  setContactsWithUserId();
+  renderContacts();
+}
+
 function showAddTaskSlide() {
   document.getElementById('slide-contact-container').innerHTML += getTaskSlide();
   renderSubtask();
