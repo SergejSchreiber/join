@@ -31,6 +31,7 @@ function renderContacts() {
     let letterArr = [];
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
+    let lastNumber;
     for (let i = 0; i < namesArr.length; i++) {
         if(letterArr.includes(namesArr[i]['name'][0].toUpperCase())  == false) {
             contactList.innerHTML += `
@@ -46,10 +47,10 @@ function renderContacts() {
                     </div>
                 </div>
             `; 
+            lastNumber = i;
         }
         else {
-            let j = i - 1;
-            document.getElementById('letter-' + j).innerHTML += `
+            document.getElementById('letter-' + lastNumber).innerHTML += `
                 <div class="contact" onclick="showContactDetails(${namesArr[i]['contactId']})">
                     <div id="backgroundcolor-initials-${i}" class="icon">${getInitials(namesArr[i]['name'])}</div>
                     <div class="contact-info">
