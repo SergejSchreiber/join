@@ -86,6 +86,7 @@ function deleteContactFromEditSlide(id) {
   distributeContactId();
   setContactsWithUserId();
   renderContacts();
+  removeSlide();
 }
 
 function showAddTaskSlide() {
