@@ -40,58 +40,30 @@ const COLOR_PARTICIPANTS = [
 function createTaskContainer(number) {
   if (todos[number]["progress-number"].length < 1) {
     return `
-            <div draggable="true" ondragstart="startDraggin(${
-              todos[number]["id"]
-            })" onclick="showTaskedInDetail(${
-      todos[number]["id"]
-    })" id="task-container-${todos[number]["id"]}" class="single-task-body">
-                <div id="category-${todos[number]["id"]}" class="category ${
-                  todos[number]["category"]
-                }">${
-      todos[number]["category"]
-    }</div>
+            <div draggable="true" ondragstart="startDraggin(${todos[number]["id"]})" onclick="showTaskedInDetail(${todos[number]["id"]})" id="task-container-${todos[number]["id"]}" class="single-task-body">
+                <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
                 <div class="name-task">${todos[number]["title"]}</div>
-                <div class="task-description">${
-                  todos[number]["description"]
-                }</div>
+                <div class="task-description">${todos[number]["description"]}</div>
                 <div id="task-progress" class="task-progress"></div>
                 <div class="task-participants">
-                    <div class="participants">${addHTMLParticipants(
-                      todos[number]["participants"]
-                    )}</div>
-                    <div><img class="${todos[number]["urgency"][0]}" src="${
-      todos[number]["urgency"][1]
-    }" alt=""></div>
+                    <div class="participants">${addHTMLParticipants(todos[number]["participants"])}</div>
+                    <div><img class="${todos[number]["urgency"][0]}" src="${todos[number]["urgency"][1]}" alt=""></div>
                 </div>
             </div>
         `;
   }
   return `
-        <div draggable="true" ondragstart="startDraggin(${
-          todos[number]["id"]
-        })" onclick="showTaskedInDetail(${
-    todos[number]["id"]
-  })" id="task-container-${todos[number]["id"]}" class="single-task-body">
-            <div id="category-${todos[number]["id"]}" class="category ${
-              todos[number]["category"]
-            }">${
-    todos[number]["category"]
-  }</div>
+        <div draggable="true" ondragstart="startDraggin(${todos[number]["id"]})" onclick="showTaskedInDetail(${todos[number]["id"]})" id="task-container-${todos[number]["id"]}" class="single-task-body">
+            <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
             <div class="name-task">${todos[number]["title"]}</div>
             <div class="task-description">${todos[number]["description"]}</div>
             <div id="task-progress" class="task-progress">
                 <span class="progress-bar"></span>
-                <div class="progress-number">${
-                  todos[number]["progress-number"][0]
-                }/${todos[number]["progress-number"][1]} Done</div>
+                <div class="progress-number">${todos[number]["progress-number"][0]}/${todos[number]["progress-number"][1]} Done</div>
             </div>
             <div class="task-participants">
-                <div class="participants">${addHTMLParticipants(
-                  todos[number]["participants"]
-                )}</div>
-                <div><img class="${todos[number]["urgency"][0]}" src="${
-    todos[number]["urgency"][1]
-  }" alt=""></div>
+                <div class="participants">${addHTMLParticipants(todos[number]["participants"])}</div>
+                <div><img class="${todos[number]["urgency"][0]}" src="${todos[number]["urgency"][1]}" alt=""></div>
             </div>
         </div>
     `;
@@ -105,17 +77,13 @@ function addHTMLParticipants(participants) {
   if (participants.length < 4) {
     for (let i = 0; i < participants.length; i++) {
       completeParticipantsString += `
-                <div class="participants-${i}">${getInitials(
-        participants[i]
-      )}</div>
+                <div class="participants-${i}">${getInitials(participants[i])}</div>
             `;
     }
   } else {
     for (let i = 0; i < 2; i++) {
       completeParticipantsString += `
-                <div class="participants-${i}">${getInitials(
-        participants[i]
-      )}</div>
+          <div class="participants-${i}">${getInitials(participants[i])}</div>
             `;
     }
     completeParticipantsString += `
@@ -132,31 +100,21 @@ function getTaskDetails(id) {
                 <div class="task-detail-x-icon" onclick="removeAddTaskSlide()"><img src="../assets/img/x_icon.svg"></div>
                 <div class="task-detail-category ${todos[id]["category"]}">${todos[id]["category"]}</div>
                 <div class="task-detail-title">${todos[id]["title"]}</div>
-                <div class="task-detail-description">${
-                  todos[id]["description"]
-                }</div>
+                <div class="task-detail-description">${todos[id]["description"]}</div>
                 <div class="task-detail-dueDate">
                     <div class="task-detail-dueDate-left">Due date:</div>
-                    <div class="task-detail-dueDate-right">${
-                      todos[id]["dueDate"]
-                    }</div>
+                    <div class="task-detail-dueDate-right">${todos[id]["dueDate"]}</div>
                 </div>
                 <div class="task-detail-urgency">
                     <div class="task-detail-urgency-left">Priority:</div>
-                    <div class="task-detail-urgency-right background-priority-${
-                      todos[id]["urgency"][0]
-                    }">
-                        <div class="task-detail-urgency-right-name">${
-                          todos[id]["urgency"][0]
-                        }</div>
+                    <div class="task-detail-urgency-right background-priority-${todos[id]["urgency"][0]}">
+                        <div class="task-detail-urgency-right-name">${todos[id]["urgency"][0]}</div>
                         <img src="${todos[id]["urgency"][1]}">
                     </div>
                 </div>
                 <div class="task-detail-participants">
                     <div class="task-detail-participants-header">Assigned To:</div>
-                    <div class="task-detail-participants-body">${getParticipantsForTaskDetails(
-                      id
-                    )}</div>
+                    <div class="task-detail-participants-body">${getParticipantsForTaskDetails(id)}</div>
                 </div>
                 <div class="task-button-body">
                       <button onclick="deleteTaskFromBoard(${todos[id]['id']})" class="delete-task-button"><img src="../assets/img/delete.png"></button>
@@ -172,12 +130,8 @@ function getParticipantsForTaskDetails(id) {
   for (let i = 0; i < todos[id]["participants"].length; i++) {
     strin += `
             <div class="single-task-detail-participants">
-                <div id="participant-${i}" class="task-detail-participants-left">${getInitials(
-      todos[id]["participants"][i]
-    )}</div>
-                <div class="task-detail-participants-right">${
-                  todos[id]["participants"][i]
-                }</div>
+                <div id="participant-${i}" class="task-detail-participants-left">${getInitials(todos[id]["participants"][i])}</div>
+                <div class="task-detail-participants-right">${todos[id]["participants"][i]}</div>
             </div>`;
   }
   return strin;

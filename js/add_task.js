@@ -14,9 +14,7 @@ function showCategory() {
   let selectContainer = document.getElementById('selectCategory');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += showCategoryHtml();
-
   let chooseContainer = document.getElementById('chooseCategory');
-
   for (let i = 0; i < category.length; i++) {
     chooseContainer.innerHTML += `
             <div class="chooseOptions" onclick="showSelectedCategory(${i})">
@@ -114,7 +112,6 @@ function sortContactsByName(contacts) {
   contacts.sort(function(a, b) {
     let nameA = a.name.toLowerCase();
     let nameB = b.name.toLowerCase();
-
     if (nameA < nameB) {
       return -1; // a kommt vor b
     }
@@ -131,9 +128,7 @@ function showContacts(contactsSorted) {
   let selectContainer = document.getElementById('selectContact');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += showContactsHtml();
-
   let chooseContainer = document.getElementById('divShowContact');
-
   for (let i = 0; i < category.length; i++) {
     chooseContainer.innerHTML += `
             <label class="contactContainer">
@@ -183,7 +178,6 @@ function selectPrio(index) {
   resetPrio(index);
   selectedUrgency = priorities[index];
   urgencyIcon = priorities2[index];
-
   if (prioIndex[index] == 0) {
     let element = document.getElementById(`divPrio${index}`);
     let pathIcon1 = document.getElementById(`iconPath${index}`);
@@ -230,7 +224,6 @@ function addNewSubtask() {
 function renderSubtask() {
   let subDiv = document.getElementById(`divShowSubtasks`);
   subDiv.innerHTML = '';
-
   for (let i = 0; i < allSubtasks.length; i++) {
     subDiv.innerHTML += subtaskHtml(i);
   }
@@ -252,7 +245,6 @@ const delay = 3000;
 function xIconColor(index) {
   let numb = index;
   let pfad = document.getElementById('xIconPath');
-
   if (numb == 1) {
     pfad.setAttribute('stroke', '#29abe2');
   } else {
@@ -286,7 +278,6 @@ function saveTaskToArray() {
   let prio = selectedUrgency;
   let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
   let assinedSubtasks = searchAssinedSubtask();
-
   newTask.push({
     'id': nextId,
     'progress': 'todo',
@@ -303,29 +294,23 @@ function saveTaskToArray() {
 function searchAssinedContacts() {
   let choosedContacts = [];
   let contactsCheckboxCount = contactsSorted.length;
-
   for (let i = 0; i < contactsCheckboxCount; i++) {
     let checkbox = document.getElementById(`contactCheckbox${i}`);
-
     if (checkbox && checkbox.checked) {
       choosedContacts.push(contactsSorted[i]['name']);
     }
   }
-
   return choosedContacts;
 }
 
 function searchAssinedSubtask() {
   let choosedSubtasks = [];
-
   for (let i = 0; i < allSubtasks.length; i++) {
     let currentCheckbox = document.getElementById(`subtaskCheckbox${i}`);
-
     if (currentCheckbox.checked) {
       choosedSubtasks.push(allSubtasks[i]);
     }
   }
-
   return choosedSubtasks;
 }
 

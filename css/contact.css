@@ -716,6 +716,7 @@ textarea {
     background-color: white;
     font-size: 21px;
     margin-right: 25px;
+    cursor: pointer;
 }
 
 .delete-btn:hover {
@@ -738,6 +739,7 @@ textarea {
     font-size: 21px;
     font-weight: 700;
     margin-right: 25px;
+    cursor: pointer;
 }
 
 .save-btn:hover {

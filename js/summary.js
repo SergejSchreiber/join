@@ -17,7 +17,6 @@ function findEarliestDueDate() {
     const dueDate = new Date(item.dueDate);
     return !next || (dueDate > now && dueDate < next.dueDate) ? { ...item, dueDate } : next;
   }, null);
-
   if (nextDueItem) {
     timeElement.textContent = nextDueItem.dueDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
   } else {

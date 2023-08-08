@@ -104,7 +104,6 @@ function hideLogoutMobile() {
 // function to load the Intiatials from the active user
 async function loadingUserInitials() {
   let currentUser = JSON.parse(await getItem("currentUser"));
-
   if (currentUser) {
     let userName = currentUser.user;
     let initials = userName.match(/\b\w/g).join("").toUpperCase();

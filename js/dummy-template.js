@@ -86,7 +86,7 @@ let todos = [{
     ],
     'urgency': [
         'low',
-        '../assets/img/urgent_icon.png'
+        '../assets/img/low_icon.png'
     ],
     'dueDate': '05-08-2022'
 }];

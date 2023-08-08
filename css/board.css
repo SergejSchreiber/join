@@ -598,6 +598,7 @@ textarea {
     border: 1px solid #2A3647;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    cursor: pointer;
 }
 
 .edit-task-button img{
