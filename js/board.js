@@ -97,7 +97,7 @@ function deleteTaskFromBoard(id) {
   render();
 }
 
-function editTaskFromBoard(id) {
+function showEditTaskFromBoard(id) {
   removeAddTaskSlide();
   showAddTaskSlideForBoardHTML();
   fillTaskInfo(id);
@@ -107,6 +107,16 @@ function fillTaskInfo(id) {
   document.getElementById('InputTitle').value = todos[id]['title'];
   document.getElementById('InputDescription').value = todos[id]['description'];
   document.getElementById('inputDate').value = todos[id]['dueDate'].split('-').join('.').toString();
+  showCategory();
+  fillCategoryInTask(id);
+}
+
+function fillCategoryInTask(id) {
+  for (let i = 0; i < category.length; i++) {
+    if(todos[id]['category'] == category[i]) {
+      showSelectedCategory(i);
+    }
+  }
 }
 
 function redistributeIds() {
