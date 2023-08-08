@@ -126,8 +126,9 @@ function hideContactDisplayArrowBack() {
 }
 
 function giveInitialsBackgroundColor(id) {
+  let newId = id;
   while (id >= COLOR_FOR_CATEGORY.length) {
-    id -= COLOR_FOR_CATEGORY.length;
+    newId -= COLOR_FOR_CATEGORY.length;
   }
-  document.getElementById('backgroundcolor-initials-' + id).style = 'background-color: ' + COLOR_FOR_CATEGORY[id] + ';';
+  document.getElementById('backgroundcolor-initials-' + id).style = 'background-color: ' + COLOR_FOR_CATEGORY[newId] + ';';
 }

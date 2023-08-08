@@ -122,16 +122,16 @@ function getSlide(input, id) {
 function getInputTags(input, id) {
     if (input === 0) {
         return `
-            <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" required></div>
-            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" required></div>
-            <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" required></div>
+            <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" required /></div>
+            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" required /></div>
+            <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" required /></div>
         `;
     }
     else {
         return `
-            <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" value="${contacts[id]['name']}" required></div>
-            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" value="${contacts[id]['mail']}" required></div>
-            <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" value="${contacts[id]['telefonnummer']}" required></div>
+            <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" value="${contacts[id]['name']}" required /></div>
+            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" value="${contacts[id]['mail']}" required /></div>
+            <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" value="${contacts[id]['telefonnummer']}" required /></div>
         `;
     }
 }
@@ -156,7 +156,7 @@ function getProfilePic(input, id) {
                 <p>Cancel</p>
                 <img src="../assets/img/x_icon.svg" alt="">
             </button>
-            <button onclick="addContact()" class="create-btn">
+            <button type="button" onclick="addContact()" class="create-btn">
                 <p>Create Contact</p>
                 <img src="../assets/img/hook_icon.svg" alt="">
             </button>
