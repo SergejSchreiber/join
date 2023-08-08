@@ -29,9 +29,14 @@ function getSortedNamesArray() {
 }
 
 function getInitials(fullName) {
-  let firstInitial = fullName[0];
-  let secondInitial = fullName.split(' ')[1][0];
-  return firstInitial + secondInitial;
+  if(fullName.split('').includes(' ')) {
+    let firstInitial = fullName[0];
+    let secondInitial = fullName.split(' ')[1][0];
+    return firstInitial + secondInitial;
+  } else {
+    return fullName[0];
+  }
+  
 }
 
 function showContactDetails(id) {
