@@ -1,7 +1,7 @@
-function NewContactSlide(input, id) {
+function NewContactSlide(input, id, submitVariable) {
   let slide = document.getElementById('slide-contact-container');
   slide.innerHTML = '';
-  slide.innerHTML += getSlide(input, id);
+  slide.innerHTML += getSlide(input, id, submitVariable);
 }
 
 function removeSlide() {
@@ -55,10 +55,15 @@ function editContact(id) {
   contacts[id]['name'] = document.getElementById('input-name').value;
   contacts[id]['mail'] = document.getElementById('input-email').value;
   contacts[id]['telefonnummer'] = document.getElementById("input-phone").value;
-  removeSlide();
   setContactsWithUserId();
   renderContacts();
   showContactDetails(id);
+}
+
+function cancelNewContactInfos() {
+  document.getElementById('input-name').value = '';
+  document.getElementById('input-email').value = '';
+  document.getElementById("input-phone").value = '';
 }
 
 function addContact() {
@@ -73,7 +78,6 @@ function addContact() {
     renderContacts();
     showContactDetails(contacts.length - 1);
     setContactsWithUserId();
-    removeSlide();
   }
 }
 
@@ -91,7 +95,6 @@ function deleteContactFromEditSlide(id) {
   distributeContactId();
   setContactsWithUserId();
   renderContacts();
-  removeSlide();
 }
 
 function showAddTaskSlide() {

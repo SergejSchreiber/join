@@ -80,7 +80,7 @@ function getContactDetails(contactArr) {
         <div class="contact-info-header">
             <p>Contact Information</p>
             <div class="edit-delete-button">
-                <div class="edit-button" onclick="NewContactSlide(${1}, ${contactArr['contactId']})">
+                <div class="edit-button" onclick="NewContactSlide(${1}, ${contactArr['contactId']}, 'edit')">
                     <img src="../assets/img/edit.svg" alt="">
                     <p>Edit</p>
                 </div>
@@ -97,7 +97,7 @@ function getContactDetails(contactArr) {
     `;
 }
 
-function getSlide(input, id) {
+function getSlide(input, id, submitVariable) {
     return `
         <div id="slide-contact">
             <div class="pop-up">
@@ -108,7 +108,7 @@ function getSlide(input, id) {
                 </div>
                 <div class="add-contact-right">
                     ${getProfilePic(input, id)}
-                    <form onsubmit="return false;" class="form-side">
+                    <form onsubmit="${returnFunctionHTMLForSubmit(id, submitVariable)} removeSlide(); return false;" class="form-side" action="">
                         <div onclick="removeSlide()" class="x-icon"><img src="../assets/img/x_icon.svg" alt=""></div>
                         <div onclick="removeSlide()" class="x-icon-white"><img src="../assets/img/x_icon_white.png" alt=""></div>
                         ${getInputTags(input, id)}
@@ -118,6 +118,14 @@ function getSlide(input, id) {
             </div>
         </div>
     `;
+}
+
+function returnFunctionHTMLForSubmit(id, submitVariable) {
+    if(submitVariable == 'new') {
+        return 'addContact();';
+    } else {
+        return `editContact(${id});`;
+    }
 }
 
 function getInputTags(input, id) {
@@ -153,11 +161,11 @@ function getProfilePic(input, id) {
  function getCreateOrEditSlide(input, id) {
     if (input == 0) {
         return `
-            <button onclick="removeSlide()" class="cancel-btn">
+            <button type="button" onclick="cancelNewContactInfos()" class="cancel-btn">
                 <p>Cancel</p>
                 <img src="../assets/img/x_icon.svg" alt="">
             </button>
-            <button type="button" onclick="addContact()" class="create-btn">
+            <button type="submit" class="create-btn">
                 <p>Create Contact</p>
                 <img src="../assets/img/hook_icon.svg" alt="">
             </button>
@@ -167,7 +175,7 @@ function getProfilePic(input, id) {
         return `
             <div>
                 <button onclick="deleteContactFromEditSlide(${id})" class="delete-btn">Delete</button>
-                <button onclick="editContact(${id})" class="save-btn">Save</button>
+                <button type="submit" class="save-btn">Save</button>
             </div>
         `;
     }
