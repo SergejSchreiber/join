@@ -174,7 +174,7 @@ function getProfilePic(input, id) {
     else if(input == 1) {
         return `
             <div>
-                <button onclick="deleteContactFromEditSlide(${id})" class="delete-btn">Delete</button>
+                <button type="button" onclick="deleteContactFromEditSlide(${id})" class="delete-btn">Delete</button>
                 <button type="submit" class="save-btn">Save</button>
             </div>
         `;
