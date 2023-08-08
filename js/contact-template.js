@@ -1,3 +1,24 @@
+const COLOR_FOR_CATEGORY = [
+    "#FF7A00",
+    "#FC71FF",
+    "#1FD7C1",
+    "#0038FF",
+    "#FFC701",
+    "#9327FF",
+    "#CB02CF",
+    "#4E963D",
+    "#32DAFF",
+    "#FF7A00",
+    "#FC71FF",
+    "#1FD7C1",
+    "#0038FF",
+    "#FFC701",
+    "#9327FF",
+    "#CB02CF",
+    "#4E963D",
+    "#32DAFF",
+  ];
+
 loadCurrentUser().then(() => {
     loadContactsWithUserId().then(() => {
         loadTodosWithUserId();
@@ -17,7 +38,7 @@ function renderContacts() {
                     <div class="letter-header">${namesArr[i]['name'][0]}</div>
                     <div class="horizontal-line"></div>
                     <div class="contact" onclick="showContactDetails(${namesArr[i]['contactId']})">
-                        <div class="icon">${getInitials(namesArr[i]['name'])}</div>
+                        <div id="backgroundcolor-initials-${i}" class="icon">${getInitials(namesArr[i]['name'])}</div>
                         <div class="contact-info">
                             <p>${namesArr[i]['name']}</p>
                             <div>${namesArr[i]['mail']}</div>
@@ -30,7 +51,7 @@ function renderContacts() {
             let j = i - 1;
             document.getElementById('letter-' + j).innerHTML += `
                 <div class="contact" onclick="showContactDetails(${namesArr[i]['contactId']})">
-                    <div class="icon">${getInitials(namesArr[i]['name'])}</div>
+                    <div id="backgroundcolor-initials-${i}" class="icon">${getInitials(namesArr[i]['name'])}</div>
                     <div class="contact-info">
                         <p>${namesArr[i]['name']}</p>
                         <div>${namesArr[i]['mail']}</div>
@@ -39,6 +60,7 @@ function renderContacts() {
             `;
         }
         letterArr.push(namesArr[i]['name'][0]);
+        giveInitialsBackgroundColor(i);
     }
 }
 

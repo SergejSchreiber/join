@@ -123,3 +123,10 @@ async function loadContactsWithUserId() {
 function hideContactDisplayArrowBack() {
   document.getElementById("contact-display").style.display = "none";
 }
+
+function giveInitialsBackgroundColor(id) {
+  while (id >= COLOR_FOR_CATEGORY.length) {
+    id -= COLOR_FOR_CATEGORY.length;
+  }
+  document.getElementById('backgroundcolor-initials-' + id).style = 'background-color: ' + COLOR_FOR_CATEGORY[id] + ';';
+}
