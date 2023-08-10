@@ -1,9 +1,9 @@
 function renderContent() {
   loadCurrentUser().then(() => {
-    loadTodosWithUserId().then(() => {
-      renderSubtask();
+    loadContactsWithUserId().then(() => {
+        loadTodosWithUserId();
+        });
     });
-  });
 }
 
 // Functions for category selection
@@ -129,7 +129,7 @@ function showContacts(contactsSorted) {
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += showContactsHtml();
   let chooseContainer = document.getElementById('divShowContact');
-  for (let i = 0; i < category.length; i++) {
+  for (let i = 0; i < contactsSorted.length; i++) {
     chooseContainer.innerHTML += `
             <label class="contactContainer">
                 <span class="checkmark">${contactsSorted[i]['name']}</span>
@@ -278,17 +278,33 @@ function saveTaskToArray() {
   let prio = selectedUrgency;
   let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
   let assinedSubtasks = searchAssinedSubtask();
-  newTask.push({
-    'id': nextId,
-    'progress': 'todo',
-    'category': category,
-    'title': title,
-    'description': description,
-    'progress-number': [0, assinedSubtasks.length],
-    'participants': assinedContacts,
-    'urgency': [prio, prioIcon],
-    'dueDate': choosedDate,
-  });
+
+
+  if(assinedSubtasks.length == 0) {
+    newTask.push({
+      'id': nextId,
+      'progress': 'todo',
+      'category': category,
+      'title': title,
+      'description': description,
+      'progress-number': [],
+      'participants': assinedContacts,
+      'urgency': [prio, prioIcon],
+      'dueDate': choosedDate,
+    });
+  }else{
+    newTask.push({
+      'id': nextId,
+      'progress': 'todo',
+      'category': category,
+      'title': title,
+      'description': description,
+      'progress-number': [0, assinedSubtasks.length],
+      'participants': assinedContacts,
+      'urgency': [prio, prioIcon],
+      'dueDate': choosedDate,
+    });
+  }
 }
 
 function searchAssinedContacts() {
@@ -305,6 +321,7 @@ function searchAssinedContacts() {
 
 function searchAssinedSubtask() {
   let choosedSubtasks = [];
+  let noSubtask = '';
   for (let i = 0; i < allSubtasks.length; i++) {
     let currentCheckbox = document.getElementById(`subtaskCheckbox${i}`);
     if (currentCheckbox.checked) {
