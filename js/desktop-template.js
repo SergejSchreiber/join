@@ -19,18 +19,18 @@ class JoinHeader extends HTMLElement {
         <span>Summary</span>
         </div>
       </a>
-      <a href="../html/board.html">
-        <div class="side-menu">
-        <img src="../assets/img/board_icon.png" alt="board_icon" />
-        <span>Board</span>
-        </div>
-      </a>
       <a href="../html/add_task.html">
         <div class="side-menu">
         <img src="../assets/img/add_task_icon.png" alt="add_task_icon" />
         <span>Add Task</span>
         </div>
       </a>
+      <a href="../html/board.html">
+        <div class="side-menu">
+        <img src="../assets/img/board_icon.png" alt="board_icon" />
+        <span>Board</span>
+        </div>
+      </a>      
       <a href="../html/contacts.html">
         <div class="side-menu">
         <img src="../assets/img/contacts_icon.png" alt="contacts" />
