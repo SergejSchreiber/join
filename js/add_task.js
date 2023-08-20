@@ -4,6 +4,8 @@ function renderContent() {
         loadTodosWithUserId();
         });
     });
+
+    renderSubtask();  
 }
 
 // Functions for category selection
