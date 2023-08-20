@@ -106,10 +106,23 @@ function showEditTaskFromBoard(id) {
 function fillTaskInfo(id) {
   document.getElementById('InputTitle').value = todos[id]['title'];
   document.getElementById('InputDescription').value = todos[id]['description'];
+  let changeDate;
+  /* for (let i = todos[id]['dueDate'].length; i > 0; i--) {
+    changeDate.push();
+  } */
   document.getElementById('inputDate').value = todos[id]['dueDate'].split('-').join('.').toString();
   showCategory();
   fillCategoryInTask(id);
   document.getElementById('formSubmitButton').setAttribute('onClick', `saveEditedTask(${id})`);
+  if(todos[id]['urgency'] == 'low') {
+    selectPrio(0);
+  }
+  else if(todos[id]['urgency'] == 'normal') {
+    selectPrio(1);
+  } 
+  else if(todos[id]['urgency'] == 'high') {
+    selectPrio(2);
+  }
 }
 
 function saveEditedTask(id) {
