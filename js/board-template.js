@@ -137,6 +137,14 @@ function getParticipantsForTaskDetails(id) {
   return strin;
 }
 
+function stringButtonForEditAndNewTask(input) {
+    if(!input) {
+        return 'createNewTask()';
+    } else {
+        return `saveEditedTask(${input})`;
+    }
+}
+
 function getTaskSlide() {
   return `
       <div id="slide-contact">

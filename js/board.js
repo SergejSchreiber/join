@@ -109,6 +109,12 @@ function fillTaskInfo(id) {
   document.getElementById('inputDate').value = todos[id]['dueDate'].split('-').join('.').toString();
   showCategory();
   fillCategoryInTask(id);
+  document.getElementById('formSubmitButton').setAttribute('onClick', `saveEditedTask(${id})`);
+}
+
+function saveEditedTask(id) {
+  todos.splice(id, 1);
+  createNewTask();
 }
 
 function fillCategoryInTask(id) {

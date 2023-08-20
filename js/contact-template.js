@@ -135,14 +135,14 @@ function getInputTags(input, id) {
         return `
             <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" required /></div>
             <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" pattern="${regexMail}" required /></div>
-            <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" pattern="${regexPhone}" required /></div>
+            <div><input id="input-phone" class="pop-up-input" type="number" placeholder="Phone" pattern="${regexPhone}" required /></div>
         `;
     }
     else {
         return `
             <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" value="${contacts[id]['name']}" required /></div>
             <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" value="${contacts[id]['mail']}" pattern="${regexMail}" required /></div>
-            <div><input id="input-phone" class="pop-up-input" type="tel" placeholder="Phone" value="${contacts[id]['telefonnummer']}" pattern="${regexPhone}" required /></div>
+            <div><input id="input-phone" class="pop-up-input" type="number" placeholder="Phone" value="${contacts[id]['telefonnummer']}" pattern="${regexPhone}" required /></div>
         `;
     }
 }
