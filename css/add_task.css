@@ -361,6 +361,13 @@
     width: 985px;
 }
 
+@media (max-width: 1335px) {
+    .addTaskButtons {
+        width: 90%;
+        margin-bottom: 100px;
+    }
+}
+
 .clearButton {
     display: flex;
     align-items: center;
