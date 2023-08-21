@@ -58,6 +58,11 @@
   cursor: pointer;
 }
 
+.selected {
+  background: #091931;
+  cursor: pointer;
+}
+
 .side-menu img {
   height: 25px;
   width: 25px;

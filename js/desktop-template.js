@@ -10,29 +10,29 @@ class JoinHeader extends HTMLElement {
     <link rel="stylesheet" href="../css/desktop_template.css" />
     <script src="../js/login.js"></script>
   </head>
-  <body>
+  <body onload="highlightActivePage()">
     <div  class="side-bar">
       <img class="join-logo" src="../assets/img/join_logo_white.png" alt="join_logo" />
       <a href="../html/summary.html">
-        <div class="side-menu">
+        <div class="side-menu" id="side-menu-summary">
         <img src="../assets/img/summary_icon.png" alt="summary_icon" />
         <span>Summary</span>
         </div>
       </a>
       <a href="../html/add_task.html">
-        <div class="side-menu">
+        <div class="side-menu" id="side-menu-add-task">
         <img src="../assets/img/add_task_icon.png" alt="add_task_icon" />
         <span>Add Task</span>
         </div>
       </a>
       <a href="../html/board.html">
-        <div class="side-menu">
+        <div class="side-menu" id="side-menu-board">
         <img src="../assets/img/board_icon.png" alt="board_icon" />
         <span>Board</span>
         </div>
       </a>      
       <a href="../html/contacts.html">
-        <div class="side-menu">
+        <div class="side-menu" id="side-menu-contacts">
         <img src="../assets/img/contacts_icon.png" alt="contacts" />
         <span>Contacts</span>
         </div>
@@ -71,6 +71,18 @@ class JoinHeader extends HTMLElement {
         `;
     loadCurrentUser();
     loadingUserInitials();
+    if (window.location.href.includes('summary.html')) {
+      document.getElementById("side-menu-summary").style.background = '#091931';
+    }
+    if (window.location.href.includes('add_task.html')) {
+      document.getElementById("side-menu-add-task").style.background = '#091931';
+    }
+    if (window.location.href.includes('board.html')) {
+      document.getElementById("side-menu-board").style.background = '#091931';
+    }
+    if (window.location.href.includes('contacts.html')) {
+      document.getElementById("side-menu-contacts").style.background = '#091931';
+    }
   }
 }
 
