@@ -1,6 +1,8 @@
 let currentDraggedElement;
 
-
+/**
+ * This function is used to get all tasks from the todos array and then renders the tasks on the site
+ */
 function render() {
   loadCurrentUser().then(() => {
     loadTodosWithUserId().then(() => {
@@ -12,8 +14,11 @@ function render() {
       }
     });
   });
+  console.log('wtf');
 }
-
+/**
+ * This functions removes the HTML-generated tasks
+ */
 function removeTaskHTML() {
   document.getElementById("todo").innerHTML = "";
   document.getElementById("inprogress").innerHTML = "";
@@ -21,27 +26,51 @@ function removeTaskHTML() {
   document.getElementById("done").innerHTML = "";
 }
 
-// Dragging function
+/**
+ * This is the dragging function for the drag and drop animation
+ * 
+ * @param {number} id - This is the id-number of the dragged task
+ */
 function startDraggin(id) {
   currentDraggedElement = id;
 }
 
+/**
+ * This is the drop-function
+ * 
+ * @param {object} ev - This is the Event-Object for the dragging function
+ */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
+/**
+ * Changes dragged progress, removes current task HTML, saves it on the server, renders all tasks and removes the gray background
+ * 
+ * @param {string} progress - New progress attribute for the dragged task element
+ */
 function moveTo(progress) {
+  document.getElementById('task-container-' + currentDraggedElement).remove();
   todos[currentDraggedElement]["progress"] = progress;
-  removeTaskHTML();
+  document.getElementById(todos[currentDraggedElement]["progress"]).innerHTML += createTaskContainer(currentDraggedElement);
   setTodosWithUserId();
-  render();
   removeHighlight(progress);
 }
 
+/**
+ * Highlights background of the progress-container which the task was moved to
+ * 
+ * @param {string} progress - specific progress-container which the task was moved to
+ */
 function highlight(progress) {
     document.getElementById(progress).classList.add('highlight-drag-area');
 }
 
+/**
+ * Removes background of the progress-container if the task is not above anymore
+ * 
+ * @param {string} progress - specific progress which the task was moving away from
+ */
 function removeHighlight(progress) {
     document.getElementById(progress).classList.remove('highlight-drag-area');
 }
