@@ -126,7 +126,7 @@ async function loadUsers() {
 
 async function loadCurrentUser() {
   try {
-    currentUser = JSON.parse(await getItem("currentUser"));
+    currentUser = JSON.parse(localStorage.getItem("currentUser"));
   } catch (e) {
     console.error("loading error when loading users:", e);
   }
@@ -145,8 +145,8 @@ async function addUser() {
     }
     users.push({ user, email, password });
     await setItem("users", JSON.stringify(users));
-    currentUser = JSON.stringify({user: user, email: email, password: password})
-    await setItem(`currentUser`, JSON.stringify(currentUser));
+    currentUser = {user: user, email: email, password: password}
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
     await setItem(`contacts_${currentUser}`, contacts);
     await setItem(`todos_${currentUser}`, todos);
     window.location.href = "./summary.html?msg=Du hast dich erfolgreich registriert";
@@ -172,8 +172,8 @@ async function login() {
   let user = users.find((u) => u.email == email.value && u.password == password.value);
   if (user) {
     rememberMeLocalStorageSaveRemove(checkbox);
-    currentUser = JSON.stringify(user);
-    await setItem(`currentUser`, JSON.stringify(currentUser));
+    currentUser = user;
+    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
     window.location.replace(`./summary.html`);
   } else {
     document.getElementById("message-wrong-login").style.display = "block";
@@ -182,7 +182,7 @@ async function login() {
 
 async function logout() {
   currentUser = null;
-  await setItem(`currentUser`, JSON.stringify(currentUser));
+  localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   window.location.href = "../html/index.html";
 }
 
