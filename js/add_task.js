@@ -4,7 +4,7 @@ function renderContent() {
         loadTodosWithUserId();
         });
     });
-
+    document.getElementById('inputDate').min = new Date().toISOString().split('T')[0];
     renderSubtask();  
 }
 
