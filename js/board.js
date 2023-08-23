@@ -14,7 +14,6 @@ function render() {
       }
     });
   });
-  console.log('wtf');
 }
 /**
  * This functions removes the HTML-generated tasks
@@ -75,9 +74,57 @@ function removeHighlight(progress) {
     document.getElementById(progress).classList.remove('highlight-drag-area');
 }
 
-function showAddTaskSlideForBoardHTML() {
-  document.getElementById("task-container").innerHTML += getTaskSlide();
+function showAddTaskSlideForBoardHTML(progress) {
+  document.getElementById("task-container").innerHTML += getTaskSlide(progress);
   renderSubtask();
+}
+
+let newTaskBoard = [];
+function createTaskWithChosenProgress(progress) {
+  newTaskBoard = [];
+  saveTaskToArrayForBoard(progress);
+  pushNewTaskToTodos();
+  showSavedNotification();
+  setTimeout(redirectToBoard, delay);
+}
+
+function saveTaskToArrayForBoard(progress) {
+  let nextId = todos.length;
+  let title = document.getElementById('InputTitle').value;
+  let description = document.getElementById('InputDescription').value;
+  let category = document.getElementById('spanCategory').innerHTML;
+  let assinedContacts = searchAssinedContacts();
+  let choosedDate = document.getElementById('inputDate').value;
+  let prio = selectedUrgency;
+  let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
+  let assinedSubtasks = searchAssinedSubtask();
+
+
+  if(assinedSubtasks.length == 0) {
+    newTaskBoard.push({
+      'id': nextId,
+      'progress': progress,
+      'category': category,
+      'title': title,
+      'description': description,
+      'progress-number': [],
+      'participants': assinedContacts,
+      'urgency': [prio, prioIcon],
+      'dueDate': choosedDate,
+    });
+  }else{
+    newTaskBoard.push({
+      'id': nextId,
+      'progress': progress,
+      'category': category,
+      'title': title,
+      'description': description,
+      'progress-number': [0, assinedSubtasks.length],
+      'participants': assinedContacts,
+      'urgency': [prio, prioIcon],
+      'dueDate': choosedDate,
+    });
+  }
 }
 
 function removeAddTaskSlide() {

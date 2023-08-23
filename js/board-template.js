@@ -145,7 +145,7 @@ function stringButtonForEditAndNewTask(input) {
     }
 }
 
-function getTaskSlide() {
+function getTaskSlide(progress) {
   return `
       <div id="slide-contact">
         <form class="addTaskForm" onsubmit="return false;">
@@ -231,7 +231,7 @@ function getTaskSlide() {
                     <path id="xIconPath" d="M12.5011 12.5001L17.7441 17.7431M7.25806 17.7431L12.5011 12.5001L7.25806 17.7431ZM17.7441 7.25708L12.5001 12.5001L17.7441 7.25708ZM12.5001 12.5001L7.25806 7.25708L12.5001 12.5001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                <button id="formSubmitButton" type="submit" onclick="createNewTask()" class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
+                <button id="formSubmitButton" type="submit" onclick="createTaskWithChosenProgress(${progress})" class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
             </div>
         </form>
         <div id="savedNotificationDiv" class="savedNotificationDiv d-none" >
