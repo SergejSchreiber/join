@@ -64,6 +64,7 @@ function cancelNewContactInfos() {
   document.getElementById('input-name').value = '';
   document.getElementById('input-email').value = '';
   document.getElementById("input-phone").value = '';
+  document.getElementById('slide-contact').style.display = "none";
 }
 
 function addContact() {
