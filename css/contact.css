@@ -2,9 +2,9 @@
     margin: 0;
 }
 
-/* body {
-    height: 100vh;
-} */
+button {
+    cursor: pointer;
+}
 
 input {
     outline: none;
@@ -138,15 +138,17 @@ textarea {
 
 @media (max-width: 700px) {
     .contact-display {
-        width: 95%;
+        width: 100vw;
+        height: calc(100vh - 175px);
+        overflow: hidden;
         left: 0;
-        padding-left: 5%;
+        padding-left: 0px;
     }
 }
 
 @media (max-width: 500px) {
     .contact-display {
-        width: 95%;
+        /* width: 90vw; */
     }
 }
 
@@ -179,6 +181,13 @@ textarea {
         align-items: flex-start;
         margin-bottom: 50px;
         width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .contact-display-header,
+    .chosen-contact {
+        padding-left: 25px;
     }
 }
 
@@ -246,6 +255,14 @@ textarea {
     .name-icon {
         scale: 0.8;
         margin-right: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    .name-icon {
+        scale: 0.5;
+        margin-right: 0px;
+        margin-left: -20px;
     }
 }
 
@@ -761,7 +778,7 @@ textarea {
 
     #slide-contact {
         align-items: flex-start;
-        overflow: auto;
+        /* overflow: auto; */
     }
 }
 
