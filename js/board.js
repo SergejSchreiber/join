@@ -83,9 +83,6 @@ let newTaskBoard = [];
 function createTaskWithChosenProgress(progress) {
   newTaskBoard = [];
   saveTaskToArrayForBoard(progress);
-  pushNewTaskToTodos();
-  showSavedNotification();
-  setTimeout(redirectToBoard, delay);
 }
 
 function saveTaskToArrayForBoard(progress) {
@@ -125,6 +122,14 @@ function saveTaskToArrayForBoard(progress) {
       'dueDate': choosedDate,
     });
   }
+  pushNewTaskToTodosBoard();
+  showSavedNotification();
+  setTimeout(redirectToBoard, delay);
+}
+
+function pushNewTaskToTodosBoard() {
+  todos.push(newTaskBoard[0]);
+  setTodosWithUserId();
 }
 
 function removeAddTaskSlide() {
