@@ -242,6 +242,7 @@ function subtaskHtml(index) {
 
 // Functions for clear and create button
 let newTask = [];
+let selectedProgress = 'todo';
 const delay = 3000;
 
 function xIconColor(index) {
@@ -254,8 +255,9 @@ function xIconColor(index) {
   }
 }
 
-function createNewTask() {
+function createNewTask(progress) {
   newTask = [];
+  selectedProgress = progress;
   saveTaskToArray();
   pushNewTaskToTodos();
   showSavedNotification();
@@ -285,7 +287,7 @@ function saveTaskToArray() {
   if(assinedSubtasks.length == 0) {
     newTask.push({
       'id': nextId,
-      'progress': 'todo',
+      'progress': selectedProgress,
       'category': category,
       'title': title,
       'description': description,
