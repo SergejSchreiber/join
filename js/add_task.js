@@ -11,8 +11,10 @@ function renderContent() {
 // Functions for category selection
 let category = ['Sales', 'Backoffice', 'Design', 'Marketing', 'Media'];
 let categoryIndex;
+let categoryIsSelected = 0;
 
 function showCategory() {
+  categoryIsSelected = 0;
   let selectContainer = document.getElementById('selectCategory');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += showCategoryHtml();
@@ -94,6 +96,7 @@ function pushNewCategory() {
 
 function showSelectedCategory(index) {
   categoryIndex = index;
+  categoryIsSelected = 1;
   let selectContainer = document.getElementById('selectCategory');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += showSelectedCategoryHtml(index);
@@ -256,12 +259,16 @@ function xIconColor(index) {
 }
 
 function createNewTask(progress) {
-  newTask = [];
-  selectedProgress = progress;
-  saveTaskToArray();
-  pushNewTaskToTodos();
-  showSavedNotification();
-  setTimeout(redirectToBoard, delay);
+  if(categoryIsSelected == 1){
+    newTask = [];
+    selectedProgress = progress;
+    saveTaskToArray();
+    pushNewTaskToTodos();
+    showSavedNotification();
+    setTimeout(redirectToBoard, delay);
+  }else{
+    alert('Please select a category');
+  }
 }
 
 function showSavedNotification() {
