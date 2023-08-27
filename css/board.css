@@ -635,3 +635,20 @@ textarea {
 .next-progress-button {
     display: none;
 }
+
+.next-progress-button img {
+    height: 16px;
+    width: 16px;
+}
+
+@media (max-width: 1380px) {
+    .next-progress-button {
+        display: block;
+        filter: brightness(0);
+    }
+
+    .next-progress-button:hover {
+        display: block;
+        filter: brightness(1);
+    }
+}
