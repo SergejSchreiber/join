@@ -182,7 +182,7 @@ function getTaskSlide(progress) {
                 <div class="addTaskFormContentRight">
                     <div class="addTaskDivDate">
                         <span class="addTaskInputHead">Due date</span>
-                        <input required id="inputDate" class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type = 'date')">
+                        <input required id="inputDate" class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" min="${getFormattedDate(new Date())}" onfocus="(this.type = 'date')">
                     </div>
                     <div class="addTaskDivPrio">
                         <span class="addTaskInputHead">Prio</span>
@@ -249,3 +249,11 @@ function colorForInitialsInTaskDetails(id) {
     colorBackground.style = `background-color: ${COLOR_PARTICIPANTS[i]}`;
   }
 }
+
+// Utility function to get the current date in "yyyy-mm-dd" format
+function getFormattedDate(date) {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
