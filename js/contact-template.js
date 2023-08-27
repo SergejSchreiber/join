@@ -19,11 +19,13 @@ const COLOR_FOR_CATEGORY = [
     "#32DAFF",
   ];
 
+function initContacts() {
 loadCurrentUser().then(() => {
-    loadContactsWithUserId().then(() => {
+        loadContactsWithUserId();
         loadTodosWithUserId();
-        });
+        renderContacts();
     });
+}
 
 function renderContacts() {
     let namesArr = getSortedNamesArray();
