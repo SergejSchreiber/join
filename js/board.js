@@ -79,59 +79,6 @@ function showAddTaskSlideForBoardHTML(progress) {
   renderSubtask();
 }
 
-let newTaskBoard = [];
-function createTaskWithChosenProgress(progress) {
-  newTaskBoard = [];
-  saveTaskToArrayForBoard(progress);
-}
-
-function saveTaskToArrayForBoard(progress) {
-  let nextId = todos.length;
-  let title = document.getElementById('InputTitle').value;
-  let description = document.getElementById('InputDescription').value;
-  let category = document.getElementById('spanCategory').innerHTML;
-  let assinedContacts = searchAssinedContacts();
-  let choosedDate = document.getElementById('inputDate').value;
-  let prio = selectedUrgency;
-  let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
-  let assinedSubtasks = searchAssinedSubtask();
-
-
-  if(assinedSubtasks.length == 0) {
-    newTaskBoard.push({
-      'id': nextId,
-      'progress': progress,
-      'category': category,
-      'title': title,
-      'description': description,
-      'progress-number': [],
-      'participants': assinedContacts,
-      'urgency': [prio, prioIcon],
-      'dueDate': choosedDate,
-    });
-  }else{
-    newTaskBoard.push({
-      'id': nextId,
-      'progress': progress,
-      'category': category,
-      'title': title,
-      'description': description,
-      'progress-number': [0, assinedSubtasks.length],
-      'participants': assinedContacts,
-      'urgency': [prio, prioIcon],
-      'dueDate': choosedDate,
-    });
-  }
-  pushNewTaskToTodosBoard();
-  showSavedNotification();
-  setTimeout(redirectToBoard, delay);
-}
-
-function pushNewTaskToTodosBoard() {
-  todos.push(newTaskBoard[0]);
-  setTodosWithUserId();
-}
-
 function removeAddTaskSlide() {
   document.getElementById("slide-contact").remove();
 }
@@ -187,10 +134,6 @@ function showEditTaskFromBoard(id) {
 function fillTaskInfo(id) {
   document.getElementById('InputTitle').value = todos[id]['title'];
   document.getElementById('InputDescription').value = todos[id]['description'];
-  let changeDate;
-  /* for (let i = todos[id]['dueDate'].length; i > 0; i--) {
-    changeDate.push();
-  } */
   document.getElementById('inputDate').value = todos[id]['dueDate'].split('-').join('.').toString();
   showCategory();
   fillCategoryInTask(id);
@@ -204,6 +147,10 @@ function fillTaskInfo(id) {
   else if(todos[id]['urgency'] == 'high') {
     selectPrio(2);
   }
+}
+
+function showMoveProgressSlide(id) {
+  document.getElementById("task-container").innerHTML += getProgressOptions(id);
 }
 
 function saveEditedTask(id) {

@@ -249,6 +249,20 @@ function getTaskSlide(progress) {
     `;
 }
 
+function getProgressOptions(id) {
+    return `
+        <div id="slide-contact">
+            <div>
+                <div><img src="../assets/img/x_icon_white.png"></div>
+                <li>to do</li>
+                <li>in progress</li>
+                <li>awaiting feedback</li>
+                <li>done</li>
+            </div>
+        </div>
+    `;
+}
+
 function colorForInitialsInTaskDetails(id) {
   for (let i = 0; i < todos[id]["participants"].length; i++) {
     let colorBackground = document.getElementById("participant-" + i);
