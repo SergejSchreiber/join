@@ -53,7 +53,7 @@ function removeSendMeEmail() {
   document.getElementById("bg-sent-email").style.display = "none";
 }
 
-// function in Reset-Passwort window to check if entered passwords are the same
+// functions in Reset-Passwort window to check if entered passwords are the same
 function checkConfirmedPassword() {
   let password = document.getElementById("password");
   let passwordConf = document.getElementById("password-conf");
@@ -110,6 +110,7 @@ async function getItem(key) {
 let users = [];
 let currentUser = null;
 
+// Initializes the app by loading users from server and current user from local storage.
 function init() {
   loadUsers();
   loadCurrentUser();
@@ -132,6 +133,7 @@ async function loadCurrentUser() {
   }
 }
 
+// funtion to add new signed user to server and first login
 async function addUser() {
   let user = document.getElementById("username").value;
   let email = document.getElementById("email").value;
@@ -162,7 +164,7 @@ async function deleteUser(index) {
   await setItem("users", JSON.stringify(users));
 }
 
-// functions to login and load user from local Storage
+// functions to login/logout and load user from local Storage
 function guestLogin() {
   window.location.replace("./summary.html?msg=GuestAccount");
 }
@@ -186,6 +188,7 @@ async function logout() {
   window.location.href = "../html/index.html";
 }
 
+// function for saving/loading the signed in user in the local storage when the "Remember me" checkbox activated
 function rememberMeLocalStorageSaveRemove(checkbox) {
   if (checkbox.checked) {
     localStorage.setItem("email", email.value);

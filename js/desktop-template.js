@@ -1,3 +1,5 @@
+// function to create the desktop template when "JoinHeader" Element is entered on the page
+
 class JoinHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = /*html*/ `
@@ -88,7 +90,7 @@ class JoinHeader extends HTMLElement {
 
 customElements.define("join-header", JoinHeader);
 
-// function to show the logout button
+// functions to show/hide the logout button
 function showLogout() {
   document.getElementById("logOut").style.visibility = "visible";
   document.getElementById("logOutBg").style.visibility = "visible";

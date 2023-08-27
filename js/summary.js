@@ -24,7 +24,7 @@ function findEarliestDueDate() {
   }
 }
 
-//function to set the correct greeting depending on time of the day and the current user
+//functions to set the correct greeting depending on time of the day and the current user
 function greetingUsername() {
   if (currentUser) {
   greetingTimeOfDay();
