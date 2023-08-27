@@ -306,7 +306,7 @@ function saveTaskToArray() {
   }else{
     newTask.push({
       'id': nextId,
-      'progress': 'todo',
+      'progress': selectedProgress,
       'category': category,
       'title': title,
       'description': description,
