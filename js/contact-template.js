@@ -22,7 +22,6 @@ const COLOR_FOR_CATEGORY = [
 loadCurrentUser().then(() => {
     loadContactsWithUserId().then(() => {
         loadTodosWithUserId();
-        renderContacts();
         });
     });
 
@@ -128,21 +127,19 @@ function returnFunctionHTMLForSubmit(id, submitVariable) {
     }
 }
 
-let regexMail = '/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/';
-let regexPhone = '/\(?\+\(?49\)?[ ()]?([- ()]?\d[- ()]?){10}/';
 function getInputTags(input, id) {
     if (input === 0) {
         return `
             <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" required /></div>
-            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" pattern="${regexMail}" required /></div>
-            <div><input id="input-phone" class="pop-up-input" type="number" placeholder="Phone" pattern="${regexPhone}" required /></div>
+            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" required /></div>
+            <div><input id="input-phone" class="pop-up-input" type="number" placeholder="Phone" required /></div>
         `;
     }
     else {
         return `
             <div><input id="input-name" class="pop-up-input" type="text" placeholder="Name" value="${contacts[id]['name']}" required /></div>
-            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" value="${contacts[id]['mail']}" pattern="${regexMail}" required /></div>
-            <div><input id="input-phone" class="pop-up-input" type="number" placeholder="Phone" value="${contacts[id]['telefonnummer']}" pattern="${regexPhone}" required /></div>
+            <div><input id="input-email" class="pop-up-input" type="email" placeholder="Email" value="${contacts[id]['mail']}" required /></div>
+            <div><input id="input-phone" class="pop-up-input" type="number" placeholder="Phone" value="${contacts[id]['telefonnummer']}" required /></div>
         `;
     }
 }

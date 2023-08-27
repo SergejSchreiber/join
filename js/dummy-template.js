@@ -134,3 +134,7 @@ let contacts = [
         'telefonnummer': '+492222222222'
     }
 ];
+
+let category = ['Sales', 'Backoffice', 'Design', 'Marketing', 'Media'];
+
+let allSubtasks = [];

@@ -5,11 +5,12 @@ function renderContent() {
         });
     });
     document.getElementById('inputDate').min = new Date().toISOString().split('T')[0];
+    loadSubtaskWithUserId();
     renderSubtask();  
 }
 
 // Functions for category selection
-let category = ['Sales', 'Backoffice', 'Design', 'Marketing', 'Media'];
+//let category = ['Sales', 'Backoffice', 'Design', 'Marketing', 'Media'];
 let categoryIndex;
 let categoryIsSelected = 0;
 
@@ -213,13 +214,14 @@ function resetPrio(index) {
 }
 
 // Functions for subtask selection
-let allSubtasks = ['Subtask 1', 'Subtask 2'];
+//let allSubtasks = ['Subtask 1', 'Subtask 2'];
 
 function addNewSubtask() {
   let newSubtask = document.getElementById('addNewSubtaskInput');
   if (newSubtask.value) {
     allSubtasks.push(newSubtask.value);
     newSubtask.value = "";
+    setSubtaskWithUserId();
     renderSubtask();
   } else {
     alert('Please enter a new subtask!');
@@ -364,6 +366,27 @@ async function loadTodosWithUserId() {
   } else {
     if (JSON.parse(localStorage.getItem("todos"))) {
       todos = JSON.parse(localStorage.getItem("todos"));
+    }
+  }
+}
+
+async function setSubtaskWithUserId() {
+  if (currentUser) {
+    let currentUserJSON = JSON.stringify(currentUser)
+    await setItem(`allSubtasks_${currentUserJSON}`, allSubtasks);
+  } else {
+    localStorage.setItem("allSubtasks", JSON.stringify(allSubtasks));
+  }
+  loadSubtaskWithUserId();
+}
+
+async function loadSubtaskWithUserId() {
+  if (currentUser) {
+      let currentUserJSON = JSON.stringify(currentUser)
+      allSubtasks = JSON.parse(await getItem(`allSubtasks_${currentUserJSON}`));
+  } else {
+    if (JSON.parse(localStorage.getItem("allSubtasks"))) {
+      allSubtasks = JSON.parse(localStorage.getItem("allSubtasks"));
     }
   }
 }
