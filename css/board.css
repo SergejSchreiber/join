@@ -625,3 +625,13 @@ textarea {
 .Media {
     background-color: #FFC701;
 }
+
+.container-small-task-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.next-progress-button {
+    display: none;
+}

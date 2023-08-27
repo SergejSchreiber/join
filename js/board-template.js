@@ -41,7 +41,10 @@ function createTaskContainer(number) {
   if (todos[number]["progress-number"].length < 1) {
     return `
             <div draggable="true" ondragstart="startDraggin(${todos[number]["id"]})" onclick="showTaskedInDetail(${todos[number]["id"]})" id="task-container-${todos[number]["id"]}" class="single-task-body">
-                <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
+                <div class="container-small-task-container">
+                    <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
+                    <div class="next-progress-button"><img src="../assets/img/arrow_right.png"></div>
+                </div> 
                 <div class="name-task">${todos[number]["title"]}</div>
                 <div class="task-description">${todos[number]["description"]}</div>
                 <div id="task-progress" class="task-progress"></div>
@@ -54,7 +57,10 @@ function createTaskContainer(number) {
   }
   return `
         <div draggable="true" ondragstart="startDraggin(${todos[number]["id"]})" onclick="showTaskedInDetail(${todos[number]["id"]})" id="task-container-${todos[number]["id"]}" class="single-task-body">
-            <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
+            <div class="container-small-task-container">
+                    <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
+                    <div class="next-progress-button"><img src="../assets/img/arrow_right.png"></div>
+            </div> 
             <div class="name-task">${todos[number]["title"]}</div>
             <div class="task-description">${todos[number]["description"]}</div>
             <div id="task-progress" class="task-progress">
@@ -148,7 +154,7 @@ function stringButtonForEditAndNewTask(input) {
 function getTaskSlide(progress) {
   return `
       <div id="slide-contact">
-        <form class="addTaskForm" onsubmit="createNewTask('${progress}');return false;">
+        <form class="addTaskForm" onsubmit="return false;">
             <div class="addTaskFormContent">
                 <div class="addTaskFormContentLeft">
                     <div class="addTaskDivTitle">
@@ -231,7 +237,7 @@ function getTaskSlide(progress) {
                     <path id="xIconPath" d="M12.5011 12.5001L17.7441 17.7431M7.25806 17.7431L12.5011 12.5001L7.25806 17.7431ZM17.7441 7.25708L12.5001 12.5001L17.7441 7.25708ZM12.5001 12.5001L7.25806 7.25708L12.5001 12.5001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                <button id="formSubmitButton" type="submit" class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
+                <button id="formSubmitButton" type="submit" onclick="createTaskWithChosenProgress(${progress})" class="createButton">Create Task <img class="hookIcon" src="../assets/img/hook_icon.png"></button>
             </div>
         </form>
         <div id="savedNotificationDiv" class="savedNotificationDiv d-none" >
