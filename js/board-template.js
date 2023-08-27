@@ -43,7 +43,7 @@ function createTaskContainer(number) {
             <div draggable="true" ondragstart="startDraggin(${todos[number]["id"]})" onclick="showTaskedInDetail(${todos[number]["id"]})" id="task-container-${todos[number]["id"]}" class="single-task-body">
                 <div class="container-small-task-container">
                     <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
-                    <div class="next-progress-button"><img src="../assets/img/arrow_right.png"></div>
+                    <div class="next-progress-button" onclick="showMoveProgressSlide(${number})"><img src="../assets/img/arrow_right.png"></div>
                 </div> 
                 <div class="name-task">${todos[number]["title"]}</div>
                 <div class="task-description">${todos[number]["description"]}</div>
@@ -59,7 +59,7 @@ function createTaskContainer(number) {
         <div draggable="true" ondragstart="startDraggin(${todos[number]["id"]})" onclick="showTaskedInDetail(${todos[number]["id"]})" id="task-container-${todos[number]["id"]}" class="single-task-body">
             <div class="container-small-task-container">
                     <div id="category-${todos[number]["id"]}" class="category ${todos[number]["category"]}">${todos[number]["category"]}</div>
-                    <div class="next-progress-button"><img src="../assets/img/arrow_right.png"></div>
+                    <div class="next-progress-button" onclick="showMoveProgressSlide(${number})"><img src="../assets/img/arrow_right.png"></div>
             </div> 
             <div class="name-task">${todos[number]["title"]}</div>
             <div class="task-description">${todos[number]["description"]}</div>
@@ -252,7 +252,7 @@ function getTaskSlide(progress) {
 function getProgressOptions(id) {
     return `
         <div id="slide-contact">
-            <div>
+            <div class="move-progress-slide">
                 <div><img src="../assets/img/x_icon_white.png"></div>
                 <li>to do</li>
                 <li>in progress</li>

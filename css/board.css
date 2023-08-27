@@ -652,3 +652,8 @@ textarea {
         filter: brightness(1);
     }
 }
+
+.move-progress-slide {
+    height: 50px;
+    width: 50px;
+}
