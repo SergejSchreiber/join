@@ -1,4 +1,5 @@
 let currentDraggedElement;
+let boolean;
 
 /**
  * This function is used to get all tasks from the todos array and then renders the tasks on the site
@@ -59,6 +60,14 @@ function moveTo(progress) {
   removeHighlight(progress);
 }
 
+function changeProgressOfTask(id, progress) {
+  document.getElementById('task-container-' + id).remove();
+  todos[id]["progress"] = progress;
+  document.getElementById(todos[id]["progress"]).innerHTML += createTaskContainer(id);
+  setTodosWithUserId();
+  removeAddTaskSlide();
+}
+
 /**
  * Highlights background of the progress-container which the task was moved to
  * 
@@ -84,11 +93,14 @@ function showAddTaskSlideForBoardHTML(progress) {
 
 function removeAddTaskSlide() {
   document.getElementById("slide-contact").remove();
+  boolean = false;
 }
 
 function showTaskedInDetail(id) {
-  document.getElementById("task-container").innerHTML += getTaskDetails(id);
-  colorForInitialsInTaskDetails(id);
+  if(boolean != true) {
+    document.getElementById("task-container").innerHTML += getTaskDetails(id);
+    colorForInitialsInTaskDetails(id);
+  }
 }
 
 function filterTasks() { // search function
@@ -128,9 +140,9 @@ function deleteTaskFromBoard(id) {
   render();
 }
 
-function showEditTaskFromBoard(id) {
+function showEditTaskFromBoard(id, progress) {
   removeAddTaskSlide();
-  showAddTaskSlideForBoardHTML();
+  showAddTaskSlideForBoardHTML(progress);
   fillTaskInfo(id);
 }
 
@@ -154,11 +166,13 @@ function fillTaskInfo(id) {
 
 function showMoveProgressSlide(id) {
   document.getElementById("task-container").innerHTML += getProgressOptions(id);
+  boolean = true;
 }
 
 function saveEditedTask(id) {
+  createNewTask(todos[id]['progress']);
   todos.splice(id, 1);
-  createNewTask();
+  setTodosWithUserId();
 }
 
 function fillCategoryInTask(id) {

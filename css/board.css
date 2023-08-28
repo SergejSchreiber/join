@@ -656,6 +656,50 @@ textarea {
 }
 
 .move-progress-slide {
-    height: 50px;
-    width: 50px;
+    background-color: white;
+    height: 250px;
+    width: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.header-move-progress-slide {
+    font-weight: 700;
+    font-size: 18px;
+    color: #29b6d5;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.move-progress-slide li {
+    list-style: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #2A3647;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.move-progress-slide li:hover {
+    background-color: rgb(232, 232, 232);
+}
+
+.icon-progress-x {
+    filter: invert(1);
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.icon-progress-x img:hover {
+    filter: invert(0.5);
 }

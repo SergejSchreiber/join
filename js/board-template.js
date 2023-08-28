@@ -124,7 +124,7 @@ function getTaskDetails(id) {
                 </div>
                 <div class="task-button-body">
                       <button onclick="deleteTaskFromBoard(${todos[id]['id']})" class="delete-task-button"><img src="../assets/img/delete.png"></button>
-                      <button onclick="showEditTaskFromBoard(${todos[id]['id']})" class="edit-task-button"><img src="../assets/img/edit.png"></button>
+                      <button onclick="showEditTaskFromBoard(${todos[id]['id']}, ${todos[id]['progress']})" class="edit-task-button"><img src="../assets/img/edit.png"></button>
                 </div>
             </div>
         </div>
@@ -253,11 +253,12 @@ function getProgressOptions(id) {
     return `
         <div id="slide-contact">
             <div class="move-progress-slide">
-                <div><img src="../assets/img/x_icon_white.png"></div>
-                <li>to do</li>
-                <li>in progress</li>
-                <li>awaiting feedback</li>
-                <li>done</li>
+                <div class="icon-progress-x" onclick="removeAddTaskSlide()"><img src="../assets/img/x_icon_white.png"></div>
+                <div class="header-move-progress-slide">Move to:</div>
+                <li onclick="changeProgressOfTask(${id}, 'todo')">to do</li>
+                <li onclick="changeProgressOfTask(${id}, 'inprogress')">in progress</li>
+                <li onclick="changeProgressOfTask(${id}, 'awaitingfeedback')">awaiting feedback</li>
+                <li onclick="changeProgressOfTask(${id}, 'done')">done</li>
             </div>
         </div>
     `;
