@@ -1,13 +1,12 @@
 function renderContent() {
   loadCurrentUser().then(() => {
-    loadCategoryWithUserId();
-    loadSubtaskWithUserId();
     loadContactsWithUserId().then(() => {
         loadTodosWithUserId();
         });
     });
     document.getElementById('inputDate').min = new Date().toISOString().split('T')[0];
     loadSubtaskWithUserId();
+    loadCategoryWithUserId();
     renderSubtask();  
 }
 

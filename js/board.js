@@ -7,6 +7,7 @@ function render() {
   loadCurrentUser().then(() => {
     loadSubtaskWithUserId();
     loadCategoryWithUserId();
+    loadContactsWithUserId();
     loadTodosWithUserId().then(() => {
       removeTasksFromContainer();
       for (let i = 0; i < todos.length; i++) {
