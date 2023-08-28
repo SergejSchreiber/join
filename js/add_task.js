@@ -1,5 +1,7 @@
 function renderContent() {
   loadCurrentUser().then(() => {
+    loadCategoryWithUserId();
+    loadSubtaskWithUserId();
     loadContactsWithUserId().then(() => {
         loadTodosWithUserId();
         });
@@ -347,6 +349,8 @@ function searchAssinedSubtask() {
 function pushNewTaskToTodos() {
   todos.push(newTask[0]);
   setTodosWithUserId();
+  setSubtaskWithUserId();
+  setCategoryWithUserId();
 }
 
 async function setTodosWithUserId() {
@@ -387,6 +391,27 @@ async function loadSubtaskWithUserId() {
   } else {
     if (JSON.parse(localStorage.getItem("allSubtasks"))) {
       allSubtasks = JSON.parse(localStorage.getItem("allSubtasks"));
+    }
+  }
+}
+
+async function setCategoryWithUserId() {
+  if (currentUser) {
+    let currentUserJSON = JSON.stringify(currentUser)
+    await setItem(`category_${currentUserJSON}`, category);
+  } else {
+    localStorage.setItem("category", JSON.stringify(category));
+  }
+  loadCategoryWithUserId();
+}
+
+async function loadCategoryWithUserId() {
+  if (currentUser) {
+      let currentUserJSON = JSON.stringify(currentUser)
+      category = JSON.parse(await getItem(`category_${currentUserJSON}`));
+  } else {
+    if (JSON.parse(localStorage.getItem("category"))) {
+      category = JSON.parse(localStorage.getItem("category"));
     }
   }
 }

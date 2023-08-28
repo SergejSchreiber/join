@@ -23,6 +23,8 @@ function initContacts() {
 loadCurrentUser().then(() => {
         loadContactsWithUserId();
         loadTodosWithUserId();
+        loadSubtaskWithUserId();
+        loadCategoryWithUserId();
         renderContacts();
     });
 }

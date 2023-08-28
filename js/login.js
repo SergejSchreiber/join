@@ -77,10 +77,13 @@ async function changingPassword() {
   let user = users.find((user) => user.email === email);
   currentUser = user;
   await loadTodosWithUserId();
+  await loadCategoryWithUserId();
   await loadContactsWithUserId();
   user.password = password;
   setTodosWithUserId();
   setContactsWithUserId();
+  setSubtaskWithUserId();
+  setCategoryWithUserId();
   await setItem("users", JSON.stringify(users));
   document.getElementById("bg-sent-email").style.display = "block";
   document.getElementById("sent-email").style.animation = "sent-email 0.4s ease-in-out forwards";
