@@ -126,14 +126,43 @@
     padding-bottom: 10px;
 }
 
+.addTaskDeleteIcon {
+    height: 25px;
+}
+
+.addTaskDeleteIcon:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
 .chooseOptions {
+    display: flex;
+    justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.chooseOptions:hover {
+.chooseOptionsNew {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+}
+
+.chooseOptionsNew:hover {
+    cursor: pointer;
+}
+
+.spanChooseCategory {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.spanChooseCategory:hover {
     cursor: pointer;
     background-color: rgb(209, 209, 209);
 }
@@ -351,6 +380,11 @@
     margin-left: 0;
     margin-bottom: 0px;
     margin-right: 20px;
+  }
+
+  .divShowSubtask {
+    display: flex;
+    justify-content: space-between;
   }
 
 .addTaskButtons {

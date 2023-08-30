@@ -11,7 +11,6 @@ function renderContent() {
 }
 
 // Functions for category selection
-//let category = ['Sales', 'Backoffice', 'Design', 'Marketing', 'Media'];
 let categoryIndex;
 let categoryIsSelected = 0;
 
@@ -23,8 +22,9 @@ function showCategory() {
   let chooseContainer = document.getElementById('chooseCategory');
   for (let i = 0; i < category.length; i++) {
     chooseContainer.innerHTML += `
-            <div class="chooseOptions" onclick="showSelectedCategory(${i})">
-                <span>${category[i]}</span>
+            <div class="chooseOptions">
+                <span class="spanChooseCategory" onclick="showSelectedCategory(${i})">${category[i]}</span>
+                <div><img class="addTaskDeleteIcon" onclick="deleteCategory(${i})" src="../assets/img/delete.png"></div>
             </div>
         `;
   }
@@ -37,7 +37,7 @@ function showCategoryHtml() {
                 <span>Select task category</span>
                 <img src="../assets/img/arrow_down.png">
             </div>
-            <div class="chooseOptions" onclick="addNewCategory()">
+            <div class="chooseOptionsNew" onclick="addNewCategory()">
                 <span>New category</span>
             </div>
         </div>
@@ -90,6 +90,7 @@ function pushNewCategory() {
   let inputValue = document.getElementById('addNewCategoryInput').value;
   if (inputValue) {
     category.push(inputValue);
+    setCategoryWithUserId();
     showCategory();
   } else {
     alert('Please enter a new category!');
@@ -112,6 +113,14 @@ function showSelectedCategoryHtml(index) {
         </div> 
     `;
 }
+
+function deleteCategory(index) {
+  category.splice(index, 1);
+
+  setCategoryWithUserId();
+  showCategory();
+}
+
 // Functions for assign contacts selection
 let contactsSorted = [];
 
@@ -180,6 +189,7 @@ let priorities = ['high', 'normal', 'low'];
 let priorities2 = ['urgent', 'medium', 'low'];
 let urgencyIcon = '';
 let selectedUrgency = '';
+let urgencyCounter = 0;
 
 function selectPrio(index) {
   resetPrio(index);
@@ -197,8 +207,10 @@ function selectPrio(index) {
     prioIndex[1] = 0;
     prioIndex[2] = 0;
     prioIndex[index] = 1;
+    urgencyCounter = 1;
   } else {
     prioIndex[index] = 0;
+    urgencyCounter = 0;
   }
 }
 
@@ -215,8 +227,6 @@ function resetPrio(index) {
 }
 
 // Functions for subtask selection
-//let allSubtasks = ['Subtask 1', 'Subtask 2'];
-
 function addNewSubtask() {
   let newSubtask = document.getElementById('addNewSubtaskInput');
   if (newSubtask.value) {
@@ -239,11 +249,21 @@ function renderSubtask() {
 
 function subtaskHtml(index) {
   return `
+      <div class="divShowSubtask">
         <label class="lableContainer">
             <input id="subtaskCheckbox${index}" type="checkbox">
             <span class="checkmark">${allSubtasks[index]}</span>
         </label>
+        <div><img class="addTaskDeleteIcon" onclick="deleteSubtask(${index})" src="../assets/img/delete.png"></div>
+      </div>
     `;
+}
+
+function deleteSubtask(index) {
+  allSubtasks.splice(index, 1);
+
+  setSubtaskWithUserId();
+  renderSubtask();
 }
 
 // Functions for clear and create button
@@ -263,12 +283,17 @@ function xIconColor(index) {
 
 function createNewTask(progress) {
   if(categoryIsSelected == 1){
-    newTask = [];
-    selectedProgress = progress;
-    saveTaskToArray();
-    pushNewTaskToTodos();
-    showSavedNotification();
-    setTimeout(redirectToBoard, delay);
+    if(urgencyCounter == 1){
+      newTask = [];
+      selectedProgress = progress;
+      saveTaskToArray();
+      pushNewTaskToTodos();
+      showSavedNotification();
+      setTimeout(redirectToBoard, delay);
+    }else{
+      alert('Please select a prio');
+    }
+    
   }else{
     alert('Please select a category');
   }
@@ -414,3 +439,4 @@ async function loadCategoryWithUserId() {
     }
   }
 }
+
