@@ -149,7 +149,7 @@ function showEditTaskFromBoard(id, progress) {
 function fillTaskInfo(id) {
   document.getElementById('InputTitle').value = todos[id]['title'];
   document.getElementById('InputDescription').value = todos[id]['description'];
-  document.getElementById('inputDate').value = todos[id]['dueDate'].split('-').join('.').toString();
+  fillDateInEditedTask(id);
   showCategory();
   fillCategoryInTask(id);
   document.getElementById('formSubmitButton').setAttribute('onClick', `saveEditedTask(${id})`);
@@ -162,6 +162,11 @@ function fillTaskInfo(id) {
   else if(todos[id]['urgency'] == 'high') {
     selectPrio(2);
   }
+}
+
+function fillDateInEditedTask(id) {
+  let filledDate = todos[id]['dueDate'].split('-').join('.').toString();
+  document.getElementById('inputDate').value = filledDate;
 }
 
 function showMoveProgressSlide(id) {
