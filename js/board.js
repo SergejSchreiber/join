@@ -165,7 +165,7 @@ function fillTaskInfo(id) {
 }
 
 function fillDateInEditedTask(id) {
-  let filledDate = todos[id]['dueDate'].split('-').join('.').toString();
+  let filledDate = todos[id]['dueDate'].split('-').reverse().join('.').toString();
   document.getElementById('inputDate').value = filledDate;
 }
 
