@@ -153,20 +153,29 @@ function fillTaskInfo(id) {
   showCategory();
   fillCategoryInTask(id);
   document.getElementById('formSubmitButton').setAttribute('onClick', `saveEditedTask(${id})`);
-  if(todos[id]['urgency'] == 'low') {
-    selectPrio(0);
+  selectPrioForEditTask(id);
+  fillContactsInfoTask(id);
+}
+
+function selectPrioForEditTask(id) {
+  if(todos[id]['urgency'][0] == 'low') {
+    selectPrio(2);
   }
-  else if(todos[id]['urgency'] == 'normal') {
+  else if(todos[id]['urgency'][0] == 'normal') {
     selectPrio(1);
   } 
-  else if(todos[id]['urgency'] == 'high') {
-    selectPrio(2);
+  else if(todos[id]['urgency'][0] == 'high') {
+    selectPrio(0);
   }
 }
 
 function fillDateInEditedTask(id) {
   let filledDate = todos[id]['dueDate'].split('-').reverse().join('.').toString();
   document.getElementById('inputDate').value = filledDate;
+}
+
+function fillContactsInfoTask(id) {
+  sortContactsByName(contacts);
 }
 
 function showMoveProgressSlide(id) {
