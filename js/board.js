@@ -154,7 +154,7 @@ function fillTaskInfo(id) {
   fillCategoryInTask(id);
   document.getElementById('formSubmitButton').setAttribute('onClick', `saveEditedTask(${id})`);
   selectPrioForEditTask(id);
-  fillContactsInfoTask(id);
+  fillContactsInfoTask();
 }
 
 function selectPrioForEditTask(id) {
@@ -174,7 +174,7 @@ function fillDateInEditedTask(id) {
   document.getElementById('inputDate').value = filledDate;
 }
 
-function fillContactsInfoTask(id) {
+function fillContactsInfoTask() {
   sortContactsByName(contacts);
 }
 
@@ -185,7 +185,18 @@ function showMoveProgressSlide(id) {
 
 function saveEditedTask(id) {
   createNewTask(todos[id]['progress']);
-  todos.splice(id, 1);
+  redistributeIds();
+  setTodosWithUserId();
+  testFunction();
+}
+
+function testFunction() {
+  for (let i = 0; i < todos.length; i++) {
+    if(typeof todos[i]['progress'] != 'string') {
+      todos.splice(i, 1);
+      console.log('wtf');
+    }
+  }
   setTodosWithUserId();
 }
 
