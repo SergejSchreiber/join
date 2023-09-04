@@ -186,17 +186,8 @@ function showMoveProgressSlide(id) {
 function saveEditedTask(id) {
   createNewTask(todos[id]['progress']);
   redistributeIds();
-  setTodosWithUserId();
-  testFunction();
-}
-
-function testFunction() {
-  for (let i = 0; i < todos.length; i++) {
-    if(typeof todos[i]['progress'] != 'string') {
-      todos.splice(i, 1);
-      console.log('wtf');
-    }
-  }
+  todos.splice(id, 1);
+  todos.splice(todos.length - 1);
   setTodosWithUserId();
 }
 
