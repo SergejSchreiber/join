@@ -37,6 +37,12 @@ const COLOR_PARTICIPANTS = [
   "#007CEE",
 ];
 
+/**
+ * creates the HTML-code for the chosen task and divides between tasks with and without contacts
+ * 
+ * @param {number} number - id of the chosen task
+ * @returns 
+ */
 function createTaskContainer(number) {
   if (todos[number]["progress-number"].length < 1) {
     return `
@@ -75,6 +81,12 @@ function createTaskContainer(number) {
     `;
 }
 
+/**
+ * returns HTML code of the participants in form of initials which is categorized how many are participating
+ * 
+ * @param {string} participants - contacts of the usr who work on the same task
+ * @returns 
+ */
 function addHTMLParticipants(participants) {
   if (participants < 1) {
     return "";
@@ -99,6 +111,12 @@ function addHTMLParticipants(participants) {
   return completeParticipantsString;
 }
 
+/**
+ * returns the HTML-code of the task details in a slide
+ * 
+ * @param {number} id - id of the chosen task
+ * @returns 
+ */
 function getTaskDetails(id) {
   return `
         <div id="slide-contact">
@@ -131,6 +149,12 @@ function getTaskDetails(id) {
     `;
 }
 
+/**
+ * returns HTML code of the participants of the chosen task
+ * 
+ * @param {number} id - id of the chosen task
+ * @returns 
+ */
 function getParticipantsForTaskDetails(id) {
   let strin = "";
   for (let i = 0; i < todos[id]["participants"].length; i++) {
@@ -151,6 +175,12 @@ function stringButtonForEditAndNewTask(input) {
     }
 }
 
+/**
+ * Returns the HTML-code for the task slide
+ * 
+ * @param {string} progress - progress for the coming task
+ * @returns 
+ */
 function getTaskSlide(progress) {
   return `
       <div id="slide-contact">
@@ -249,6 +279,12 @@ function getTaskSlide(progress) {
     `;
 }
 
+/**
+ * reutrns the HTML-code with the options to change the progress attribute of a task
+ * 
+ * @param {number} id - id of the chosen task
+ * @returns 
+ */
 function getProgressOptions(id) {
     return `
         <div id="slide-contact">
@@ -264,6 +300,11 @@ function getProgressOptions(id) {
     `;
 }
 
+/**
+ * sets the different colors for every individual contact
+ * 
+ * @param {number} id - id of the chosen task
+ */
 function colorForInitialsInTaskDetails(id) {
   for (let i = 0; i < todos[id]["participants"].length; i++) {
     let colorBackground = document.getElementById("participant-" + i);
@@ -271,7 +312,12 @@ function colorForInitialsInTaskDetails(id) {
   }
 }
 
-// Utility function to get the current date in "yyyy-mm-dd" format
+/**
+ * returns the string in the date format
+ * 
+ * @param {string} date - date of the task
+ * @returns 
+ */
 function getFormattedDate(date) {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
