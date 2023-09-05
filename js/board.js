@@ -60,6 +60,12 @@ function moveTo(progress) {
   removeHighlight(progress);
 }
 
+/**
+ * Changes the progress attribute of a task with taking the id of the task and giving it the parameter progress
+ * 
+ * @param {number} id - id of the task, which progress get changed
+ * @param {string} progress - new progress attribute of the task with the given id
+ */
 function changeProgressOfTask(id, progress) {
   document.getElementById('task-container-' + id).remove();
   todos[id]["progress"] = progress;
@@ -86,16 +92,29 @@ function removeHighlight(progress) {
     document.getElementById(progress).classList.remove('highlight-drag-area');
 }
 
+/**
+ * Adds the task-slide for the board-page and takes the progress with it
+ * 
+ * @param {string} progress - the progress specific progress is brought to the task slide
+ */
 function showAddTaskSlideForBoardHTML(progress) {
   document.getElementById("task-container").innerHTML += getTaskSlide(progress);
   renderSubtask();
 }
 
+/**
+ * removes the task slide and turns the boolean to false back
+ */
 function removeAddTaskSlide() {
   document.getElementById("slide-contact").remove();
   boolean = false;
 }
 
+/**
+ * Shows the details of the task with the condition if the boolean is not true and adds colors for initials of the contacts
+ * 
+ * @param {number} id - specific id of the chosen task
+ */
 function showTaskedInDetail(id) {
   if(boolean != true) {
     document.getElementById("task-container").innerHTML += getTaskDetails(id);
@@ -103,6 +122,9 @@ function showTaskedInDetail(id) {
   }
 }
 
+/**
+ * Searches the tasks if they contain any characters of the inputfield
+ */
 function filterTasks() { // search function
     let search = document.getElementById('search-task').value.toLowerCase();
     removeTasksFromContainer();
@@ -118,6 +140,9 @@ function filterTasks() { // search function
     }
 }
 
+/**
+ * removes all HTML-code of the tasks
+ */
 function removeTasksFromContainer() {
     document.getElementById('todo').innerHTML = '';
     document.getElementById('inprogress').innerHTML = '';
@@ -125,13 +150,23 @@ function removeTasksFromContainer() {
     document.getElementById('done').innerHTML = '';
 }
 
+/**
+ * gets the fullname of a contact and return the initials
+ * 
+ * @param {string} fullName - takes the complete name of the contact
+ * @returns 
+ */
 function getInitials(fullName) {
     let firstInitial = fullName[0];
     let secondInitial = fullName.split(' ')[1][0];
     return firstInitial + secondInitial;
 }
 
-// functions to delete and edit tasks
+/**
+ * deletes the task with the id, removes the slide HTML, reditributes the id´s and saves the change
+ * 
+ * @param {number} id - specific id of the chosen task
+ */
 function deleteTaskFromBoard(id) {
   todos.splice(id, 1);
   removeAddTaskSlide();
@@ -140,12 +175,23 @@ function deleteTaskFromBoard(id) {
   render();
 }
 
+/**
+ * Shows the task slide filled with the information of the task with id id and takes the progress to the HTML-code
+ * 
+ * @param {number} id - id of the chosen task
+ * @param {string} progress - progress of the chosen task
+ */
 function showEditTaskFromBoard(id, progress) {
   removeAddTaskSlide();
   showAddTaskSlideForBoardHTML(progress);
   fillTaskInfo(id);
 }
 
+/**
+ * Specific function which fills the task slide with information of the chosen task
+ * 
+ * @param {number} id - id of the chosen task
+ */
 function fillTaskInfo(id) {
   document.getElementById('InputTitle').value = todos[id]['title'];
   document.getElementById('InputDescription').value = todos[id]['description'];
@@ -157,6 +203,11 @@ function fillTaskInfo(id) {
   fillContactsInfoTask();
 }
 
+/**
+ * activates the Priority of the chosen task
+ * 
+ * @param {number} id - id of the chosen task
+ */
 function selectPrioForEditTask(id) {
   if(todos[id]['urgency'][0] == 'low') {
     selectPrio(2);
@@ -169,20 +220,38 @@ function selectPrioForEditTask(id) {
   }
 }
 
+/**
+ * Fills the date inputfiled with the date of the chosen task
+ * 
+ * @param {number} id - id of the chosen task
+ */
 function fillDateInEditedTask(id) {
   let filledDate = todos[id]['dueDate'].split('-').reverse().join('.').toString();
   document.getElementById('inputDate').value = filledDate;
 }
 
+/**
+ * opens the contacts-choice
+ */
 function fillContactsInfoTask() {
   sortContactsByName(contacts);
 }
 
+/**
+ * shows the options to which progress the task can got to
+ * 
+ * @param {number} id - id of the chosen task
+ */
 function showMoveProgressSlide(id) {
   document.getElementById("task-container").innerHTML += getProgressOptions(id);
   boolean = true;
 }
 
+/**
+ * Saves the edited task
+ * 
+ * @param {number} id - id of the chosen task
+ */
 function saveEditedTask(id) {
   createNewTask(todos[id]['progress']);
   redistributeIds();
@@ -191,6 +260,11 @@ function saveEditedTask(id) {
   setTodosWithUserId();
 }
 
+/**
+ * fills the inputfield for category with the chosen task
+ * 
+ * @param {number} id - id of the chosen task
+ */
 function fillCategoryInTask(id) {
   for (let i = 0; i < category.length; i++) {
     if(todos[id]['category'] == category[i]) {
@@ -199,12 +273,18 @@ function fillCategoryInTask(id) {
   }
 }
 
+/**
+ * Distributes id`s for the tasks which bgeins at 0
+ */
 function redistributeIds() {
   for (let i = 0; i < todos.length; i++) {
     todos[i]['id'] = i;
   }
 }
 
+/**
+ * saves the tasks to the server
+ */
 async function setTodosWithUserId() {
   if (currentUser) {
     let currentUserJSON = JSON.stringify(currentUser)
@@ -215,6 +295,9 @@ async function setTodosWithUserId() {
   loadTodosWithUserId();
 }
 
+/**
+ * load the tasks from the server
+ */
 async function loadTodosWithUserId() {
   if (currentUser) {
       let currentUserJSON = JSON.stringify(currentUser)
