@@ -1,13 +1,29 @@
+/**
+ * Creates new slide to add a new contact
+ * 
+ * @param {number} input - either 1 or 0 and decides if the will be an edited or a new contact
+ * @param {*} id - of the chosen contact
+ * @param {*} submitVariable - submitvariable for deciding if the will be an edited or a new contact
+ */
 function NewContactSlide(input, id, submitVariable) {
   let slide = document.getElementById('slide-contact-container');
   slide.innerHTML = '';
   slide.innerHTML += getSlide(input, id, submitVariable);
 }
 
+/**
+ * removes any slide
+ */
 function removeSlide() {
   document.getElementById('slide-contact').remove();
 }
 
+/**
+ * sorts the array in alphabetical order but only here for contact array
+ * 
+ * @param {Array} arr - normally the contacts array
+ * @returns 
+ */
 function sortedNamesArray(arr) {
   arr.sort((a, b) => {
     let nameA = a.name.toUpperCase();
@@ -22,12 +38,22 @@ function sortedNamesArray(arr) {
   return 0;
 }
 
+/**
+ * returns the sorted array
+ * 
+ * @returns the sorted array
+ */
 function getSortedNamesArray() {
   let newArr = contacts.slice();
   sortedNamesArray(newArr);
   return newArr;
 }
 
+/**
+ * 
+ * @param {string} fullName 
+ * @returns 
+ */
 function getInitials(fullName) {
   if(fullName.split('').includes(' ')) {
     let firstInitial = fullName[0];
