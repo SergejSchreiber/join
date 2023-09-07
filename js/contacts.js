@@ -50,8 +50,9 @@ function getSortedNamesArray() {
 }
 
 /**
+ * Takes the name and returns the initials
  * 
- * @param {string} fullName 
+ * @param {string} fullName - name of the contact
  * @returns 
  */
 function getInitials(fullName) {
@@ -65,6 +66,11 @@ function getInitials(fullName) {
   
 }
 
+/**
+ * shows the contact in a bigger detailed view
+ * 
+ * @param {number} id - id of the chosen contact
+ */
 function showContactDetails(id) {
   document.getElementById("contact-display").style.display = "block";
   let contactArr;
@@ -77,6 +83,11 @@ function showContactDetails(id) {
   contactDetails.innerHTML = getContactDetails(contactArr);
 }
 
+/**
+ * taked the values of the inputfield and changes in that regard the contact information
+ * 
+ * @param {number} id - id of the chosen contact
+ */
 function editContact(id) {
   contacts[id]['name'] = document.getElementById('input-name').value;
   contacts[id]['mail'] = document.getElementById('input-email').value;
@@ -86,6 +97,9 @@ function editContact(id) {
   showContactDetails(id);
 }
 
+/**
+ * deletes everything what was filled in the inputs
+ */
 function cancelNewContactInfos() {
   document.getElementById('input-name').value = '';
   document.getElementById('input-email').value = '';
@@ -93,6 +107,9 @@ function cancelNewContactInfos() {
   document.getElementById('slide-contact').style.display = "none";
 }
 
+/**
+ * takes the information in the inputfields and creates a new contact
+ */
 function addContact() {
   if (document.getElementById('input-name').value && document.getElementById('input-email').value && document.getElementById('input-phone').value) {
     contacts.push({
@@ -108,6 +125,11 @@ function addContact() {
   }
 }
 
+/**
+ * deletes the contact
+ * 
+ * @param {number} id - id of the chosen contact
+ */
 function deleteContact(id) {
   contacts.splice(id, 1);
   document.getElementById('chosen-contact').innerHTML = '';
@@ -116,6 +138,11 @@ function deleteContact(id) {
   renderContacts();
 }
 
+/**
+ * also deletes the contact but from the edit point of view
+ * 
+ * @param {number} id - id of the chosen contact
+ */
 function deleteContactFromEditSlide(id) {
   contacts.splice(id, 1);
   document.getElementById('chosen-contact').innerHTML = '';
@@ -125,17 +152,26 @@ function deleteContactFromEditSlide(id) {
   removeSlide();
 }
 
+/**
+ * shows the task slide to add a task for the chosen contact
+ */
 function showAddTaskSlide() {
   document.getElementById('slide-contact-container').innerHTML += getTaskSlide();
   renderSubtask();
 }
 
+/**
+ * redistributes the id's for the individual contacts
+ */
 function distributeContactId() {
   for (let i = 0; i < contacts.length; i++) {
     contacts[i]['contactId'] = i;
   }
 }
 
+/**
+ * saves the contacts in the server
+ */
 async function setContactsWithUserId() {
   if (currentUser) {
     let currentUserJSON = JSON.stringify(currentUser)
@@ -146,6 +182,9 @@ async function setContactsWithUserId() {
   loadContactsWithUserId();
 }
 
+/**
+ * loads the contacts from the server
+ */
 async function loadContactsWithUserId() {
   if (currentUser) {
     let currentUserJSON = JSON.stringify(currentUser)
@@ -157,10 +196,18 @@ async function loadContactsWithUserId() {
   }
 }
 
+/**
+ * hides the arrow to get back
+ */
 function hideContactDisplayArrowBack() {
   document.getElementById("contact-display").style.display = "none";
 }
 
+/**
+ * Gives the initials for the individual contact the background color
+ * 
+ * @param {number} id - id of the chosen contact
+ */
 function giveInitialsBackgroundColor(id) {
   let newId = id;
   while (id >= COLOR_FOR_CATEGORY.length) {

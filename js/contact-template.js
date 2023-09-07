@@ -19,6 +19,9 @@ const COLOR_FOR_CATEGORY = [
     "#32DAFF",
   ];
 
+  /**
+   * beginning function if th site is clicked
+   */
 function initContacts() {
 loadCurrentUser().then(() => {
         loadContactsWithUserId();
@@ -29,6 +32,9 @@ loadCurrentUser().then(() => {
     });
 }
 
+/**
+ * renders the site
+ */
 function renderContacts() {
     let namesArr = getSortedNamesArray();
     let letterArr = [];
@@ -68,6 +74,12 @@ function renderContacts() {
     }
 }
 
+/**
+ * returns the HTML-code for details of the chosen contact
+ * 
+ * @param {Array} contactArr - array with the conacts array
+ * @returns 
+ */
 function getContactDetails(contactArr) {
     return `
         <div class="chosen-contact-header">
@@ -100,6 +112,14 @@ function getContactDetails(contactArr) {
     `;
 }
 
+/**
+ * returns the HTML-code slide for either edit or new contact
+ * 
+ * @param {number} input - variable which decides if it is a edit or new contact slide
+ * @param {number} id - id of the chosen contact
+ * @param {string} submitVariable - variable for the shown header in the slide
+ * @returns 
+ */
 function getSlide(input, id, submitVariable) {
     return `
         <div id="slide-contact">
@@ -123,6 +143,13 @@ function getSlide(input, id, submitVariable) {
     `;
 }
 
+/**
+ * returns the HTML-code as the header of either edit or new contact
+ * 
+ * @param {number} id - id of the chosen contact
+ * @param {string} submitVariable - variable to decide the 
+ * @returns 
+ */
 function returnFunctionHTMLForSubmit(id, submitVariable) {
     if(submitVariable == 'new') {
         return 'addContact();';
@@ -131,6 +158,13 @@ function returnFunctionHTMLForSubmit(id, submitVariable) {
     }
 }
 
+/**
+ * returns the HTML-code for inputfield for either new or edit contact
+ * 
+ * @param {number} input - number to decide if edit or new contact
+ * @param {number} id - id of the chosen contact
+ * @returns 
+ */
 function getInputTags(input, id) {
     if (input === 0) {
         return `
@@ -148,6 +182,13 @@ function getInputTags(input, id) {
     }
 }
 
+/**
+ * returns the HTML-code for the profile pic 
+ * 
+ * @param {number} input - number to decide if edit or new contact
+ * @param {*} id - id of the chosen contact
+ * @returns 
+ */
 function getProfilePic(input, id) {
     if (input === 0) {
         return `
@@ -161,6 +202,13 @@ function getProfilePic(input, id) {
     }
 }
 
+/**
+ * returns the HTML-code for the button for either eid oder new contact
+ * 
+ * @param {number} input - number to decide if edit or new contact
+ * @param {number} id - id of the chosen contact
+ * @returns 
+ */
  function getCreateOrEditSlide(input, id) {
     if (input == 0) {
         return `
@@ -184,6 +232,12 @@ function getProfilePic(input, id) {
     }
 }
 
+/**
+ * returns the HTML-code for the left side of the slide
+ * 
+ * @param {number} input - number to decide if edit or new contact
+ * @returns 
+ */
 function getLeftSideSlide(input) {
     if (input == 0) {
         return `
@@ -198,6 +252,10 @@ function getLeftSideSlide(input) {
     }
 }
 
+/**
+ * 
+ * @returns HTML-code for the task slide
+ */
 function getTaskSlide() {
     return `
         <div id="slide-contact">
