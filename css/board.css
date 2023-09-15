@@ -392,8 +392,9 @@ textarea {
 @media (max-width: 1335px) {
     .addTaskForm {
         position: absolute;
-        top: 85px;
-        width: 450px;
+        top: 0px;
+        bottom: 0;
+        width: 100%;
     }
 
     #slide-contact {
