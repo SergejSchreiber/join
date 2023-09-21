@@ -796,6 +796,14 @@ textarea {
     }
 }
 
+@media (max-width: 400px) {
+    #slide-contact {
+        z-index: 999;
+        bottom: 0;
+        height: 500px;
+    }
+}
+
 .content-div {
     display: flex;
     align-items: center;
