@@ -146,9 +146,9 @@ textarea {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .contact-display {
-        /* width: 90vw; */
+        z-index: 999;
     }
 }
 
@@ -188,6 +188,12 @@ textarea {
     .contact-display-header,
     .chosen-contact {
         padding-left: 25px;
+    }
+}
+
+@media (max-width: 400px) {
+    .contact-display-header {
+        margin-bottom: 0;
     }
 }
 
@@ -260,7 +266,7 @@ textarea {
 
 @media (max-width: 500px) {
     .name-icon {
-        scale: 0.5;
+        scale: 0.4;
         margin-right: 0px;
         margin-left: -20px;
     }
@@ -274,6 +280,12 @@ textarea {
 @media (max-width: 1000px) {
     .contact-name-part {
         font-size: 36px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-name-part {
+        font-size: 20px;
     }
 }
 
@@ -799,8 +811,25 @@ textarea {
 @media (max-width: 400px) {
     #slide-contact {
         z-index: 999;
-        bottom: 0;
-        height: 500px;
+        position: absolute;
+        top: -200px;
+        box-shadow: 5px 5px #2A3647;
+    }
+
+    .chosen-contact-header {
+        margin-bottom: 0;
+    }
+
+    .contact-info-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .contact-info-header p {
+        font-size: 16px;
+        margin-right: 20px;
+        margin-bottom: 15px;
     }
 }
 
