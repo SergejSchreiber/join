@@ -36,7 +36,7 @@
                     <textarea id="InputDescription" class="addTaskInputDescription" required placeholder="Enter a Description" type="text" name="title"></textarea>
                 </div>
                 <div class="addTaskDivCategory">
-                    <span class="addTaskInputHead">Category</span>
+                    <span id="categoryLabel" class="addTaskInputHead">Category</span>
                     <div id="selectCategory" class="selectCategory">
                         <div class="selectBox" onclick="showCategory()">   
                             <span>Select task category</span>
@@ -61,7 +61,7 @@
                     <input required id="inputDate" class="addTaskInputDate" type="text" placeholder="dd/mm/yyyy" onfocus="(this.type = 'date')">
                 </div>
                 <div class="addTaskDivPrio">
-                    <span class="addTaskInputHead">Prio</span>
+                    <span id="categoryPrio" class="addTaskInputHead">Prio</span>
                     <div class="addTaskPrio">
                         <div id="divPrio0" class="divPrio" style="background-color: #FFFFFF;" onclick="selectPrio(0)">Urgent
                             <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">

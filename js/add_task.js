@@ -234,7 +234,7 @@ function addNewSubtask() {
     newSubtask.value = "";
     setSubtaskWithUserId();
     renderSubtask();
-  } else {
+  } else {    
     alert('Please enter a new subtask!');
   }
 }
@@ -291,11 +291,27 @@ function createNewTask(progress) {
       showSavedNotification();
       setTimeout(redirectToBoard, delay);
     }else{
-      alert('Please select a prio');
+      let categoryPrio = document.getElementById('categoryPrio');
+      categoryPrio.textContent = 'Please select a Prio';
+      categoryPrio.style.color = 'red';
+      categoryPrio.style.fontWeight = 'bold';
+      setTimeout(function() {
+        categoryPrio.textContent = 'Category';
+        categoryPrio.style.color = '';
+        categoryPrio.style.fontWeight = '';
+      }, 5000);
     }
     
   }else{
-    alert('Please select a category');
+    let categoryLabel = document.getElementById('categoryLabel');
+    categoryLabel.textContent = 'Please select a category';
+    categoryLabel.style.color = 'red';
+    categoryLabel.style.fontWeight = 'bold';
+    setTimeout(function() {
+      categoryLabel.textContent = 'Category';
+      categoryLabel.style.color = '';
+      categoryLabel.style.fontWeight = '';
+    }, 5000);
   }
 }
 

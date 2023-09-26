@@ -114,6 +114,7 @@
     font-weight: 400;
     font-size: 21px;
     overflow-y: scroll;
+    padding-right: 15px;
 }
 
 .chooseBox {
