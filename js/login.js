@@ -6,11 +6,13 @@ function showEyeIconCrossedOut() {
   passwordInput.setAttribute("type", type);
 }
 
+// Displays the eye icon for the password input.
 function showEyeIcon() {
   document.getElementById("eye").style.display = "block";
   document.getElementById("password-icon").style.display = "none";
 }
 
+// Toggles the visibility of the password confirmation input and switches the eye icon between visible and crossed out.
 function showEyeIconCrossedOutConf() {
   document.getElementById("eye-conf").classList.toggle("fa-eye-slash");
   const passwordInput = document.getElementById("password-conf");
@@ -18,6 +20,7 @@ function showEyeIconCrossedOutConf() {
   passwordInput.setAttribute("type", type);
 }
 
+// Displays the eye icon for the password confirmation input.
 function showEyeIconConf() {
   document.getElementById("eye-conf").style.display = "block";
   document.getElementById("password-icon-conf").style.display = "none";
@@ -34,6 +37,7 @@ function checkingEmailInUsers() {
   }
 }
 
+// Sends a password-reset email to the entered email address.
 async function sendMeEmail() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://f015d041@gruppe-610.developerakademie.net/join-610/reset-password.php");
@@ -49,6 +53,7 @@ async function sendMeEmail() {
   xhr.send(encodeURI("email=" + document.getElementById("email").value));
 }
 
+// Removes the sent email confirmation message.
 function removeSendMeEmail() {
   document.getElementById("bg-sent-email").style.display = "none";
 }
@@ -70,6 +75,7 @@ function checkConfirmedPassword() {
   }
 }
 
+// Changes the password of the current user and updates the data.
 async function changingPassword() {
   let url = new URL(window.location.href);
   let email = url.searchParams.get("email");
@@ -136,7 +142,7 @@ async function loadCurrentUser() {
   }
 }
 
-// funtion to add new signed user to server and first login
+// function to add new signed user to server and first login
 async function addUser() {
   let user = document.getElementById("username").value;
   let email = document.getElementById("email").value;
@@ -172,6 +178,7 @@ function guestLogin() {
   window.location.replace("./summary.html?msg=GuestAccount");
 }
 
+// Logs in the user and sets them as the current user.
 async function login() {
   let checkbox = document.getElementById("login-checkbox");
   let user = users.find((u) => u.email == email.value && u.password == password.value);
@@ -185,6 +192,7 @@ async function login() {
   }
 }
 
+// Logs out the current user.
 async function logout() {
   currentUser = null;
   localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
