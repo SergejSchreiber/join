@@ -517,13 +517,10 @@
 @media(max-width: 700px) {
     .contentDiv {
         justify-content: center;
-    }
-    .contentDiv {
         margin-left: 0px;
         margin-right: 0px;
     }
     .addTaskForm {
-        margin-left: 0px;
     }
     .addTaskFormContent {
         align-items: center;
@@ -548,13 +545,13 @@
     .addTaskFormContentLeft,
     .addTaskFormContentRight,
     .chooseCategory {
-        width: 363px;
+        width: 95%;
     }
     .addNewCategoryContainer {
         padding-left: 0px;
     }
     .addNewCategoryInput {
-        width: 300px;
+        width: 95%;
         padding-left: 10px;
     }
 }

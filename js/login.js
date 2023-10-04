@@ -99,11 +99,13 @@ async function changingPassword() {
 const STORAGE_TOKEN = "5OOXS6IHMZ5ZRRW51702PKTI3F90E0QLEFCQMEKP"; // https://remote-storage.developerakademie.org/token-generator
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
+//saving object in database
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
 }
 
+//loading object from database
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url)
@@ -134,6 +136,7 @@ async function loadUsers() {
   }
 }
 
+// loading users from server and current user from local storage.
 async function loadCurrentUser() {
   try {
     currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -210,6 +213,7 @@ function rememberMeLocalStorageSaveRemove(checkbox) {
   }
 }
 
+//loading the email and password from local storage when checkbox activated
 function loadUserLocalStorage() {
   let checkbox = document.getElementById("login-checkbox");
   if (localStorage.getItem("email")) {

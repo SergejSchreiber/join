@@ -17,7 +17,7 @@ let todos = [{
         'low',
         '../assets/img/low_icon.png'
     ],
-    'dueDate': '2023-18-08'
+    'dueDate': '2023-10-08'
 }, {
     'id': 1,
     'progress': 'inprogress',
@@ -35,7 +35,7 @@ let todos = [{
         'high',
         '../assets/img/urgent_icon.png'
     ],
-    'dueDate': '2023-15-08'
+    'dueDate': '2023-08-15'
 }, {
     'id': 2,
     'progress': 'awaitingfeedback',
@@ -54,7 +54,7 @@ let todos = [{
         'normal',
         '../assets/img/medium_icon.png'
     ],
-    'dueDate': '2023-28-04'
+    'dueDate': '2023-04-10'
 }, {
     'id': 3,
     'progress': 'awaitingfeedback',
@@ -69,7 +69,7 @@ let todos = [{
         'normal',
         '../assets/img/medium_icon.png'
     ],
-    'dueDate': '2023-13-12'
+    'dueDate': '2023-12-13'
 }, {
     'id': 4,
     'progress': 'done',
@@ -88,7 +88,7 @@ let todos = [{
         'low',
         '../assets/img/low_icon.png'
     ],
-    'dueDate': '2022-08-05'
+    'dueDate': '2023-11-01'
 }];
 
 let contacts = [

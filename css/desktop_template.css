@@ -53,6 +53,13 @@
   }
 }
 
+@media (max-width: 400px) {
+  .side-menu {
+    scale: 0.8;
+    white-space: nowrap;
+  }
+}
+
 .side-menu:hover {
   background: #091931;
   cursor: pointer;
