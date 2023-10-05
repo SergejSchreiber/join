@@ -94,19 +94,13 @@ function addHTMLParticipants(participants) {
   let completeParticipantsString = "";
   if (participants.length < 4) {
     for (let i = 0; i < participants.length; i++) {
-      completeParticipantsString += `
-                <div class="participants-${i}">${getInitials(participants[i])}</div>
-            `;
+      completeParticipantsString += `<div class="participants-${i}">${getInitials(participants[i])}</div>`;
     }
   } else {
     for (let i = 0; i < 2; i++) {
-      completeParticipantsString += `
-          <div class="participants-${i}">${getInitials(participants[i])}</div>
-            `;
+      completeParticipantsString += `<div class="participants-${i}">${getInitials(participants[i])}</div>`;
     }
-    completeParticipantsString += `
-                <div class="participants-2">+${participants.length - 2}</div>
-            `;
+    completeParticipantsString += `<div class="participants-2">+${participants.length - 2}</div>`;
   }
   return completeParticipantsString;
 }

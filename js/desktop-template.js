@@ -101,6 +101,7 @@ function hideLogout() {
   document.getElementById("logOutBg").style.visibility = "hidden";
 }
 
+// functions to show/hide the logout button for mobile version
 function showLogoutMobile() {
   document.getElementById("logOutMobile").style.visibility = "visible";
   document.getElementById("logOutBgMobile").style.visibility = "visible";

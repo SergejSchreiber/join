@@ -151,23 +151,27 @@ async function addUser() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let passwordConf = document.getElementById("password-conf").value;
-
   if (password === passwordConf) {
     if (users.some((u) => u.user === user || u.email === email)) {
       document.getElementById("message-existing-user").style.display = "block";
       return;
     }
-    users.push({ user, email, password });
-    await setItem("users", JSON.stringify(users));
-    currentUser = {user: user, email: email, password: password}
-    localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-    await setItem(`contacts_${currentUser}`, contacts);
-    await setItem(`todos_${currentUser}`, todos);
-    window.location.href = "./summary.html?msg=Du hast dich erfolgreich registriert";
+    await addUserAndRedirect(user, email, password);
   } else {
     document.getElementById("message-different-passwords").style.display = "block";
     return false;
   }
+}
+
+// add a new user and forward to main page
+async function addUserAndRedirect(user, email, password) {
+  users.push({ user, email, password });
+  await setItem("users", JSON.stringify(users));
+  currentUser = {user: user, email: email, password: password}
+  localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
+  await setItem(`contacts_${currentUser}`, contacts);
+  await setItem(`todos_${currentUser}`, todos);
+  window.location.href = "./summary.html?msg=Du hast dich erfolgreich registriert";
 }
 
 // function to delete users from users array

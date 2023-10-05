@@ -34,6 +34,7 @@ function greetingUsername() {
   document.getElementById("greetingUserName").innerHTML = "";
 }}
 
+// Checking the time of the Day for registered users
 function greetingTimeOfDay() {
   let greeting = document.getElementById("greeting");
   let hour = new Date().getHours();
@@ -46,6 +47,7 @@ function greetingTimeOfDay() {
   }
 }
 
+// Checking the time of the Day for guest users
 function greetingTimeOfDayGuest() {
   let greeting = document.getElementById("greeting");
   let hour = new Date().getHours();

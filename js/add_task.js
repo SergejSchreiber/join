@@ -214,22 +214,27 @@ function selectPrio(index) {
   selectedUrgency = priorities[index];
   urgencyIcon = priorities2[index];
   if (prioIndex[index] == 0) {
-    let element = document.getElementById(`divPrio${index}`);
-    let pathIcon1 = document.getElementById(`iconPath${index}`);
-    let pathIcon2 = document.getElementById(`iconPath${index}${index}`);
-    pathIcon1.setAttribute('fill', 'white');
-    pathIcon2.setAttribute('fill', 'white');
-    element.style.backgroundColor = prioColor[index];
-    element.classList.add("prioIsSelected");
-    prioIndex[0] = 0;
-    prioIndex[1] = 0;
-    prioIndex[2] = 0;
-    prioIndex[index] = 1;
-    urgencyCounter = 1;
+    setPrioSelection(index)
   } else {
     prioIndex[index] = 0;
     urgencyCounter = 0;
   }
+}
+
+// sets the prio selection on the index element
+function setPrioSelection(index) {
+  let element = document.getElementById(`divPrio${index}`);
+  let pathIcon1 = document.getElementById(`iconPath${index}`);
+  let pathIcon2 = document.getElementById(`iconPath${index}${index}`);
+  pathIcon1.setAttribute('fill', 'white');
+  pathIcon2.setAttribute('fill', 'white');
+  element.style.backgroundColor = prioColor[index];
+  element.classList.add("prioIsSelected");
+  prioIndex[0] = 0;
+  prioIndex[1] = 0;
+  prioIndex[2] = 0;
+  prioIndex[index] = 1;
+  urgencyCounter = 1;
 }
 
 // Resets priority selection UI.
@@ -307,26 +312,40 @@ function xIconColor(index) {
 function createNewTask(progress) {
   if(categoryIsSelected == 1){
     if(urgencyCounter == 1){
-      newTask = [];
-      selectedProgress = progress;
-      saveTaskToArray();
-      pushNewTaskToTodos();
-      showSavedNotification();
-      setTimeout(redirectToBoard, delay);
+      handleValidTaskCreation(progress);
     }else{
-      let categoryPrio = document.getElementById('categoryPrio');
-      categoryPrio.textContent = 'Please select a Prio';
-      categoryPrio.style.color = 'red';
-      categoryPrio.style.fontWeight = 'bold';
-      setTimeout(function() {
-        categoryPrio.textContent = 'Category';
-        categoryPrio.style.color = '';
-        categoryPrio.style.fontWeight = '';
-      }, 5000);
+      handleInvalidUrgencySelection();
     }
     
   }else{
-    let categoryLabel = document.getElementById('categoryLabel');
+    handleInvalidCategorySelection();
+  }
+}
+
+// Handles the case, when valid task selected
+function handleValidTaskCreation(progress) {
+  newTask = [];
+  selectedProgress = progress;
+  saveTaskToArray();
+  pushNewTaskToTodos();
+  showSavedNotification();
+  setTimeout(redirectToBoard, delay);
+}
+
+// Handles the case, when invalid urgency selected
+function handleInvalidUrgencySelection() {
+  let categoryPrio = document.getElementById('categoryPrio');
+  categoryPrio.textContent = 'Please select a Prio';
+  categoryPrio.style.color = 'red';
+  categoryPrio.style.fontWeight = 'bold';
+  setTimeout(function () {
+    resetCategoryLabel(categoryPrio);
+  }, 5000);
+}
+
+// Handles the case, when invalid category selected
+function handleInvalidCategorySelection() {
+  let categoryLabel = document.getElementById('categoryLabel');
     categoryLabel.textContent = 'Please select a category';
     categoryLabel.style.color = 'red';
     categoryLabel.style.fontWeight = 'bold';
@@ -335,7 +354,6 @@ function createNewTask(progress) {
       categoryLabel.style.color = '';
       categoryLabel.style.fontWeight = '';
     }, 5000);
-  }
 }
 
 // Displays a notification indicating the task has been saved.
@@ -359,8 +377,6 @@ function saveTaskToArray() {
   let prio = selectedUrgency;
   let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
   let assinedSubtasks = searchAssinedSubtask();
-
-
   if(assinedSubtasks.length == 0) {
     newTask.push({
       'id': nextId,
