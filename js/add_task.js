@@ -378,30 +378,40 @@ function saveTaskToArray() {
   let prioIcon = `../assets/img/${urgencyIcon}_icon.png`;
   let assinedSubtasks = searchAssinedSubtask();
   if(assinedSubtasks.length == 0) {
-    newTask.push({
-      'id': nextId,
-      'progress': selectedProgress,
-      'category': category,
-      'title': title,
-      'description': description,
-      'progress-number': [],
-      'participants': assinedContacts,
-      'urgency': [prio, prioIcon],
-      'dueDate': choosedDate,
-    });
+    saveTaskWithNoSubtasks(nextId, title, description, category, assinedContacts, prio, prioIcon, choosedDate);
   }else{
-    newTask.push({
-      'id': nextId,
-      'progress': selectedProgress,
-      'category': category,
-      'title': title,
-      'description': description,
-      'progress-number': [0, assinedSubtasks.length],
-      'participants': assinedContacts,
-      'urgency': [prio, prioIcon],
-      'dueDate': choosedDate,
-    });
+    saveTaskWithSubtasks(nextId, title, description, category, assinedContacts, prio, prioIcon, choosedDate, assinedSubtasks);
   }
+}
+
+// Saves a task with no assigned subtasks to the newTask array.
+function saveTaskWithNoSubtasks(nextId, title, description, category, assinedContacts, prio, prioIcon, choosedDate) {
+  newTask.push({
+    'id': nextId,
+    'progress': selectedProgress,
+    'category': category,
+    'title': title,
+    'description': description,
+    'progress-number': [],
+    'participants': assinedContacts,
+    'urgency': [prio, prioIcon],
+    'dueDate': choosedDate,
+  });
+}
+
+// Saves a task with assigned subtasks to the newTask array.
+function saveTaskWithSubtasks(nextId, title, description, category, assinedContacts, prio, prioIcon, choosedDate, assinedSubtasks) {
+  newTask.push({
+    'id': nextId,
+    'progress': selectedProgress,
+    'category': category,
+    'title': title,
+    'description': description,
+    'progress-number': [0, assinedSubtasks.length],
+    'participants': assinedContacts,
+    'urgency': [prio, prioIcon],
+    'dueDate': choosedDate,
+  });
 }
 
 // Retrieves selected contacts from the UI.
