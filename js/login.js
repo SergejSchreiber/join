@@ -1,4 +1,6 @@
-// functions for changing the icon in the password input field between eye-icon and eye-icon-crossed out and change the entered password between visible and non-visible
+/**
+ * functions for changing the icon in the password input field between eye-icon and eye-icon-crossed out and change the entered password between visible and non-visible
+ */
 function showEyeIconCrossedOut() {
   document.getElementById("eye").classList.toggle("fa-eye-slash");
   const passwordInput = document.getElementById("password");
@@ -6,13 +8,17 @@ function showEyeIconCrossedOut() {
   passwordInput.setAttribute("type", type);
 }
 
-// Displays the eye icon for the password input.
+/**
+ * Displays the eye icon for the password input.
+ */
 function showEyeIcon() {
   document.getElementById("eye").style.display = "block";
   document.getElementById("password-icon").style.display = "none";
 }
 
-// Toggles the visibility of the password confirmation input and switches the eye icon between visible and crossed out.
+/**
+ * Toggles the visibility of the password confirmation input and switches the eye icon between visible and crossed out.
+ */
 function showEyeIconCrossedOutConf() {
   document.getElementById("eye-conf").classList.toggle("fa-eye-slash");
   const passwordInput = document.getElementById("password-conf");
@@ -20,13 +26,18 @@ function showEyeIconCrossedOutConf() {
   passwordInput.setAttribute("type", type);
 }
 
-// Displays the eye icon for the password confirmation input.
+/**
+ * Displays the eye icon for the password confirmation input.
+ */
 function showEyeIconConf() {
   document.getElementById("eye-conf").style.display = "block";
   document.getElementById("password-icon-conf").style.display = "none";
 }
 
-// functions for sending a password-reset-email and showing the confirmation message after password-reset-forms were submitted
+/**
+ * functions for sending a password-reset-email and showing the confirmation message after password-reset-forms were submitted
+ * @returns {void}
+ */
 function checkingEmailInUsers() {
   let email = document.getElementById("email").value;
   if (users.some((u) => u.email === email)) {
@@ -37,7 +48,9 @@ function checkingEmailInUsers() {
   }
 }
 
-// Sends a password-reset email to the entered email address.
+/**
+ * Sends a password-reset email to the entered email address.
+ */
 async function sendMeEmail() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://f015d041@gruppe-610.developerakademie.net/join-610/reset-password.php");
@@ -53,12 +66,17 @@ async function sendMeEmail() {
   xhr.send(encodeURI("email=" + document.getElementById("email").value));
 }
 
-// Removes the sent email confirmation message.
+/**
+ * Removes the sent email confirmation message.
+ */
 function removeSendMeEmail() {
   document.getElementById("bg-sent-email").style.display = "none";
 }
 
-// functions in Reset-Passwort window to check if entered passwords are the same
+/**
+ * functions in Reset-Passwort window to check if entered passwords are the same
+ * @returns {boolean} - Returns true if the passwords match, false otherwise.
+ */
 function checkConfirmedPassword() {
   let password = document.getElementById("password");
   let passwordConf = document.getElementById("password-conf");
@@ -75,37 +93,65 @@ function checkConfirmedPassword() {
   }
 }
 
-// Changes the password of the current user and updates the data.
+/**
+ * Changes the password of the current user and updates the data.
+ */
 async function changingPassword() {
   let url = new URL(window.location.href);
   let email = url.searchParams.get("email");
   let password = document.getElementById("password").value;
   let user = users.find((user) => user.email === email);
   currentUser = user;
-  await loadTodosWithUserId();
-  await loadCategoryWithUserId();
-  await loadContactsWithUserId();
+  await loadDataWithUserId();
   user.password = password;
-  setTodosWithUserId();
-  setContactsWithUserId();
-  setSubtaskWithUserId();
-  setCategoryWithUserId();
+  setDataWithUserId();
   await setItem("users", JSON.stringify(users));
   document.getElementById("bg-sent-email").style.display = "block";
   document.getElementById("sent-email").style.animation = "sent-email 0.4s ease-in-out forwards";
 }
 
-// functions for user registration
+/**
+ * Loading Todos, Categories and Contacts according to the User ID
+ */
+async function loadDataWithUserId() {
+  await loadTodosWithUserId();
+  await loadCategoryWithUserId();
+  await loadContactsWithUserId();
+}
+
+/**
+ * Setting Todos, Categories, Subtasks and Contacts according to the User ID
+ */
+function setDataWithUserId() {
+  setTodosWithUserId();
+  setContactsWithUserId();
+  setSubtaskWithUserId();
+  setCategoryWithUserId();
+}
+
+/**
+ * functions for user registration
+ */
 const STORAGE_TOKEN = "5OOXS6IHMZ5ZRRW51702PKTI3F90E0QLEFCQMEKP"; // https://remote-storage.developerakademie.org/token-generator
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
-//saving object in database
+/**
+ * saving object in database
+ * @param {string} key - The key for the item to be set.
+ * @param {any} value - The value to be associated with the key.
+ * @returns {Promise} - A Promise that resolves to the result of the storage operation.
+ */
 async function setItem(key, value) {
   const payload = { key, value, token: STORAGE_TOKEN };
   return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
 }
 
-//loading object from database
+/**
+ * loading object from database
+ * @param {string} key - The key of the item to be retrieved.
+ * @returns {Promise} - A Promise that resolves to the value associated with the specified key.
+ * @throws {string} - Throws an error if the item with the specified key is not found.
+ */
 async function getItem(key) {
   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
   return fetch(url)
@@ -121,13 +167,18 @@ async function getItem(key) {
 let users = [];
 let currentUser = null;
 
-// Initializes the app by loading users from server and current user from local storage.
+/**
+ * Initializes the app by loading users from server and current user from local storage.
+ */
 function init() {
   loadUsers();
   loadCurrentUser();
   loadUserLocalStorage();
 }
 
+/**
+ * loading users from server
+ */
 async function loadUsers() {
   try {
     users = JSON.parse(await getItem("users"));
@@ -136,7 +187,9 @@ async function loadUsers() {
   }
 }
 
-// loading users from server and current user from local storage.
+/**
+ * loading users from server and current user from local storage.
+ */
 async function loadCurrentUser() {
   try {
     currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -145,7 +198,10 @@ async function loadCurrentUser() {
   }
 }
 
-// function to add new signed user to server and first login
+/**
+ * function to add new signed user to server and first login
+ * @returns {Promise<boolean>} - A Promise that resolves to true if the user is successfully added, false otherwise.
+ */
 async function addUser() {
   let user = document.getElementById("username").value;
   let email = document.getElementById("email").value;
@@ -163,7 +219,13 @@ async function addUser() {
   }
 }
 
-// add a new user and forward to main page
+/**
+ * Adds a new user and forward to main page
+ * @param {string} user - The username of the new user.
+ * @param {string} email - The email of the new user.
+ * @param {string} password - The password of the new user.
+ * @returns {Promise<void>} - A Promise that resolves once the user is added and data is stored successfully.
+ */
 async function addUserAndRedirect(user, email, password) {
   users.push({ user, email, password });
   await setItem("users", JSON.stringify(users));
@@ -174,18 +236,26 @@ async function addUserAndRedirect(user, email, password) {
   window.location.href = "./summary.html?msg=Du hast dich erfolgreich registriert";
 }
 
-// function to delete users from users array
+/**
+ * function to delete users from users array
+ * @param {number} index - The index of the user to be deleted.
+ * @returns {Promise<void>} - A Promise that resolves once the user is deleted and data is stored successfully.
+ */
 async function deleteUser(index) {
   users.splice(index, 1);
   await setItem("users", JSON.stringify(users));
 }
 
-// functions to login/logout and load user from local Storage
+/**
+ * functions to login/logout and load user from local Storage
+ */
 function guestLogin() {
   window.location.replace("./summary.html?msg=GuestAccount");
 }
 
-// Logs in the user and sets them as the current user.
+/**
+ * Logs in the user and sets them as the current user.
+ */
 async function login() {
   let checkbox = document.getElementById("login-checkbox");
   let user = users.find((u) => u.email == email.value && u.password == password.value);
@@ -199,14 +269,20 @@ async function login() {
   }
 }
 
-// Logs out the current user.
+/**
+ * Logs out the current user.
+ */
 async function logout() {
   currentUser = null;
   localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
   window.location.href = "../html/index.html";
 }
 
-// function for saving/loading the signed in user in the local storage when the "Remember me" checkbox activated
+/**
+ * function for saving/loading the signed in user in the local storage when the "Remember me" checkbox activated
+ * @param {HTMLInputElement} checkbox - The "Remember Me" checkbox element.
+ * @returns {void}
+ */
 function rememberMeLocalStorageSaveRemove(checkbox) {
   if (checkbox.checked) {
     localStorage.setItem("email", email.value);
@@ -217,7 +293,9 @@ function rememberMeLocalStorageSaveRemove(checkbox) {
   }
 }
 
-//loading the email and password from local storage when checkbox activated
+/**
+ * loading the email and password from local storage when checkbox activated
+ */
 function loadUserLocalStorage() {
   let checkbox = document.getElementById("login-checkbox");
   if (localStorage.getItem("email")) {

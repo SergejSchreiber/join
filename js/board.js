@@ -103,6 +103,16 @@ function showAddTaskSlideForBoardHTML(progress) {
 }
 
 /**
+ * Adds the task-slide for the board-page and takes the progress with it
+ * 
+ * @param {string} progress - the progress specific progress is brought to the task slide
+ */
+function showEditTaskSlideForBoardHTML(progress) {
+  document.getElementById("task-container").innerHTML += getTaskSlideEdit(progress);
+  renderSubtask();
+}
+
+/**
  * removes the task slide and turns the boolean to false back
  */
 function removeAddTaskSlide() {
@@ -118,6 +128,7 @@ function removeAddTaskSlide() {
 function showTaskedInDetail(id) {
   if(boolean != true) {
     document.getElementById("task-container").innerHTML += getTaskDetails(id);
+    renderSubtaskItem(id);
     colorForInitialsInTaskDetails(id);
   }
 }
@@ -183,7 +194,7 @@ function deleteTaskFromBoard(id) {
  */
 function showEditTaskFromBoard(id, progress) {
   removeAddTaskSlide();
-  showAddTaskSlideForBoardHTML(progress);
+  showEditTaskSlideForBoardHTML(progress);
   fillTaskInfo(id);
 }
 

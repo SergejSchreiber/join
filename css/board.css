@@ -205,6 +205,12 @@ textarea {
     }
 }
 
+@media (max-width: 1380px) {
+    .task-container {
+        flex-direction: column;
+    }
+}
+
 .single-task-container {
     width: 250px;
     display: flex;
@@ -212,6 +218,23 @@ textarea {
     padding-right: 13px;
     padding-left: 13px;
     margin-bottom: 75px;
+}
+
+@media (max-width: 1380px) {
+    .single-task-container {
+        flex-direction: row;
+        width: 90%;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .single-task-container {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        gap: 25px;
+    }
 }
 
 .task-header {
@@ -227,6 +250,20 @@ textarea {
     width: 100%;
     min-height: 100px;
     height: 100%;
+}
+
+@media (max-width: 1380px) {
+    .task-body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .task-body {
+        justify-content: center;
+    }
 }
 
 .task-container-name {
@@ -299,15 +336,21 @@ textarea {
 }
 
 .progress-bar {
-    display: flex;
     width: 138px;
     height: 8px;
+    border: 1px solid #ccc;
     border-radius: 2px;
     background-color: black;
-    margin-right: 10px;
+    position: relative;
 }
 
-.progress-number {
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+  }
+
+.progressnumber {
     font-size: 12px;
     font-weight: 400;
 }
@@ -375,12 +418,25 @@ textarea {
     justify-content: center;
     align-items: center;
     position: fixed;
+    overflow: auto;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-height: 780px) {
+    #slide-contact {
+        align-items: start;
+    }
+}
+
+@media (max-width: 400px) {
+    #slide-contact {
+        background-color: white;
+    }
 }
 
 .addTaskForm {
@@ -394,11 +450,7 @@ textarea {
         position: absolute;
         top: 0px;
         bottom: 0;
-        height: 1000px;
-    }
-
-    #slide-contact {
-        overflow: auto;
+        height: 1200px;
     }
 }
 
@@ -542,7 +594,6 @@ textarea {
     overflow: scroll;
     overflow-x: hidden;
     height: 250px;
-    width: 300px;
 }
 
 .task-detail-participants-body::-webkit-scrollbar {
@@ -705,8 +756,3 @@ textarea {
     filter: invert(0.5);
 }
 
-@media (max-width: 400px) {
-    #slide-contact {
-        background-color: white;
-    }
-}

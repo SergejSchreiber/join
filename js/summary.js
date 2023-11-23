@@ -1,3 +1,8 @@
+/**
+ * Initializes the summary page by loading user data, todos, finding the earliest due date, displaying a greeting, and updating summary numbers.
+ *
+ * @returns {void}
+ */
 function initSummary() {
   loadCurrentUser().then(() => {
     loadTodosWithUserId().then(() => {
@@ -8,7 +13,9 @@ function initSummary() {
   });
 }
 
-//function to find the earliest upcoming due date, which is still in the future
+/**
+ * function to find the earliest upcoming due date, which is still in the future
+ */
 function findEarliestDueDate() {
   let timeElement = document.getElementById("summary-due-date-time");
   const now = new Date();
@@ -24,7 +31,9 @@ function findEarliestDueDate() {
   }
 }
 
-//functions to set the correct greeting depending on time of the day and the current user
+/**
+ * functions to set the correct greeting depending on time of the day and the current user
+ */
 function greetingUsername() {
   if (currentUser) {
   greetingTimeOfDay();
@@ -34,7 +43,9 @@ function greetingUsername() {
   document.getElementById("greetingUserName").innerHTML = "";
 }}
 
-// Checking the time of the Day for registered users
+/**
+ * Checking the time of the Day for registered users
+ */
 function greetingTimeOfDay() {
   let greeting = document.getElementById("greeting");
   let hour = new Date().getHours();
@@ -47,7 +58,9 @@ function greetingTimeOfDay() {
   }
 }
 
-// Checking the time of the Day for guest users
+/**
+ * Checking the time of the Day for guest users
+ */
 function greetingTimeOfDayGuest() {
   let greeting = document.getElementById("greeting");
   let hour = new Date().getHours();
@@ -60,10 +73,12 @@ function greetingTimeOfDayGuest() {
   }
 }
 
-// function to update the numbers in each box on the summary page
+/**
+ * function to update the numbers in each box on the summary page
+ */
 function summaryNumbers() {
   document.getElementById("summary-tasks-in-board-number").innerHTML = todos.length;
-  document.getElementById("summary-tasks-in-progress-number").innerHTML = todos.filter((item) => item.progress === "inprogress").length;
+  document.getElementById("summary-tasks-in-progressnumber").innerHTML = todos.filter((item) => item.progress === "inprogress").length;
   document.getElementById("summary-awaiting-feedback-number").innerHTML = todos.filter((item) => item.progress === "awaitingfeedback").length;
   document.getElementById("summary-urgent-number").innerHTML = todos.filter((item) => item.urgency[0] === "high").length;
   document.getElementById("summary-to-do-number").innerHTML = todos.filter((item) => item.progress === "todo").length;

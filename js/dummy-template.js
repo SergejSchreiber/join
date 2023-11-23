@@ -4,10 +4,7 @@ let todos = [{
     'category': 'Design',
     'title': 'Website redesign',
     'description': 'Modify the contents of the main website...',
-    'progress-number': [
-        1,
-        2
-    ],
+    'progressnumber': [],
     'participants': [
         'Santa Maria',
         'Marcel Viess',
@@ -17,38 +14,38 @@ let todos = [{
         'low',
         '../assets/img/low_icon.png'
     ],
-    'dueDate': '2023-10-08'
+    'dueDate': '2024-10-08'
 }, {
     'id': 1,
     'progress': 'inprogress',
     'category': 'Sales',
     'title': 'Call potential clients',
     'description': 'Make the product presentation to prospective buyers',
-    'progress-number': [],
+    'progressnumber': [],
     'participants': [
         'Anja Schulz',
         'David Eisenberg',
         'Anton Artanlar',
-        'Kevin Aamaa'
+        'Kevin Arndt'
     ],
     'urgency': [
         'high',
         '../assets/img/urgent_icon.png'
     ],
-    'dueDate': '2023-08-15'
+    'dueDate': '2023-12-15'
 }, {
     'id': 2,
     'progress': 'awaitingfeedback',
     'category': 'Backoffice',
     'title': 'Accounting invoices',
     'description': 'Write open invoices for customer',
-    'progress-number': [],
+    'progressnumber': [],
     'participants': [
         'Marcel Bauer',
         'Anton Mayer',
         'Anton Artanlar',
-        'Kevin Aamaa',
-        'Sven Karate'
+        'Kevin Arndt',
+        'Sven Karnter'
     ],
     'urgency': [
         'normal',
@@ -61,7 +58,7 @@ let todos = [{
     'category': 'Media',
     'title': 'Video cut',
     'description': 'Edit the new company video',
-    'progress-number': [],
+    'progressnumber': [],
     'participants': [
         'Hans Kohl'
     ],
@@ -75,11 +72,8 @@ let todos = [{
     'progress': 'done',
     'category': 'Marketing',
     'title': 'Social media strategy',
-    'description': 'Develop an ad campaign for brand positioning',
-    'progress-number': [
-        3,
-        3
-    ],
+    'description': 'Develop and campaign for brand positioning',
+    'progressnumber': [],
     'participants': [
         'Bendikt Ziegler',
         'Ralph Sauron'

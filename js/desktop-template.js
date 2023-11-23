@@ -1,5 +1,6 @@
-// function to create the desktop template when "JoinHeader" Element is entered on the page
-
+/**
+ * function to create the desktop template when "JoinHeader" Element is entered on the page
+ */
 class JoinHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = /*html*/ `
@@ -90,18 +91,25 @@ class JoinHeader extends HTMLElement {
 
 customElements.define("join-header", JoinHeader);
 
-// functions to show/hide the logout button
+/**
+ * functions to show the logout button
+ */
 function showLogout() {
   document.getElementById("logOut").style.visibility = "visible";
   document.getElementById("logOutBg").style.visibility = "visible";
 }
 
+/**
+ * functions to hide the logout button
+ */
 function hideLogout() {
   document.getElementById("logOut").style.visibility = "hidden";
   document.getElementById("logOutBg").style.visibility = "hidden";
 }
 
-// functions to show/hide the logout button for mobile version
+/**
+ * functions to show the logout button for mobile version
+ */
 function showLogoutMobile() {
   document.getElementById("logOutMobile").style.visibility = "visible";
   document.getElementById("logOutBgMobile").style.visibility = "visible";
@@ -109,6 +117,9 @@ function showLogoutMobile() {
   document.getElementById("legalNotice").style.visibility = "visible";
 }
 
+/**
+ * functions to hide the logout button for mobile version
+ */
 function hideLogoutMobile() {
   document.getElementById("logOutMobile").style.visibility = "hidden";
   document.getElementById("logOutBgMobile").style.visibility = "hidden";
@@ -116,7 +127,9 @@ function hideLogoutMobile() {
   document.getElementById("legalNotice").style.visibility = "hidden";
 }
 
-// function to load the Intiatials from the active user
+/**
+ * function to load the Intiatials from the active user
+ */
 async function loadingUserInitials() {
   if (currentUser) {
     let userName = currentUser.user;

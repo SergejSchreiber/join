@@ -7,6 +7,7 @@
   background-color: #2a3647;
   color: white;
   font-size: 16px;
+  white-space: nowrap;
 }
 
 @media (max-width: 700px) {
@@ -21,11 +22,30 @@
   }
 }
 
+
+@media (max-height: 690px) {
+  .side-bar {
+    padding-top: 50px;
+  }
+}
+
+@media (max-height: 690px) and (max-width: 700px) {
+  .side-bar {
+    padding-top: 0;
+  }
+}
+
 .join-logo {
   margin: 66px;
 }
 
 @media (max-width: 700px) {
+  .join-logo {
+    display: none;
+  }
+}
+
+@media (max-height: 690px) {
   .join-logo {
     display: none;
   }
@@ -55,8 +75,7 @@
 
 @media (max-width: 400px) {
   .side-menu {
-    scale: 0.8;
-    white-space: nowrap;
+    font-size: 10px;
   }
 }
 
@@ -74,6 +93,13 @@
 @media (max-width: 700px) {
   .side-menu img {
     padding: 3px;
+  }
+}
+
+@media (max-width: 400px) {
+  .side-menu img {
+    height: 15px;
+    width: 15px;
   }
 }
 
@@ -99,6 +125,12 @@
 }
 
 @media (max-width: 700px) {
+  .legal-notice {
+    display: none;
+  }
+}
+
+@media (max-height: 690px) {
   .legal-notice {
     display: none;
   }
@@ -133,6 +165,16 @@
 }
 
 @media (max-width: 700px) {
+  .join-logo-mobile {
+    display: block;
+  }
+
+  .kanban-text {
+    display: none;
+  }
+}
+
+@media (max-height: 690px) {
   .join-logo-mobile {
     display: block;
   }

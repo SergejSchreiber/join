@@ -1,6 +1,6 @@
-// Renders the content of the task management page.
-// Loads user-related data, categories, subtasks, and renders the UI components.
-
+/**
+ * Renders the content of the task management page. Loads user-related data, categories, subtasks, and renders the UI components.
+ */
 function renderContent() {
   loadCurrentUser().then(() => {
     loadContactsWithUserId().then(() => {
@@ -10,13 +10,14 @@ function renderContent() {
     document.getElementById('inputDate').min = new Date().toISOString().split('T')[0];
     loadSubtaskWithUserId();
     loadCategoryWithUserId();
-    renderSubtask();  
+    renderSubtask();
 }
 
-// Functions for category selection
+/**
+ * Functions for category selection
+ */
 let categoryIndex;
 let categoryIsSelected = 0;
-
 function showCategory() {
   categoryIsSelected = 0;
   let selectContainer = document.getElementById('selectCategory');
@@ -24,77 +25,31 @@ function showCategory() {
   selectContainer.innerHTML += showCategoryHtml();
   let chooseContainer = document.getElementById('chooseCategory');
   for (let i = 0; i < category.length; i++) {
-    chooseContainer.innerHTML += `
-            <div class="chooseOptions">
-                <span class="spanChooseCategory" onclick="showSelectedCategory(${i})">${category[i]}</span>
-                <div><img class="addTaskDeleteIcon" onclick="deleteCategory(${i})" src="../assets/img/delete.png"></div>
-            </div>
-        `;
+    chooseContainer.innerHTML += showChooseCategoryHtml(i);
   }
 }
 
-// Generates HTML content for displaying task categories.
-function showCategoryHtml() {
-  return `
-        <div id="chooseCategory" class="chooseCategory">
-            <div class="chooseBox" onclick="hideCategory()">
-                <span>Select task category</span>
-                <img src="../assets/img/arrow_down.png">
-            </div>
-            <div class="chooseOptionsNew" onclick="addNewCategory()">
-                <span>New category</span>
-            </div>
-        </div>
-    `;
-}
-
-// Hides the category selection dropdown.
+/**
+ * Hides the category selection dropdown.
+ */
 function hideCategory() {
   let selectContainer = document.getElementById('selectCategory');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += hideCategoryHtml();
 }
 
-// Generates HTML content for hiding task categories.
-function hideCategoryHtml() {
-  return `
-        <div class="selectBox" onclick="showCategory()">   
-            <span>Select task category</span>
-            <img src="../assets/img/arrow_down.png">
-        </div>
-    `;
-}
-
-// Adds a new category to the category list.
+/**
+ * Adds a new category to the category list.
+ */
 function addNewCategory() {
   let selectContainer = document.getElementById('selectCategory');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += addNewCategoryHtml();
 }
 
-// Generates HTML content for adding a new category.
-function addNewCategoryHtml() {
-  return ` 
-        <div class="addNewCategoryContainer">  
-            <input id="addNewCategoryInput" class="addNewCategoryInput" placeholder="New category name" type="text"/> 
-            <div class="addNewCategoryContainerIcons">
-                <div class ="xIconCategory" onclick="showCategory()">
-                    <svg class ="xIconCategory" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path id="xIconPath" d="M12.5011 12.5001L17.7441 17.7431M7.25806 17.7431L12.5011 12.5001L7.25806 17.7431ZM17.7441 7.25708L12.5001 12.5001L17.7441 7.25708ZM12.5001 12.5001L7.25806 7.25708L12.5001 12.5001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                    <div class="dividingLineCategory"></div>
-                <div class ="hookIconCategory" onclick="pushNewCategory()">
-                    <svg class ="hookIconCategory" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 7.5L7 13.5L17 1.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                <div>
-            </div>
-        </div>
-    `;
-}
-
-// Pushes a new category to the category list.
+/**
+ * Pushes a new category to the category list.
+ */
 function pushNewCategory() {
   let inputValue = document.getElementById('addNewCategoryInput').value;
   if (inputValue) {
@@ -106,7 +61,11 @@ function pushNewCategory() {
   }
 }
 
-// Displays the selected category and handles category selection.
+/**
+ * Displays the selected category and handles category selection.
+ * @param {number} index - The index of the selected category.
+ * @returns {void}
+ */
 function showSelectedCategory(index) {
   categoryIndex = index;
   categoryIsSelected = 1;
@@ -115,28 +74,22 @@ function showSelectedCategory(index) {
   selectContainer.innerHTML += showSelectedCategoryHtml(index);
 }
 
-// Displays the selected category HTML content.
-function showSelectedCategoryHtml(index) {
-  return `
-        <div class="selectBox" onclick="showCategory()">   
-            <span id="spanCategory">${category[index]}</span>
-            <img src="../assets/img/arrow_down.png">
-        </div> 
-    `;
-}
-
-// Deletes a category from the category list.
+/**
+ * Deletes a category from the category list.
+ * @param {*} index - The index of the selected category.
+ */
 function deleteCategory(index) {
   category.splice(index, 1);
-
   setCategoryWithUserId();
   showCategory();
 }
 
-// Functions for assign contacts selection
+/**
+ * Sorts contacts by name and displays them.
+ * @param {Array} contacts - An array of contact objects to be sorted.
+ * @returns {void}
+ */
 let contactsSorted = [];
-
-// Sorts contacts by name and displays them.
 function sortContactsByName(contacts) {
   contacts.sort(function(a, b) {
     let nameA = a.name.toLowerCase();
@@ -153,53 +106,33 @@ function sortContactsByName(contacts) {
   showContacts(contactsSorted);
 }
 
-// Displays contacts and handles contact-related actions.
+/**
+ * Displays contacts and handles contact-related actions.
+ * @param {Array} contactsSorted - An array of contacts sorted by name.
+ * @returns {void}
+ */
 function showContacts(contactsSorted) {
   let selectContainer = document.getElementById('selectContact');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += showContactsHtml();
   let chooseContainer = document.getElementById('divShowContact');
   for (let i = 0; i < contactsSorted.length; i++) {
-    chooseContainer.innerHTML += `
-            <label class="contactContainer">
-                <span class="checkmark">${contactsSorted[i]['name']}</span>
-                <input id="contactCheckbox${i}" type="checkbox">   
-            </label>
-        `;
+    chooseContainer.innerHTML += showContactsSortedHtml(i);
   }
 }
 
-// Generates HTML content for displaying contacts.
-function showContactsHtml() {
-  return `
-        <div id="chooseContact" class="chooseCategory">
-            <div class="chooseBox" onclick="hideContact()">
-                <span>Select contacts to assign</span>
-                <img src="../assets/img/arrow_down.png">
-            </div>
-            <div id="divShowContact" class="divShowSubtasks"></div>
-        </div>
-    `;
-}
-
-// Hides the contact selection dropdown.
+/**
+ * Hides the contact selection dropdown.
+ */
 function hideContact() {
   let selectContainer = document.getElementById('selectContact');
   selectContainer.innerHTML = '';
   selectContainer.innerHTML += hideContactHtml();
 }
 
-// Generates HTML content for hiding contacts.
-function hideContactHtml() {
-  return `
-        <div class="selectBox" onclick="sortContactsByName(contacts)">
-            <span>Select contacts to assign</span>
-            <img src="../assets/img/arrow_down.png">
-        </div>
-    `;
-}
-
-// Functions for priority selection
+/**
+ * Functions for priority selection
+ */
 let prioColor = ['#FF3D00', '#FFA800', '#7AE229'];
 let prioIndex = [0, 0, 0];
 let priorities = ['high', 'normal', 'low'];
@@ -208,7 +141,11 @@ let urgencyIcon = '';
 let selectedUrgency = '';
 let urgencyCounter = 0;
 
-// Handles priority selection and displays priority-related UI.
+/**
+ * Handles priority selection and displays priority-related UI.
+ * @param {number} index - The index of the selected priority.
+ * @returns {void}
+ */
 function selectPrio(index) {
   resetPrio(index);
   selectedUrgency = priorities[index];
@@ -221,7 +158,11 @@ function selectPrio(index) {
   }
 }
 
-// sets the prio selection on the index element
+/**
+ * Sets the prio selection on the index element
+ * @param {number} index - The index of the priority to be selected.
+ * @returns {void}
+ */
 function setPrioSelection(index) {
   let element = document.getElementById(`divPrio${index}`);
   let pathIcon1 = document.getElementById(`iconPath${index}`);
@@ -237,7 +178,11 @@ function setPrioSelection(index) {
   urgencyCounter = 1;
 }
 
-// Resets priority selection UI.
+/**
+ * Resets priority selection UI.
+ * @param {number} index - The index of the priority to exclude from the reset.
+ * @returns {void}
+ */
 function resetPrio(index) {
   for (let i = 0; i < 3; i++) {
     let element = document.getElementById(`divPrio${i}`);
@@ -250,7 +195,9 @@ function resetPrio(index) {
   }
 }
 
-// Adds a new subtask to the subtask list.
+/**
+ * Adds a new subtask to the subtask list.
+ */
 function addNewSubtask() {
   let newSubtask = document.getElementById('addNewSubtaskInput');
   if (newSubtask.value) {
@@ -263,7 +210,9 @@ function addNewSubtask() {
   }
 }
 
-// Renders subtasks and handles subtask-related actions.
+/**
+ * Renders global subtasks and handles subtask-related actions.
+ */
 function renderSubtask() {
   let subDiv = document.getElementById(`divShowSubtasks`);
   subDiv.innerHTML = '';
@@ -272,32 +221,49 @@ function renderSubtask() {
   }
 }
 
-// Generates HTML content for displaying subtasks.
-function subtaskHtml(index) {
-  return `
-      <div class="divShowSubtask">
-        <label class="lableContainer">
-            <input id="subtaskCheckbox${index}" type="checkbox">
-            <span class="checkmark">${allSubtasks[index]}</span>
-        </label>
-        <div><img class="addTaskDeleteIcon" onclick="deleteSubtask(${index})" src="../assets/img/delete.png"></div>
-      </div>
-    `;
+/**
+ * Renders subtasks per item and handles subtask-related actions.
+ */
+function renderSubtaskItem(id) {
+  if (todos[id].subtasks) {
+  let subDiv = document.getElementById(`divShowSubtasksItem`);
+  subDiv.innerHTML = '';
+  for (let i = 0; i < todos[id].subtasks.length; i++) {
+    subDiv.innerHTML += subtaskHtmlItem(i, id);
+  }
+}
 }
 
-// Deletes a subtask from the subtask list.
+/**
+ * Deletes a subtask from the global subtask list.
+ * @param {number} index - The index of the subtask to be deleted.
+ * @returns {void}
+ */
 function deleteSubtask(index) {
   allSubtasks.splice(index, 1);
-
   setSubtaskWithUserId();
   renderSubtask();
 }
 
-// Functions for clear and create button
+/**
+ * Deletes a subtask from the subtask per item list.
+ * @param {number} index - The index of the subtask to be deleted.
+ * @returns {void}
+ */
+function deleteSubtaskItem(index, id) {
+  todos[id].subtasks.splice(index, 1);
+  todos[id].progressnumber[1] = todos[id].subtasks.length;
+  renderSubtaskItem(id);
+  render();
+  setTodosWithUserId();
+}
+
+/**
+ * Functions for clear and create button
+ */
 let newTask = [];
 let selectedProgress = 'todo';
 const delay = 3000;
-
 function xIconColor(index) {
   let numb = index;
   let pfad = document.getElementById('xIconPath');
@@ -308,7 +274,11 @@ function xIconColor(index) {
   }
 }
 
-// Creates a new task, validates inputs, and saves it.
+/**
+ * Creates a new task, validates inputs, and saves it.
+ * @param {number} progress - The progress indicator for the new task.
+ * @returns {void}
+ */
 function createNewTask(progress) {
   if(categoryIsSelected == 1){
     if(urgencyCounter == 1){
@@ -316,23 +286,28 @@ function createNewTask(progress) {
     }else{
       handleInvalidUrgencySelection();
     }
-    
   }else{
     handleInvalidCategorySelection();
   }
 }
 
-// Handles the case, when valid task selected
+/**
+ * Handles the case, when valid task selected
+ * @param {number} progress - The progress indicator for the new task.
+ * @returns {void}
+ */
 function handleValidTaskCreation(progress) {
   newTask = [];
   selectedProgress = progress;
   saveTaskToArray();
   pushNewTaskToTodos();
-  showSavedNotification();
+  document.getElementById('savedNotificationDiv').classList.remove('d-none');
   setTimeout(redirectToBoard, delay);
 }
 
-// Handles the case, when invalid urgency selected
+/**
+ * Handles the case, when invalid urgency selected
+ */
 function handleInvalidUrgencySelection() {
   let categoryPrio = document.getElementById('categoryPrio');
   categoryPrio.textContent = 'Please select a Prio';
@@ -343,7 +318,9 @@ function handleInvalidUrgencySelection() {
   }, 5000);
 }
 
-// Handles the case, when invalid category selected
+/**
+ * Handles the case, when invalid category selected
+ */
 function handleInvalidCategorySelection() {
   let categoryLabel = document.getElementById('categoryLabel');
     categoryLabel.textContent = 'Please select a category';
@@ -356,17 +333,16 @@ function handleInvalidCategorySelection() {
     }, 5000);
 }
 
-// Displays a notification indicating the task has been saved.
-function showSavedNotification() {
-  document.getElementById('savedNotificationDiv').classList.remove('d-none');
-}
-
-// Redirects the user to the task management board after a delay.
+/**
+ * Redirects the user to the task management board after a delay.
+ */
 function redirectToBoard() {
   window.location.href = '../html/board.html';
 }
 
-// Saves task data to an array.
+/**
+ * Saves task data to an array.
+ */
 function saveTaskToArray() {
   let nextId = todos.length;
   let title = document.getElementById('InputTitle').value;
@@ -384,7 +360,9 @@ function saveTaskToArray() {
   }
 }
 
-// Saves a task with no assigned subtasks to the newTask array.
+/**
+ * Saves a task with no assigned subtasks to the newTask array.
+ */
 function saveTaskWithNoSubtasks(nextId, title, description, category, assinedContacts, prio, prioIcon, choosedDate) {
   newTask.push({
     'id': nextId,
@@ -392,14 +370,16 @@ function saveTaskWithNoSubtasks(nextId, title, description, category, assinedCon
     'category': category,
     'title': title,
     'description': description,
-    'progress-number': [],
+    'progressnumber': [],
     'participants': assinedContacts,
     'urgency': [prio, prioIcon],
     'dueDate': choosedDate,
   });
 }
 
-// Saves a task with assigned subtasks to the newTask array.
+/**
+ * Saves a task with assigned subtasks to the newTask array.
+ */
 function saveTaskWithSubtasks(nextId, title, description, category, assinedContacts, prio, prioIcon, choosedDate, assinedSubtasks) {
   newTask.push({
     'id': nextId,
@@ -407,14 +387,22 @@ function saveTaskWithSubtasks(nextId, title, description, category, assinedConta
     'category': category,
     'title': title,
     'description': description,
-    'progress-number': [0, assinedSubtasks.length],
+    'progressnumber': [0, assinedSubtasks.length],
+    'subtasks': assinedSubtasks,
     'participants': assinedContacts,
     'urgency': [prio, prioIcon],
     'dueDate': choosedDate,
   });
 }
 
-// Retrieves selected contacts from the UI.
+function progessNumberUpdate(id) {
+  todos[id].progressnumber[1]
+}
+
+/**
+ * Retrieves selected contacts from the UI.
+ * @returns {Array} - An array of names representing the selected contacts.
+ */
 function searchAssinedContacts() {
   let choosedContacts = [];
   let contactsCheckboxCount = contactsSorted.length;
@@ -427,20 +415,42 @@ function searchAssinedContacts() {
   return choosedContacts;
 }
 
-// Retrieves selected subtasks from the UI.
+/**
+ * Retrieves selected subtasks from the UI.
+ * @returns {Array} - An array of subtasks representing the selected subtasks.
+ */
 function searchAssinedSubtask() {
   let choosedSubtasks = [];
   let noSubtask = '';
   for (let i = 0; i < allSubtasks.length; i++) {
     let currentCheckbox = document.getElementById(`subtaskCheckbox${i}`);
     if (currentCheckbox.checked) {
-      choosedSubtasks.push(allSubtasks[i]);
+      choosedSubtasks.push({ name: allSubtasks[i], done: false });
     }
   }
   return choosedSubtasks;
 }
 
-// Adds a new task to the todos array and saves it.
+
+function checkboxClick(index, id) {
+  checkbox = document.getElementById(`subtaskCheckbox${index}`);
+  let isChecked = checkbox.checked;
+  todos[id].subtasks[index].done = isChecked;
+  if (todos[id].subtasks[index].done) {
+    todos[id].subtasks[index].status = "checked";
+  } else {
+    todos[id].subtasks[index].status = "";
+  }
+  todos[id].progressnumber[0] = todos[id].subtasks.filter(subtask => subtask.status === 'checked').length;
+  let progressPercent = (todos[id].progressnumber[1] > 0) ? (todos[id].progressnumber[0] / todos[id].progressnumber[1]) * 100 : 0;
+  todos[id].subtasksProgress = progressPercent;
+  setTodosWithUserId();
+  render();
+}
+
+/**
+ * Adds a new task to the todos array and saves it.
+ */
 function pushNewTaskToTodos() {
   todos.push(newTask[0]);
   setTodosWithUserId();
@@ -448,7 +458,9 @@ function pushNewTaskToTodos() {
   setCategoryWithUserId();
 }
 
-// Sets user-specific task data in local storage or database.
+/**
+ * Sets user-specific task data in local storage or database.
+ */
 async function setTodosWithUserId() {
   if (currentUser) {
     let currentUserJSON = JSON.stringify(currentUser)
@@ -459,7 +471,9 @@ async function setTodosWithUserId() {
   loadTodosWithUserId();
 }
 
-// Loads user-specific task data from local storage or database.
+/**
+ * Loads user-specific task data from local storage or database.
+ */
 async function loadTodosWithUserId() {
   if (currentUser) {
       let currentUserJSON = JSON.stringify(currentUser)
@@ -471,7 +485,9 @@ async function loadTodosWithUserId() {
   }
 }
 
-// Sets user-specific subtask data in local storage or database.
+/**
+ * Sets user-specific subtask data in local storage or database.
+ */
 async function setSubtaskWithUserId() {
   if (currentUser) {
     let currentUserJSON = JSON.stringify(currentUser)
@@ -482,7 +498,9 @@ async function setSubtaskWithUserId() {
   loadSubtaskWithUserId();
 }
 
-// Loads user-specific subtask data from local storage or database.
+/**
+ * Loads user-specific subtask data from local storage or database.
+ */
 async function loadSubtaskWithUserId() {
   if (currentUser) {
       let currentUserJSON = JSON.stringify(currentUser)
@@ -494,7 +512,9 @@ async function loadSubtaskWithUserId() {
   }
 }
 
-// Sets user-specific category data in local storage or database.
+/**
+ * Sets user-specific category data in local storage or database.
+ */
 async function setCategoryWithUserId() {
   if (currentUser) {
     let currentUserJSON = JSON.stringify(currentUser)
@@ -505,7 +525,9 @@ async function setCategoryWithUserId() {
   loadCategoryWithUserId();
 }
 
-// Loads user-specific category data from local storage or database.
+/**
+ * Loads user-specific category data from local storage or database.
+ */
 async function loadCategoryWithUserId() {
   if (currentUser) {
       let currentUserJSON = JSON.stringify(currentUser)

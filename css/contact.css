@@ -16,14 +16,11 @@ textarea {
 
 .contact-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: calc(100vh - 239px);
+    height: calc(100vh - 89px);
 }
 
 .contact-list {
     min-width: 260px;
-    height: calc(100vh - 239px);
     padding: 0 48px;
     padding-bottom: 150px;
     background-color: white;
@@ -35,6 +32,12 @@ textarea {
 @media (max-width: 1150px) {
     .contact-list {
         width: calc(100% - 97px);
+    }
+}
+
+@media (max-width: 400px) {
+    .contact-list {
+        padding: 0;
     }
 }
 
@@ -113,23 +116,24 @@ textarea {
 .contact-display {
     padding-top: 82px;
     padding-left: 58px;
+    width: 100%;
+    overflow-y: scroll;
 }
 
 @media (max-width: 1300px) {
     .contact-display {
-        scale: 0.8;
-        padding-left: 0;
-        padding-right: 0;
+        font-size: 10px;
+        padding-left: 25px;
     }
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
     .contact-display {
         scale: 1;
         position: absolute;
         flex-direction: column;
-        height: calc(100vh - 171px);
-        width: calc(100vw - 312px);
+        width: calc(100% - 312px);
+        height: calc(100% - 171px);
         padding-left: 80px;
         background-color: #F6F7F8;
         display: none;
@@ -139,18 +143,26 @@ textarea {
 @media (max-width: 700px) {
     .contact-display {
         width: 100vw;
-        height: calc(100vh - 175px);
-        overflow: hidden;
+        height: calc(100% - 162px);
         left: 0;
+        top: 0;
         padding-left: 0px;
-    }
-}
-
-@media (max-width: 700px) {
-    .contact-display {
         z-index: 999;
     }
 }
+
+.contact-display::-webkit-scrollbar {
+    width: 10px;
+}
+
+.contact-display::-webkit-scrollbar-thumb {
+    background-color: #A8A8A8;
+    border-radius: 7px;
+}
+
+.contact-display::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+  }
 
 .contact-display-arrow-back {
     display: none;
@@ -180,7 +192,7 @@ textarea {
         flex-direction: column;
         align-items: flex-start;
         margin-bottom: 50px;
-        width: 100%;
+        width: 90%;
     }
 }
 
@@ -194,6 +206,8 @@ textarea {
 @media (max-width: 400px) {
     .contact-display-header {
         margin-bottom: 0;
+        scale: 0.7;
+        padding-left: 0;
     }
 }
 
@@ -338,6 +352,12 @@ textarea {
     align-items: center;
 }
 
+@media (max-width: 760px) {
+    .edit-delete-button {
+        flex-direction: column;
+    }
+}
+
 .edit-delete-button img {
     height: 18.28px;
     width: 18.28px;
@@ -400,7 +420,7 @@ textarea {
 }
 
 .new-contact-button {
-    padding: 18px 15px 18px 15px;
+    padding: 18px;
     position: absolute;
     top: 80vh;
     right: 50px;

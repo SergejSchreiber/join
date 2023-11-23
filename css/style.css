@@ -14,6 +14,20 @@ body {
   }
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #A8A8A8;
+  border-radius: 7px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #808080;
+}
+
 a {
   text-decoration: none;
   color: currentColor;

@@ -113,7 +113,7 @@
     border-radius: 10px;
     font-weight: 400;
     font-size: 21px;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-right: 15px;
 }
 
@@ -293,6 +293,13 @@
     gap: 10px;
 }
 
+@media (max-width: 400px) {
+    .addTaskPrio {
+        justify-content: center;
+        scale: 0.7;
+    }
+}
+
 .divPrio {
     display: flex;
     justify-content: center;
@@ -372,7 +379,7 @@
     margin-bottom: 5px;
   }
 
-  .lableContainer input {
+.lableContainer input {
     cursor: pointer;
     height: 16px;
     width: 16px;
@@ -383,10 +390,16 @@
     margin-right: 20px;
   }
 
-  .divShowSubtask {
+.divShowSubtask {
     display: flex;
     justify-content: space-between;
   }
+
+.divShowSubtasks {
+    padding-right: 10px;
+    max-height: 140px;
+    overflow: auto;
+}
 
 .addTaskButtons {
     display: flex;
@@ -520,8 +533,7 @@
         margin-left: 0px;
         margin-right: 0px;
     }
-    .addTaskForm {
-    }
+    
     .addTaskFormContent {
         align-items: center;
     }
