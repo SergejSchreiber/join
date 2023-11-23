@@ -161,6 +161,7 @@ function getParticipantsForTaskDetails(id) {
                 <div class="task-detail-participants-right">${todos[id]["participants"][i]}</div>
             </div>`;
   }
+  return strin;
 }
 
 /**
