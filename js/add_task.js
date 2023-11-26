@@ -8,7 +8,6 @@ function renderContent() {
         });
     });
     document.getElementById('inputDate').min = new Date().toISOString().split('T')[0];
-    loadSubtaskWithUserId();
     loadCategoryWithUserId();
     renderSubtask();
 }
@@ -203,7 +202,6 @@ function addNewSubtask() {
   if (newSubtask.value) {
     allSubtasks.push(newSubtask.value);
     newSubtask.value = "";
-    setSubtaskWithUserId();
     renderSubtask();
   } else {    
     alert('Please enter a new subtask!');
@@ -218,6 +216,20 @@ function renderSubtask() {
   subDiv.innerHTML = '';
   for (let i = 0; i < allSubtasks.length; i++) {
     subDiv.innerHTML += subtaskHtml(i);
+  }
+}
+
+/**
+ * Adds a new subtask to the subtask list.
+ */
+function addNewSubtaskItem(id) {
+  let newSubtask = document.getElementById('addNewSubtaskInput');
+  if (newSubtask.value) {
+    todos[id].subtasks.push({ name: newSubtask.value, done: false });
+    newSubtask.value = "";
+    renderSubtaskItem(id);
+  } else {    
+    alert('Please enter a new subtask!');
   }
 }
 
@@ -241,7 +253,6 @@ function renderSubtaskItem(id) {
  */
 function deleteSubtask(index) {
   allSubtasks.splice(index, 1);
-  setSubtaskWithUserId();
   renderSubtask();
 }
 
@@ -371,6 +382,7 @@ function saveTaskWithNoSubtasks(nextId, title, description, category, assinedCon
     'title': title,
     'description': description,
     'progressnumber': [],
+    'subtasks': [],
     'participants': assinedContacts,
     'urgency': [prio, prioIcon],
     'dueDate': choosedDate,
@@ -454,7 +466,6 @@ function checkboxClick(index, id) {
 function pushNewTaskToTodos() {
   todos.push(newTask[0]);
   setTodosWithUserId();
-  setSubtaskWithUserId();
   setCategoryWithUserId();
 }
 
@@ -481,33 +492,6 @@ async function loadTodosWithUserId() {
   } else {
     if (JSON.parse(localStorage.getItem("todos"))) {
       todos = JSON.parse(localStorage.getItem("todos"));
-    }
-  }
-}
-
-/**
- * Sets user-specific subtask data in local storage or database.
- */
-async function setSubtaskWithUserId() {
-  if (currentUser) {
-    let currentUserJSON = JSON.stringify(currentUser)
-    await setItem(`allSubtasks_${currentUserJSON}`, allSubtasks);
-  } else {
-    localStorage.setItem("allSubtasks", JSON.stringify(allSubtasks));
-  }
-  loadSubtaskWithUserId();
-}
-
-/**
- * Loads user-specific subtask data from local storage or database.
- */
-async function loadSubtaskWithUserId() {
-  if (currentUser) {
-      let currentUserJSON = JSON.stringify(currentUser)
-      allSubtasks = JSON.parse(await getItem(`allSubtasks_${currentUserJSON}`));
-  } else {
-    if (JSON.parse(localStorage.getItem("allSubtasks"))) {
-      allSubtasks = JSON.parse(localStorage.getItem("allSubtasks"));
     }
   }
 }

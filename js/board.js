@@ -6,7 +6,6 @@ let boolean;
  */
 function render() {
   loadCurrentUser().then(() => {
-    loadSubtaskWithUserId();
     loadCategoryWithUserId();
     loadContactsWithUserId();
     loadTodosWithUserId().then(() => {
@@ -107,9 +106,9 @@ function showAddTaskSlideForBoardHTML(progress) {
  * 
  * @param {string} progress - the progress specific progress is brought to the task slide
  */
-function showEditTaskSlideForBoardHTML(progress) {
-  document.getElementById("task-container").innerHTML += getTaskSlideEdit(progress);
-  renderSubtask();
+function showEditTaskSlideForBoardHTML(id, progress) {
+  document.getElementById("task-container").innerHTML += getTaskSlideEdit(id, progress);
+  renderSubtaskItem(id);
 }
 
 /**
@@ -194,7 +193,7 @@ function deleteTaskFromBoard(id) {
  */
 function showEditTaskFromBoard(id, progress) {
   removeAddTaskSlide();
-  showEditTaskSlideForBoardHTML(progress);
+  showEditTaskSlideForBoardHTML(id, progress);
   fillTaskInfo(id);
 }
 
@@ -264,11 +263,16 @@ function showMoveProgressSlide(id) {
  * @param {number} id - id of the chosen task
  */
 function saveEditedTask(id) {
+  let subtaskCache = todos[id].subtasks;
   createNewTask(todos[id]['progress']);
-  redistributeIds();
   todos.splice(id, 1);
-  todos.splice(todos.length - 1);
+  // todos.splice(todos.length - 1);
+  redistributeIds();
+  todos[id].subtasks = subtaskCache;
+  todos[id].progressnumber[0] = todos[id].subtasks.filter(subtask => subtask.status === 'checked').length;
+  todos[id].progressnumber[1] = todos[id].subtasks.length;
   setTodosWithUserId();
+  render();
 }
 
 /**

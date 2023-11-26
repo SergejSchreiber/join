@@ -126,7 +126,7 @@ function subtaskHtml(index) {
   return `
       <div class="divShowSubtask">
         <label class="lableContainer">
-            <input id="subtaskCheckbox${index}" type="checkbox">
+            <input id="subtaskCheckbox${index}" checked type="checkbox">
             <span class="checkmark">${allSubtasks[index]}</span>
         </label>
         <div><img class="addTaskDeleteIcon" onclick="deleteSubtask(${index})" src="../assets/img/delete.png"></div>

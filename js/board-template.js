@@ -136,6 +136,7 @@ function getTaskDetails(id) {
                     <div class="task-detail-participants-header">Assigned To:</div>
                     <div class="task-detail-participants-body">${getParticipantsForTaskDetails(id)}</div>
                 </div>
+                
                 <div id="divShowSubtasksItem" class="divShowSubtasks"></div>
                 <div class="task-button-body">
                       <button onclick="deleteTaskFromBoard(${todos[id]['id']})" class="delete-task-button"><img src="../assets/img/delete.png"></button>
@@ -287,10 +288,10 @@ function getTaskSlide(progress) {
  * @param {string} progress - progress for the coming task
  * @returns 
  */
-function getTaskSlideEdit(progress) {
+function getTaskSlideEdit(id, progress) {
     return `
         <div id="slide-contact">
-          <form class="addTaskForm" onsubmit="createNewTask('${progress}'); return false;">
+          <form class="addTaskForm" return false;">
               <div class="addTaskFormContent">
                   <div class="addTaskFormContentLeft">
                       <div class="addTaskDivTitle">
@@ -355,7 +356,7 @@ function getTaskSlideEdit(progress) {
                               <input id="addNewSubtaskInput" class="addNewCategoryInput" placeholder="Add new subtask" type="text"/>
                               <div class="addNewCategoryContainerIcons">
                                   <div class="dividingLineCategory"></div>
-                                  <div class ="hookIconCategory" onclick="addNewSubtask()">
+                                  <div class ="hookIconCategory" onclick="addNewSubtaskItem(${id})">
                                       <svg class ="hookIconCategory" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                       <path d="M1 7.5L7 13.5L17 1.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                       </svg>
@@ -363,7 +364,7 @@ function getTaskSlideEdit(progress) {
                               </div>
                           </div>
                       </div>
-                      <div id="divShowSubtasks" class="divShowSubtasks"></div> 
+                      <div id="divShowSubtasksItem" class="divShowSubtasks"></div> 
                   </div>  
               </div>
               <div class="addTaskButtons">
