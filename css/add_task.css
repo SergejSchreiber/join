@@ -322,6 +322,7 @@
 
 .prioIsSelected {
     scale: 1.05;
+    color: white;
     box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 

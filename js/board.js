@@ -268,9 +268,9 @@ function saveEditedTask(id) {
   todos.splice(id, 1);
   // todos.splice(todos.length - 1);
   redistributeIds();
-  todos[id].subtasks = subtaskCache;
-  todos[id].progressnumber[0] = todos[id].subtasks.filter(subtask => subtask.status === 'checked').length;
-  todos[id].progressnumber[1] = todos[id].subtasks.length;
+  todos[todos.length - 1].subtasks = subtaskCache;
+  todos[todos.length - 1].progressnumber[0] = todos[todos.length - 1].subtasks.filter(subtask => subtask.status === 'checked').length;
+  todos[todos.length - 1].progressnumber[1] = todos[todos.length - 1].subtasks.length;
   setTodosWithUserId();
   render();
 }

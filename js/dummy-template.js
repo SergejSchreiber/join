@@ -5,6 +5,7 @@ let todos = [{
     'title': 'Website redesign',
     'description': 'Modify the contents of the main website...',
     'progressnumber': [],
+    'subtasks': [],
     'participants': [
         'Santa Maria',
         'Marcel Viess',
@@ -22,6 +23,7 @@ let todos = [{
     'title': 'Call potential clients',
     'description': 'Make the product presentation to prospective buyers',
     'progressnumber': [],
+    'subtasks': [],
     'participants': [
         'Anja Schulz',
         'David Eisenberg',
@@ -40,6 +42,7 @@ let todos = [{
     'title': 'Accounting invoices',
     'description': 'Write open invoices for customer',
     'progressnumber': [],
+    'subtasks': [],
     'participants': [
         'Marcel Bauer',
         'Anton Mayer',
@@ -59,6 +62,7 @@ let todos = [{
     'title': 'Video cut',
     'description': 'Edit the new company video',
     'progressnumber': [],
+    'subtasks': [],
     'participants': [
         'Hans Kohl'
     ],
@@ -74,6 +78,7 @@ let todos = [{
     'title': 'Social media strategy',
     'description': 'Develop and campaign for brand positioning',
     'progressnumber': [],
+    'subtasks': [],
     'participants': [
         'Bendikt Ziegler',
         'Ralph Sauron'
