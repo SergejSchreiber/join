@@ -340,7 +340,7 @@ textarea {
     height: 8px;
     border: 1px solid #ccc;
     border-radius: 2px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
